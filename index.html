@@ -530,132 +530,115 @@
         Featured <span>Products</span>
     </h2>
 
-    <div class="products" id="productList">
+   ```html
+<div class="products" id="productList">
 
-        <div class="product">
-
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>Premium Sports Shoes</h3>
-
-                <div class="price">₹1,499</div>
-
-<select id="size-premium-sports" class="size-select">
-    <option value="">Select Size</option>
-    <option value="6">Size 6</option>
-    <option value="7">Size 7</option>
-    <option value="8">Size 8</option>
-    <option value="9">Size 9</option>
-    <option value="10">Size 10</option>
-</select>
-
-<button class="add-cart"
-        onclick="addToCartWithSize('Premium Sports Shoes',1499,'size-premium-sports')">
-                    Add To Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>Classic Sneakers</h3>
-
-               <div class="price">₹1,299</div>
-
-<select id="size-classic-sneakers" class="size-select">
-    <option value="">Select Size</option>
-    <option value="6">Size 6</option>
-    <option value="7">Size 7</option>
-    <option value="8">Size 8</option>
-    <option value="9">Size 9</option>
-    <option value="10">Size 10</option>
-</select>
-
-<button class="add-cart"
-        onclick="addToCartWithSize('Classic Sneakers',1299,'size-classic-sneakers')">
-                    Add To Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>Casual Shoes</h3>
-
-                <div class="price">₹999</div>
-
-<select id="size-casual-shoes" class="size-select">
-    <option value="">Select Size</option>
-    <option value="6">Size 6</option>
-    <option value="7">Size 7</option>
-    <option value="8">Size 8</option>
-    <option value="9">Size 9</option>
-    <option value="10">Size 10</option>
-</select>
-
-<button class="add-cart"
-        onclick="addToCartWithSize('Casual Shoes',999,'size-casual-shoes')">
-                    Add To Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>Premium Sandals</h3>
-
-                <div class="price">₹699</div>
-
-<select id="size-premium-sandals" class="size-select">
-    <option value="">Select Size</option>
-    <option value="6">Size 6</option>
-    <option value="7">Size 7</option>
-    <option value="8">Size 8</option>
-    <option value="9">Size 9</option>
-    <option value="10">Size 10</option>
-</select>
-
-<button class="add-cart"
-        onclick="addToCartWithSize('Premium Sandals',699,'size-premium-sandals')">
-                    Add To Cart
-                </button>
-
-            </div>
-
-    
-    <!-- NEW PRODUCTS -->
-
+    <!-- 1. Premium Sports Shoes -->
     <div class="product">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80">
 
+        <div class="product-info">
+            <h3>Premium Sports Shoes</h3>
+            <div class="price">₹1,499</div>
+
+            <select id="size-premium-sports" class="size-select">
+                <option value="">Select Size</option>
+                <option value="6">Size 6</option>
+                <option value="7">Size 7</option>
+                <option value="8">Size 8</option>
+                <option value="9">Size 9</option>
+                <option value="10">Size 10</option>
+            </select>
+
+            <button class="add-cart"
+                onclick="addToCartWithSize('Premium Sports Shoes',1499,'size-premium-sports')">
+                Add To Cart
+            </button>
+        </div>
+    </div>
+
+
+    <!-- 2. Classic Sneakers -->
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80">
+
+        <div class="product-info">
+            <h3>Classic Sneakers</h3>
+            <div class="price">₹1,299</div>
+
+            <select id="size-classic-sneakers" class="size-select">
+                <option value="">Select Size</option>
+                <option value="6">Size 6</option>
+                <option value="7">Size 7</option>
+                <option value="8">Size 8</option>
+                <option value="9">Size 9</option>
+                <option value="10">Size 10</option>
+            </select>
+
+            <button class="add-cart"
+                onclick="addToCartWithSize('Classic Sneakers',1299,'size-classic-sneakers')">
+                Add To Cart
+            </button>
+        </div>
+    </div>
+
+
+    <!-- 3. Casual Shoes -->
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80">
+
+        <div class="product-info">
+            <h3>Casual Shoes</h3>
+            <div class="price">₹999</div>
+
+            <select id="size-casual-shoes" class="size-select">
+                <option value="">Select Size</option>
+                <option value="6">Size 6</option>
+                <option value="7">Size 7</option>
+                <option value="8">Size 8</option>
+                <option value="9">Size 9</option>
+                <option value="10">Size 10</option>
+            </select>
+
+            <button class="add-cart"
+                onclick="addToCartWithSize('Casual Shoes',999,'size-casual-shoes')">
+                Add To Cart
+            </button>
+        </div>
+    </div>
+
+
+    <!-- 4. Premium Sandals -->
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80">
+
+        <div class="product-info">
+            <h3>Premium Sandals</h3>
+            <div class="price">₹699</div>
+
+            <select id="size-premium-sandals" class="size-select">
+                <option value="">Select Size</option>
+                <option value="6">Size 6</option>
+                <option value="7">Size 7</option>
+                <option value="8">Size 8</option>
+                <option value="9">Size 9</option>
+                <option value="10">Size 10</option>
+            </select>
+
+            <button class="add-cart"
+                onclick="addToCartWithSize('Premium Sandals',699,'size-premium-sandals')">
+                Add To Cart
+            </button>
+        </div>
+    </div>
+
+
+    <!-- 5. Running Shoes -->
+    <div class="product">
         <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80">
 
         <div class="product-info">
-
             <h3>Running Shoes</h3>
-
             <div class="price">₹899</div>
 
             <select id="size-running-shoes" class="size-select">
@@ -668,23 +651,19 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Running Shoes',899,'size-running-shoes')">
-                Add to Cart
+                onclick="addToCartWithSize('Running Shoes',899,'size-running-shoes')">
+                Add To Cart
             </button>
-
         </div>
-
     </div>
 
 
+    <!-- 6. Formal Shoes -->
     <div class="product">
-
         <img src="formal-shoes.png">
 
         <div class="product-info">
-
             <h3>Formal Shoes</h3>
-
             <div class="price">₹949</div>
 
             <select id="size-formal-shoes" class="size-select">
@@ -697,23 +676,19 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Formal Shoes',949,'size-formal-shoes')">
-                Add to Cart
+                onclick="addToCartWithSize('Formal Shoes',949,'size-formal-shoes')">
+                Add To Cart
             </button>
-
         </div>
-
     </div>
 
 
+    <!-- 7. Comfort Slippers -->
     <div class="product">
-
         <img src="https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=800&q=80">
 
         <div class="product-info">
-
             <h3>Comfort Slippers</h3>
-
             <div class="price">₹299</div>
 
             <select id="size-comfort-slippers" class="size-select">
@@ -726,23 +701,19 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Comfort Slippers',299,'size-comfort-slippers')">
-                Add to Cart
+                onclick="addToCartWithSize('Comfort Slippers',299,'size-comfort-slippers')">
+                Add To Cart
             </button>
-
         </div>
-
     </div>
 
 
+    <!-- 8. Classic Crocs -->
     <div class="product">
-
         <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=800&q=80">
 
         <div class="product-info">
-
             <h3>Classic Crocs</h3>
-
             <div class="price">₹799</div>
 
             <select id="size-classic-crocs" class="size-select">
@@ -755,23 +726,19 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Classic Crocs',799,'size-classic-crocs')">
-                Add to Cart
+                onclick="addToCartWithSize('Classic Crocs',799,'size-classic-crocs')">
+                Add To Cart
             </button>
-
         </div>
-
     </div>
 
 
+    <!-- 9. Women's Sandals -->
     <div class="product">
-
         <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80">
 
         <div class="product-info">
-
             <h3>Women's Sandals</h3>
-
             <div class="price">₹699</div>
 
             <select id="size-womens-sandals" class="size-select">
@@ -784,23 +751,19 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Women\'s Sandals',699,'size-womens-sandals')">
-                Add to Cart
+                onclick="addToCartWithSize('Women\'s Sandals',699,'size-womens-sandals')">
+                Add To Cart
             </button>
-
         </div>
-
     </div>
 
 
+    <!-- 10. Walking Shoes -->
     <div class="product">
-
         <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=800&q=80">
 
         <div class="product-info">
-
             <h3>Walking Shoes</h3>
-
             <div class="price">₹899</div>
 
             <select id="size-walking-shoes" class="size-select">
@@ -813,14 +776,15 @@
             </select>
 
             <button class="add-cart"
-                    onclick="addToCartWithSize('Walking Shoes',899,'size-walking-shoes')">
-                Add to Cart
+                onclick="addToCartWithSize('Walking Shoes',899,'size-walking-shoes')">
+                Add To Cart
             </button>
-
         </div>
+    </div>
 
-    </div>
-    </div>
+</div>
+```
+
 
 </section>
 
