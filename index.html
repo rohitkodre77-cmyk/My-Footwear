@@ -581,8 +581,17 @@
 
                 <div class="price">₹999</div>
 
-                <button class="add-cart"
-                        onclick="addToCart('Casual Shoes',999)">
+<select id="size-casual-shoes" class="size-select">
+    <option value="">Select Size</option>
+    <option value="6">Size 6</option>
+    <option value="7">Size 7</option>
+    <option value="8">Size 8</option>
+    <option value="9">Size 9</option>
+    <option value="10">Size 10</option>
+</select>
+
+<button class="add-cart"
+        onclick="addToCartWithSize('Casual Shoes',999,'size-casual-shoes')">
                     Add To Cart
                 </button>
 
@@ -743,7 +752,10 @@ function updateCart() {
 
                 <div class="cart-item-info">
 
-                    <h3>${item.name}</h3>
+                    <h3>
+    ${item.name}
+    ${item.size ? " - Size " + item.size : ""}
+</h3>
 
                     <div class="cart-price">
                         ₹${item.price}
@@ -784,7 +796,50 @@ function updateCart() {
         total;
 
 }
+window.addToCartWithSize = function(name, price, sizeId) {
 
+    const size =
+        document.getElementById(sizeId).value;
+
+    if (!size) {
+
+        alert("Please select a size first.");
+
+        return;
+
+    }
+
+    const existingProduct = cart.find(
+        item =>
+            item.name === name &&
+            item.size === size
+    );
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    } else {
+
+        cart.push({
+            name: name,
+            price: price,
+            size: size,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    alert(
+        name +
+        " (Size " +
+        size +
+        ") added to cart!"
+    );
+
+};
 
 window.changeQuantity = function(index, change) {
 
