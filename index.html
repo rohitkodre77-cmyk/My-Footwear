@@ -455,9 +455,48 @@
 </footer>
 
 
-<script>
+<!-- FIREBASE -->
+<script type="module">
+
+    import { initializeApp } 
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged
+    }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyCqpgTwkuM2yArZcxCyEMCM7eSivU98Qrw",
+
+        authDomain: "my-footwear-c9c0e.firebaseapp.com",
+
+        projectId: "my-footwear-c9c0e",
+
+        storageBucket: "my-footwear-c9c0e.firebasestorage.app",
+
+        messagingSenderId: "1026986739130",
+
+        appId: "1:1026986739130:web:f9259d0bd0fc0463124983"
+
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    // CART
 
     let cart = [];
+
 
     function addToCart(name, price) {
 
@@ -469,6 +508,7 @@
         document.getElementById("cartCount").innerText = cart.length;
 
         alert(name + " added to cart!");
+
     }
 
 
@@ -479,11 +519,14 @@
             alert("Your cart is empty.");
 
             return;
+
         }
+
 
         let message = "Your Cart:\n\n";
 
         let total = 0;
+
 
         cart.forEach(function(item, index) {
 
@@ -499,22 +542,98 @@
 
         });
 
+
         message += "\nTotal: ₹" + total;
 
         alert(message);
-    }
-
-
-    function login() {
-
-        alert(
-            "Login & Sign Up will be added next!"
-        );
 
     }
 
 
-    function searchProducts() {
+    // LOGIN / SIGN UP
+
+    window.login = async function() {
+
+        const choice =
+            prompt(
+                "Enter 1 for Login\nEnter 2 for Sign Up"
+            );
+
+
+        const email =
+            prompt("Enter your email:");
+
+
+        const password =
+            prompt("Enter your password:");
+
+
+        if (!email || !password) {
+
+            alert("Please enter email and password.");
+
+            return;
+
+        }
+
+
+        try {
+
+            if (choice === "1") {
+
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+                alert("Login successful! Welcome to My Footwear.");
+
+            }
+
+            else if (choice === "2") {
+
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+                alert("Account created successfully! Welcome to My Footwear.");
+
+            }
+
+            else {
+
+                alert("Please select 1 or 2.");
+
+            }
+
+        }
+
+        catch (error) {
+
+            alert(error.message);
+
+        }
+
+    };
+
+
+    // LOGOUT
+
+    window.logout = async function() {
+
+        await signOut(auth);
+
+        alert("You have been logged out.");
+
+    };
+
+
+    // SEARCH
+
+    window.searchProducts = function() {
 
         const text =
             document
@@ -522,8 +641,10 @@
             .value
             .toLowerCase();
 
+
         const products =
             document.querySelectorAll(".product");
+
 
         products.forEach(function(product) {
 
@@ -532,11 +653,14 @@
                 .innerText
                 .toLowerCase();
 
+
             if (name.includes(text)) {
 
                 product.style.display = "block";
 
-            } else {
+            }
+
+            else {
 
                 product.style.display = "none";
 
@@ -544,9 +668,31 @@
 
         });
 
-    }
+    };
+
+
+    // USER STATUS
+
+    onAuthStateChanged(auth, function(user) {
+
+        const loginButton =
+            document.querySelector(".header-buttons button");
+
+
+        if (user) {
+
+            loginButton.innerText = "👤 Account";
+
+        }
+
+        else {
+
+            loginButton.innerText = "👤 Login";
+
+        }
+
+    });
 
 </script>
-
 </body>
 </html>
