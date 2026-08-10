@@ -867,5 +867,94 @@
     });
 
 </script>
+    <!-- CART WINDOW -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+    <div class="cart-box">
+
+        <div class="cart-header">
+
+            <h2>🛒 Your Cart</h2>
+
+            <button class="close-cart"
+                    onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+            Total: ₹<span id="cartTotal">0</span>
+        </div>
+
+        <button class="checkout-btn"
+                onclick="openCheckout()">
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT WINDOW -->
+
+<div class="checkout-form" id="checkoutForm">
+
+    <div class="checkout-box">
+
+        <h2>🏠 Delivery Details</h2>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Full Name"
+        >
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Mobile Number"
+        >
+
+        <textarea
+            id="customerAddress"
+            placeholder="Full Home Delivery Address"
+        ></textarea>
+
+        <input
+            type="text"
+            id="customerCity"
+            placeholder="City"
+        >
+
+        <input
+            type="text"
+            id="customerPincode"
+            placeholder="PIN Code"
+        >
+
+        <div class="payment-option">
+            💵 <strong>Cash on Delivery</strong>
+            <br>
+            Pay when your order is delivered.
+        </div>
+
+        <button class="whatsapp-order"
+                onclick="placeWhatsAppOrder()">
+            💬 Place Order on WhatsApp
+        </button>
+
+        <button class="cancel-checkout"
+                onclick="closeCheckout()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
 </body>
 </html>
