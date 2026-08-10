@@ -568,10 +568,19 @@
 
                 <h3>Classic Sneakers</h3>
 
-                <div class="price">₹1,299</div>
+               <div class="price">₹1,299</div>
 
-                <button class="add-cart"
-                        onclick="addToCart('Classic Sneakers',1299)">
+<select id="size-classic-sneakers" class="size-select">
+    <option value="">Select Size</option>
+    <option value="6">Size 6</option>
+    <option value="7">Size 7</option>
+    <option value="8">Size 8</option>
+    <option value="9">Size 9</option>
+    <option value="10">Size 10</option>
+</select>
+
+<button class="add-cart"
+        onclick="addToCartWithSize('Classic Sneakers',1299,'size-classic-sneakers')">
                     Add To Cart
                 </button>
 
