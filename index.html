@@ -1,1 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>My Footwear | Step Into Style</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #111;
+        }
+
+        /* HEADER */
+        header {
+            background: #111;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d4af37;
+            white-space: nowrap;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .header-buttons button {
+            padding: 10px 14px;
+            border: 1px solid #d4af37;
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .header-buttons button:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 450px;
+            background:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+                url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .shop-btn {
+            background: #d4af37;
+            color: #111;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* CATEGORIES */
+        section {
+            padding: 45px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            padding: 25px 10px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.15);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .category h3 {
+            font-size: 16px;
+        }
+
+        /* PRODUCTS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        .add-cart:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 30px;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* MOBILE */
+        @media(max-width: 700px) {
+
+            header {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-box {
+                order: 3;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .header-buttons {
+                margin: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        MY FOOTWEAR
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Search shoes, sandals, crocs..."
+            onkeyup="searchProducts()"
+        >
+    </div>
+
+    <div class="header-buttons">
+        <button onclick="login()">👤 Login</button>
+        <button onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <div class="hero-content">
+
+        <h1>MY FOOTWEAR</h1>
+
+        <p>
+            Step Into Style. Walk With Confidence.
+        </p>
+
+        <button class="shop-btn"
+                onclick="document.getElementById('products').scrollIntoView()">
+            SHOP NOW
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+
+<section>
+
+    <h2 class="section-title">
+        Shop By <span>Category</span>
+    </h2>
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="category-icon">👟</div>
+            <h3>Sports Shoes</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">👞</div>
+            <h3>Formal Shoes</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">🥾</div>
+            <h3>Casual Shoes</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">🩴</div>
+            <h3>Slippers</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">👡</div>
+            <h3>Sandals</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">🩴</div>
+            <h3>Crocs</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+    <h2 class="section-title">
+        Featured <span>Products</span>
+    </h2>
+
+    <div class="products" id="productList">
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Premium Sports Shoes</h3>
+
+                <div class="price">₹1,499</div>
+
+                <button class="add-cart"
+                        onclick="addToCart('Premium Sports Shoes',1499)">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Classic Sneakers</h3>
+
+                <div class="price">₹1,299</div>
+
+                <button class="add-cart"
+                        onclick="addToCart('Classic Sneakers',1299)">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Casual Shoes</h3>
+
+                <div class="price">₹999</div>
+
+                <button class="add-cart"
+                        onclick="addToCart('Casual Shoes',999)">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1553808373-92b9d2f0f9c3?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Premium Sandals</h3>
+
+                <div class="price">₹699</div>
+
+                <button class="add-cart"
+                        onclick="addToCart('Premium Sandals',699)">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 <strong>My Footwear</strong>
+    </p>
+
+    <p>
+        Step Into Style. Walk With Confidence.
+    </p>
+
+</footer>
+
+
+<script>
+
+    let cart = [];
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        document.getElementById("cartCount").innerText = cart.length;
+
+        alert(name + " added to cart!");
+    }
+
+
+    function showCart() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+        }
+
+        let message = "Your Cart:\n\n";
+
+        let total = 0;
+
+        cart.forEach(function(item, index) {
+
+            message +=
+                (index + 1) +
+                ". " +
+                item.name +
+                " - ₹" +
+                item.price +
+                "\n";
+
+            total += item.price;
+
+        });
+
+        message += "\nTotal: ₹" + total;
+
+        alert(message);
+    }
+
+
+    function login() {
+
+        alert(
+            "Login & Sign Up will be added next!"
+        );
+
+    }
+
+
+    function searchProducts() {
+
+        const text =
+            document
+            .getElementById("search")
+            .value
+            .toLowerCase();
+
+        const products =
+            document.querySelectorAll(".product");
+
+        products.forEach(function(product) {
+
+            const name =
+                product
+                .innerText
+                .toLowerCase();
+
+            if (name.includes(text)) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>
