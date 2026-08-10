@@ -157,9 +157,10 @@
 
         /* PRODUCTS */
         .products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+    align-items: start !important;
 }
 
         .product {
