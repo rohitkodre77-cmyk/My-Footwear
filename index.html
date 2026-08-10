@@ -670,57 +670,289 @@
 
     let cart = [];
 
+window.addToCart = function(name, price) {
 
-    function addToCart(name, price) {
+    const existingProduct = cart.find(
+        item => item.name === name
+    );
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    } else {
 
         cart.push({
             name: name,
-            price: price
+            price: price,
+            quantity: 1
         });
 
-        document.getElementById("cartCount").innerText = cart.length;
+    }
 
-        alert(name + " added to cart!");
+    updateCart();
+
+    alert(name + " added to cart!");
+
+};
+
+
+function updateCart() {
+
+    const cartCount =
+        cart.reduce(
+            (total, item) => total + item.quantity,
+            0
+        );
+
+    document.getElementById("cartCount").innerText =
+        cartCount;
+
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            "<p>Your cart is empty.</p>";
+
+        document.getElementById("cartTotal").innerText = "0";
+
+        return;
 
     }
 
 
-    function showCart() {
+    let total = 0;
 
-        if (cart.length === 0) {
-
-            alert("Your cart is empty.");
-
-            return;
-
-        }
+    cartItems.innerHTML = "";
 
 
-        let message = "Your Cart:\n\n";
+    cart.forEach(function(item, index) {
 
-        let total = 0;
+        const itemTotal =
+            item.price * item.quantity;
 
-
-        cart.forEach(function(item, index) {
-
-            message +=
-                (index + 1) +
-                ". " +
-                item.name +
-                " - ₹" +
-                item.price +
-                "\n";
-
-            total += item.price;
-
-        });
+        total += itemTotal;
 
 
-        message += "\nTotal: ₹" + total;
+        cartItems.innerHTML += `
 
-        alert(message);
+            <div class="cart-item">
+
+                <div class="cart-item-info">
+
+                    <h3>${item.name}</h3>
+
+                    <div class="cart-price">
+                        ₹${item.price}
+                    </div>
+
+                </div>
+
+                <div class="quantity-controls">
+
+                    <button onclick="changeQuantity(${index}, -1)">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button onclick="changeQuantity(${index}, 1)">
+                        +
+                    </button>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("cartTotal").innerText =
+        total;
+
+}
+
+
+window.changeQuantity = function(index, change) {
+
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+
+};
+
+
+window.removeFromCart = function(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+};
+
+
+window.showCart = function() {
+
+    updateCart();
+
+    document.getElementById("cartOverlay").style.display =
+        "block";
+
+};
+
+
+window.closeCart = function() {
+
+    document.getElementById("cartOverlay").style.display =
+        "none";
+
+};
+
+
+window.openCheckout = function() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
 
     }
+
+    document.getElementById("cartOverlay").style.display =
+        "none";
+
+    document.getElementById("checkoutForm").style.display =
+        "block";
+
+};
+
+
+window.closeCheckout = function() {
+
+    document.getElementById("checkoutForm").style.display =
+        "none";
+
+};
+
+
+window.placeWhatsAppOrder = function() {
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const address =
+        document.getElementById("customerAddress").value.trim();
+
+    const city =
+        document.getElementById("customerCity").value.trim();
+
+    const pincode =
+        document.getElementById("customerPincode").value.trim();
+
+
+    if (!name || !phone || !address || !city || !pincode) {
+
+        alert("Please fill in all delivery details.");
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+    let orderMessage =
+        "🛍️ *MY FOOTWEAR ORDER*%0A%0A";
+
+
+    orderMessage +=
+        "*Customer Details*%0A";
+
+    orderMessage +=
+        "Name: " + encodeURIComponent(name) + "%0A";
+
+    orderMessage +=
+        "Phone: " + encodeURIComponent(phone) + "%0A";
+
+    orderMessage +=
+        "Address: " + encodeURIComponent(address) + "%0A";
+
+    orderMessage +=
+        "City: " + encodeURIComponent(city) + "%0A";
+
+    orderMessage +=
+        "PIN: " + encodeURIComponent(pincode) + "%0A%0A";
+
+
+    orderMessage += "*Order Items*%0A";
+
+
+    cart.forEach(function(item) {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+        orderMessage +=
+            encodeURIComponent(item.name) +
+            " × " +
+            item.quantity +
+            " = ₹" +
+            itemTotal +
+            "%0A";
+
+    });
+
+
+    orderMessage +=
+        "%0A*Total: ₹" + total + "*%0A";
+
+    orderMessage +=
+        "Payment: Cash on Delivery%0A";
+
+    orderMessage +=
+        "Delivery: Home Delivery";
+
+
+    const whatsappNumber =
+        "917758827177";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        orderMessage;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+};
 
 
     // LOGIN / SIGN UP
