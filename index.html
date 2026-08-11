@@ -1333,45 +1333,9 @@ window.placeWhatsAppOrder = function() {
     };
 
 
-    // SEARCH
+   
 
-    window.searchProducts = function() {
-
-        const text =
-            document
-            .getElementById("search")
-            .value
-            .toLowerCase();
-
-
-        const products =
-            document.querySelectorAll(".product");
-
-
-        products.forEach(function(product) {
-
-            const name =
-                product
-                .innerText
-                .toLowerCase();
-
-
-            if (name.includes(text)) {
-
-                product.style.display = "block";
-
-            }
-
-            else {
-
-                product.style.display = "none";
-
-            }
-
-        });
-
-    };
-
+    
 
     // USER STATUS
 
