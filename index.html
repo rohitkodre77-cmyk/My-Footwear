@@ -476,6 +476,329 @@
     border-radius: 8px;
     cursor: pointer;
 }
+    /* PRODUCT DETAIL POPUP */
+
+.product-detail-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    z-index: 5000;
+    overflow-y: auto;
+    padding: 30px 15px;
+}
+
+.product-detail-box {
+    position: relative;
+    background: white;
+    width: 95%;
+    max-width: 1100px;
+    margin: auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
+}
+
+.product-detail-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.product-detail-close:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+.product-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 35px;
+}
+
+.product-detail-images {
+    position: relative;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    background: #d4af37;
+    color: #111;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.detail-main-image {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #f7f7f7;
+}
+
+.detail-thumbnails {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.detail-thumbnails img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
+
+.detail-thumbnails img:hover {
+    border-color: #d4af37;
+}
+
+.product-detail-info {
+    padding: 10px 5px;
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.breadcrumb span {
+    color: #111;
+    font-weight: bold;
+}
+
+.product-detail-info h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.detail-rating {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.detail-price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-price > span:first-child {
+    font-size: 30px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.detail-mrp {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 18px;
+}
+
+.detail-discount {
+    color: #219653;
+    font-weight: bold;
+}
+
+.bank-offer {
+    background: #fff9e6;
+    border: 1px solid #ead58b;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.detail-section {
+    margin-bottom: 22px;
+}
+
+.detail-section h3 {
+    margin-bottom: 12px;
+}
+
+.color-options {
+    display: flex;
+    gap: 12px;
+}
+
+.color-option {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.color-option.selected {
+    border: 3px solid #d4af37;
+}
+
+.color-option.black {
+    background: #111;
+}
+
+.color-option.grey {
+    background: #777;
+}
+
+.size-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.size-title h3 {
+    margin: 0;
+}
+
+.size-title span {
+    color: #d4af37;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.detail-size-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.detail-size-options button {
+    width: 55px;
+    height: 48px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.detail-size-options button:hover {
+    border-color: #d4af37;
+}
+
+.detail-size-options button.selected {
+    background: #fff9e6;
+    border: 2px solid #d4af37;
+}
+
+.detail-availability {
+    color: #219653;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.detail-add-cart,
+.detail-buy-now {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.detail-add-cart {
+    background: #111;
+    color: white;
+}
+
+.detail-buy-now {
+    background: #d4af37;
+    color: #111;
+}
+
+.detail-add-cart:hover,
+.detail-buy-now:hover {
+    opacity: .85;
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.service-features div {
+    background: #f7f7f7;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.service-features strong {
+    display: block;
+    margin: 4px 0;
+}
+
+.service-features small {
+    color: #777;
+}
+
+
+/* MOBILE PRODUCT DETAILS */
+
+@media (max-width: 700px) {
+
+    .product-detail-overlay {
+        padding: 10px;
+    }
+
+    .product-detail-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .detail-main-image {
+        height: 300px;
+    }
+
+    .product-detail-info h1 {
+        font-size: 24px;
+    }
+
+    .detail-price > span:first-child {
+        font-size: 25px;
+    }
+
+    .service-features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
     </style>
 </head>
 
@@ -587,7 +910,13 @@
 
     <!-- 1. Premium Sports Shoes -->
     <div class="product" data-category="sports">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+     onclick="openProductDetails(
+        'Premium Sports Shoes',
+        1499,
+        'sports',
+        this.src
+     )">
 
         <div class="product-info">
             <h3>Premium Sports Shoes</h3>
@@ -957,7 +1286,70 @@ function showAllProducts() {
     // CART
 
     let cart = [];
+let selectedDetailProduct = null;
+let selectedDetailSize = "";
 
+window.openProductDetails = function(name, price, category, image) {
+
+    selectedDetailProduct = {
+        name: name,
+        price: price,
+        category: category,
+        image: image
+    };
+
+    selectedDetailSize = "";
+
+    document.getElementById("detailName").innerText = name;
+    document.getElementById("detailPrice").innerText = "₹" + price;
+    document.getElementById("detailCategory").innerText = category;
+
+    document.getElementById("detailMainImage").src = image;
+    document.getElementById("detailThumb1").src = image;
+    document.getElementById("detailThumb2").src = image;
+
+    document.getElementById("detailSizeAvailability").innerText = "";
+
+    document.querySelectorAll(".detail-size-options button")
+        .forEach(function(button) {
+            button.classList.remove("selected");
+        });
+
+    document.getElementById("productDetailOverlay").style.display = "block";
+
+    document.body.style.overflow = "hidden";
+};
+
+
+window.closeProductDetails = function() {
+
+    document.getElementById("productDetailOverlay").style.display = "none";
+
+    document.body.style.overflow = "";
+};
+
+
+window.changeDetailImage = function(image) {
+
+    document.getElementById("detailMainImage").src = image;
+
+};
+
+
+window.selectDetailSize = function(button, size) {
+
+    document.querySelectorAll(".detail-size-options button")
+        .forEach(function(btn) {
+            btn.classList.remove("selected");
+        });
+
+    button.classList.add("selected");
+
+    selectedDetailSize = size;
+
+    document.getElementById("detailSizeAvailability").innerText =
+        "✓ Size " + size + " is available";
+};
 window.addToCart = function(name, price) {
 
     const existingProduct = cart.find(
@@ -1482,6 +1874,198 @@ window.placeWhatsAppOrder = function() {
                 onclick="closeCheckout()">
             Cancel
         </button>
+
+    </div>
+
+</div>
+    <!-- PRODUCT DETAILS POPUP -->
+
+<div class="product-detail-overlay" id="productDetailOverlay">
+
+    <div class="product-detail-box">
+
+        <button class="product-detail-close"
+                onclick="closeProductDetails()">
+            ×
+        </button>
+
+        <div class="product-detail-content">
+
+            <!-- LEFT: PRODUCT IMAGE -->
+
+            <div class="product-detail-images">
+
+                <div class="discount-badge">
+                    -20%
+                </div>
+
+                <img id="detailMainImage"
+                     src=""
+                     class="detail-main-image">
+
+                <div class="detail-thumbnails">
+                    <img id="detailThumb1"
+                         src=""
+                         onclick="changeDetailImage(this.src)">
+
+                    <img id="detailThumb2"
+                         src=""
+                         onclick="changeDetailImage(this.src)">
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT: PRODUCT INFORMATION -->
+
+            <div class="product-detail-info">
+
+                <div class="breadcrumb">
+                    Home → Products → <span id="detailCategory"></span>
+                </div>
+
+                <h1 id="detailName">
+                    Product Name
+                </h1>
+
+                <div class="detail-rating">
+                    ⭐ 4.5 | 120 Reviews
+                </div>
+
+                <div class="detail-price">
+
+                    <span id="detailPrice">
+                        ₹999
+                    </span>
+
+                    <span class="detail-mrp"
+                          id="detailMRP">
+                        ₹1,299
+                    </span>
+
+                    <span class="detail-discount">
+                        20% OFF
+                    </span>
+
+                </div>
+
+
+                <div class="bank-offer">
+
+                    🏦 <strong>Bank Offer</strong>
+
+                    <br>
+
+                    Get extra discount on selected bank cards.
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <h3>Colour</h3>
+
+                    <div class="color-options">
+
+                        <button class="color-option selected"></button>
+
+                        <button class="color-option black"></button>
+
+                        <button class="color-option grey"></button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <div class="size-title">
+
+                        <h3>Select Size</h3>
+
+                        <span>Size Chart ›</span>
+
+                    </div>
+
+                    <div class="detail-size-options">
+
+                        <button onclick="selectDetailSize(this, '6')">
+                            6
+                        </button>
+
+                        <button onclick="selectDetailSize(this, '7')">
+                            7
+                        </button>
+
+                        <button onclick="selectDetailSize(this, '8')">
+                            8
+                        </button>
+
+                        <button onclick="selectDetailSize(this, '9')">
+                            9
+                        </button>
+
+                        <button onclick="selectDetailSize(this, '10')">
+                            10
+                        </button>
+
+                    </div>
+
+                    <div id="detailSizeAvailability"
+                         class="detail-availability">
+                    </div>
+
+                </div>
+
+
+                <div class="detail-actions">
+
+                    <button class="detail-add-cart"
+                            onclick="addDetailProductToCart()">
+                        🛒 Add to Cart
+                    </button>
+
+                    <button class="detail-buy-now"
+                            onclick="buyDetailProduct()">
+                        ⚡ Buy Now
+                    </button>
+
+                </div>
+
+
+                <div class="service-features">
+
+                    <div>
+                        🚚
+                        <strong>Free Delivery</strong>
+                        <small>On selected orders</small>
+                    </div>
+
+                    <div>
+                        💵
+                        <strong>Cash on Delivery</strong>
+                        <small>Pay when delivered</small>
+                    </div>
+
+                    <div>
+                        🔄
+                        <strong>7 Days Return</strong>
+                        <small>Easy returns</small>
+                    </div>
+
+                    <div>
+                        🛡️
+                        <strong>100% Original</strong>
+                        <small>Quality guaranteed</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
