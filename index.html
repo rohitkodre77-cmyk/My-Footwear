@@ -911,12 +911,13 @@
     <!-- 1. Premium Sports Shoes -->
     <div class="product" data-category="sports">
         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
-     onclick="openProductDetails(
-        'Premium Sports Shoes',
-        1499,
-        'sports',
-        this.src
-     )">
+     onclick=openProductDetails(
+    'Premium Sports Shoes',
+    1499,
+    1999,
+    'sports',
+    this.src
+)
 
         <div class="product-info">
             <h3>Premium Sports Shoes</h3>
@@ -942,12 +943,13 @@
     <!-- 2. Classic Sneakers -->
     <div class="product" data-category="casual">
         <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
-     onclick="openProductDetails(
-        'Classic Sneakers',
-        1299,
-        'casual',
-        this.src
-     )">
+     onclick=openProductDetails(
+    'Classic Sneakers',
+    1299,
+    1699,
+    'casual',
+    this.src
+)
 
         <div class="product-info">
             <h3>Classic Sneakers</h3>
@@ -973,13 +975,13 @@
     <!-- 3. Casual Shoes -->
     <div class="product" data-category="casual">
         <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
-     onclick="openProductDetails(
-        'Casual Shoes',
-        999,
-        'casual',
-        this.src
-     )">
-
+     onclick=openProductDetails(
+    'Casual Shoes',
+    999,
+    1299,
+    'casual',
+    this.src
+)
         <div class="product-info">
             <h3>Casual Shoes</h3>
             <div class="price">₹999</div>
@@ -1004,13 +1006,13 @@
     <!-- 4. Premium Sandals -->
     <div class="product" data-category="sandals">
         <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
-     onclick="openProductDetails(
-        'Premium Sandals',
-        699,
-        'sandals',
-        this.src
-     )">
-
+     onclick=openProductDetails(
+    'Premium Sandals',
+    699,
+    999,
+    'sandals',
+    this.src
+)
         <div class="product-info">
             <h3>Premium Sandals</h3>
             <div class="price">₹699</div>
@@ -1035,12 +1037,13 @@
     <!-- 5. Running Shoes -->
     <div class="product" data-category="sports">
         <img src="running-shoes.jpeg"
-     onclick="openProductDetails(
-        'Running Shoes',
-        899,
-        'sports',
-        this.src
-     )">
+     onclick=openProductDetails(
+    'Running Shoes',
+    899,
+    1199,
+    'sports',
+    this.src
+)
 
         <div class="product-info">
             <h3>Running Shoes</h3>
@@ -1066,12 +1069,13 @@
     <!-- 6. Formal Shoes -->
     <div class="product" data-category="formal">
         <img src="formal-shoes.png"
-     onclick="openProductDetails(
-        'Formal Shoes',
-        949,
-        'formal',
-        this.src
-     )">
+     onclick=openProductDetails(
+    'Formal Shoes',
+    949,
+    1499,
+    'formal',
+    this.src
+)
         <div class="product-info">
             <h3>Formal Shoes</h3>
             <div class="price">₹949</div>
@@ -1096,12 +1100,13 @@
     <!-- 7. Comfort Slippers -->
         <div class="product" data-category="slippers">
         <img src="comfort-slippers.jpeg"
-     onclick="openProductDetails(
-        'Comfort Slippers',
-        299,
-        'slippers',
-        this.src
-     )">
+     onclick=openProductDetails(
+    'Comfort Slippers',
+    299,
+    499,
+    'slippers',
+    this.src
+)
         <div class="product-info">
             <h3>Comfort Slippers</h3>
             <div class="price">₹299</div>
@@ -1126,12 +1131,13 @@
     <!-- 8. Classic Crocs -->
     <div class="product" data-category="crocs">
        <img src="classic-crocs2.png"
-    onclick="openProductDetails(
-        'Classic Crocs',
-        799,
-        'crocs',
-        this.src
-    )">
+    onclick=openProductDetails(
+    'Classic Crocs',
+    799,
+    999,
+    'crocs',
+    this.src
+)
         <div class="product-info">
             <h3>Classic Crocs</h3>
             <div class="price">₹799</div>
@@ -1156,12 +1162,13 @@
     <!-- 9. Women's Sandals -->
    <div class="product" data-category="sandals">
         <img src="women-sandals.png"
-    onclick="openProductDetails(
-        'Women Sandals',
-        699,
-        'sandals',
-        this.src
-    )">
+    onclick=openProductDetails(
+    'Women's Sandals',
+    699,
+    999,
+    'sandals',
+    this.src
+)
 
         <div class="product-info">
             <h3>Women's Sandals</h3>
@@ -1187,12 +1194,13 @@
     <!-- 10. Walking Shoes -->
     <div class="product" data-category="sports">
         <img src="walking-shoes.jpeg"
-    onclick="openProductDetails(
-        'Walking Shoes',
-        899,
-        'sports',
-        this.src
-    )">
+    onclick=openProductDetails(
+    'Walking Shoes',
+    899,
+    1199,
+    'sports',
+    this.src
+)
         <div class="product-info">
             <h3>Walking Shoes</h3>
             <div class="price">₹899</div>
@@ -1340,19 +1348,32 @@ function showAllProducts() {
 let selectedDetailProduct = null;
 let selectedDetailSize = "";
 
-window.openProductDetails = function(name, price, category, image) {
-
+window.openProductDetails = function(name, price, originalPrice, category, image) {
     selectedDetailProduct = {
-        name: name,
-        price: price,
-        category: category,
-        image: image
+    name: name,
+    price: price,
+    originalPrice: originalPrice,
+    category: category,
+    image: image
+};
     };
 
     selectedDetailSize = "";
 
     document.getElementById("detailName").innerText = name;
-    document.getElementById("detailPrice").innerText = "₹" + price;
+    document.getElementById("detailPrice").innerText =
+    "₹" + price;
+
+document.getElementById("detailMRP").innerText =
+    "₹" + originalPrice;
+
+const discount =
+    Math.round(
+        ((originalPrice - price) / originalPrice) * 100
+    );
+
+document.getElementById("detailDiscount").innerText =
+    discount + "% OFF";
     document.getElementById("detailCategory").innerText = category;
 
     document.getElementById("detailMainImage").src = image;
