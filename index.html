@@ -989,15 +989,13 @@ footer strong {
     <div class="product" data-category="sports">
 
         <div class="product-image-container"
-            onclick="openProductDetails(
-    'Premium Sports Shoes',
-    1499,
-    1999,
-    'sports',
-    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
-    4.6,
-    87
-)"
+             onclick="openProductDetails(
+                'Premium Sports Shoes',
+                1499,
+                1999,
+                'sports',
+                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'
+             )">
 
             <span class="product-discount">25% OFF</span>
 
@@ -1046,14 +1044,13 @@ footer strong {
 
         <div class="product-image-container"
              onclick="openProductDetails(
-    'Classic Sneakers',
-    1299,
-    1699,
-    'casual',
-    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80',
-    4.4,
-    143
-)"
+                'Classic Sneakers',
+                1299,
+                1699,
+                'casual',
+                'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
+             )">
+
             <span class="product-discount">24% OFF</span>
 
             <img
@@ -1435,7 +1432,7 @@ footer strong {
             <span class="product-discount">30% OFF</span>
 
             <img
-                src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=800&q=80"
+                src="women-sandals.png"
                 alt="Women's Sandals">
 
         </div>
@@ -1720,9 +1717,9 @@ footer strong {
                 Product Name
             </h1>
 
-            <div class="detail-rating" id="detailRating">
-    ⭐ 4.5 | 120 Reviews
-</div>
+            <div class="detail-rating">
+                ⭐ 4.5 | 120 Reviews
+            </div>
 
             <div class="detail-price">
 
@@ -1947,64 +1944,7 @@ let selectedDetailProduct = null;
 let selectedDetailSize = "";
 
 
-```javascript
 /* ================= PRODUCT DETAILS ================= */
-
-/* Realistic rating and review data for each product */
-const productRatings = {
-
-    "Premium Sports Shoes": {
-        rating: 4.6,
-        reviews: 87
-    },
-
-    "Classic Sneakers": {
-        rating: 4.4,
-        reviews: 143
-    },
-
-    "Casual Shoes": {
-        rating: 4.3,
-        reviews: 96
-    },
-
-    "Premium Sandals": {
-        rating: 4.5,
-        reviews: 72
-    },
-
-    "Running Shoes": {
-        rating: 4.2,
-        reviews: 118
-    },
-
-    "Formal Shoes": {
-        rating: 4.6,
-        reviews: 64
-    },
-
-    "Comfort Slippers": {
-        rating: 4.1,
-        reviews: 89
-    },
-
-    "Classic Crocs": {
-        rating: 4.5,
-        reviews: 156
-    },
-
-    "Women's Sandals": {
-        rating: 4.4,
-        reviews: 132
-    },
-
-    "Walking Shoes": {
-        rating: 4.3,
-        reviews: 105
-    }
-
-};
-
 
 window.openProductDetails = function(
     name,
@@ -2014,52 +1954,29 @@ window.openProductDetails = function(
     image
 ) {
 
-    /* Find this product's rating automatically */
-    const ratingData = productRatings[name] || {
-        rating: 4.5,
-        reviews: 100
-    };
-
-
-    /* Save selected product */
     selectedDetailProduct = {
 
         name: name,
-
         price: price,
-
         originalPrice: originalPrice,
-
         category: category,
-
-        image: image,
-
-        rating: ratingData.rating,
-
-        reviews: ratingData.reviews
+        image: image
 
     };
-
 
     selectedDetailSize = "";
 
 
-    /* Product name */
     document.getElementById("detailName").innerText =
         name;
 
-
-    /* Price */
     document.getElementById("detailPrice").innerText =
         "₹" + price;
 
-
-    /* MRP */
     document.getElementById("detailMRP").innerText =
         "₹" + originalPrice;
 
 
-    /* Discount */
     const discount = Math.round(
         ((originalPrice - price) / originalPrice) * 100
     );
@@ -2068,46 +1985,29 @@ window.openProductDetails = function(
     document.getElementById("detailDiscount").innerText =
         discount + "% OFF";
 
-
     document.getElementById("detailBadge").innerText =
         discount + "% OFF";
 
 
-    /* Category */
     document.getElementById("detailCategory").innerText =
         category;
 
 
-    /* Product image */
     document.getElementById("detailMainImage").src =
         image;
 
-
     document.getElementById("detailThumb1").src =
         image;
-
 
     document.getElementById("detailThumb2").src =
         image;
 
 
-    /* ================= RATING ================= */
-
-    document.getElementById("detailRating").innerHTML =
-        "⭐ " +
-        ratingData.rating +
-        " <span style='color:#777;'>|</span> " +
-        ratingData.reviews +
-        " Reviews";
-
-
-    /* Clear size availability */
     document.getElementById(
         "detailSizeAvailability"
     ).innerText = "";
 
 
-    /* Remove previous selected size */
     document
         .querySelectorAll(".detail-size-options button")
         .forEach(function(button) {
@@ -2117,7 +2017,6 @@ window.openProductDetails = function(
         });
 
 
-    /* Open product details */
     document.getElementById(
         "productDetailOverlay"
     ).style.display = "block";
@@ -2126,7 +2025,53 @@ window.openProductDetails = function(
     document.body.classList.add("no-scroll");
 
 };
-```
+
+
+window.closeProductDetails = function() {
+
+    document.getElementById(
+        "productDetailOverlay"
+    ).style.display = "none";
+
+    document.body.classList.remove("no-scroll");
+
+};
+
+
+window.changeDetailImage = function(image) {
+
+    document.getElementById(
+        "detailMainImage"
+    ).src = image;
+
+};
+
+
+window.selectDetailSize = function(
+    button,
+    size
+) {
+
+    document
+        .querySelectorAll(".detail-size-options button")
+        .forEach(function(btn) {
+
+            btn.classList.remove("selected");
+
+        });
+
+
+    button.classList.add("selected");
+
+    selectedDetailSize = size;
+
+
+    document.getElementById(
+        "detailSizeAvailability"
+    ).innerText =
+        "✓ Size " + size + " is available";
+
+};
 
 
 /* ================= ADD DETAIL PRODUCT ================= */
@@ -2946,4 +2891,3 @@ onAuthStateChanged(
 
 </body>
 </html>
-
