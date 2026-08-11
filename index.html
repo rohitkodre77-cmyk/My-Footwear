@@ -513,7 +513,10 @@
     </h2>
 
     <div class="categories">
-
+<div class="category" onclick="showAllProducts()">
+    <div class="category-icon">🛍️</div>
+    <h3>All Products</h3>
+</div>
     <div class="category" onclick="filterCategory('sports')">
         <div class="category-icon">👟</div>
         <h3>Sports Shoes</h3>
@@ -876,7 +879,19 @@ function filterCategory(category) {
     });
 
 }
+function showAllProducts() {
 
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(product => {
+        product.style.display = "";
+    });
+
+    document.getElementById("productList").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
 </script>
 
 <!-- FIREBASE -->
