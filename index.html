@@ -542,9 +542,11 @@ section {
 .detail-main-image {
     width: 100%;
     height: 430px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 15px;
     background: #f7f7f7;
+    padding: 15px;
 }
 
 .detail-thumbnails {
@@ -556,10 +558,13 @@ section {
 .detail-thumbnails img {
     width: 75px;
     height: 75px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 10px;
     border: 2px solid #ddd;
     cursor: pointer;
+    background: #f7f7f7;
+    padding: 5px;
 }
 
 .detail-thumbnails img:hover {
