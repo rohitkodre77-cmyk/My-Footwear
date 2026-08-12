@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -84,16 +83,21 @@ header {
 
 .hero {
     min-height: 450px;
+
     background:
         linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
         url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80");
+
     background-size: cover;
     background-position: center;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     color: white;
+
     padding: 40px 20px;
 }
 
@@ -222,6 +226,7 @@ section {
     border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
+    z-index: 2;
 }
 
 .product-info {
@@ -753,6 +758,7 @@ footer strong {
 /* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
+
     .products {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -845,6 +851,7 @@ footer strong {
 }
 
 @media (max-width: 400px) {
+
     .products {
         grid-template-columns: 1fr 1fr;
     }
@@ -859,7 +866,6 @@ footer strong {
     }
 }
 </style>
-
 </head>
 
 <body>
@@ -868,781 +874,814 @@ footer strong {
 
 <header>
 
-```
-<div class="logo">
-    MY FOOTWEAR
-</div>
+    <div class="logo">
+        MY FOOTWEAR
+    </div>
 
-<div class="search-box">
-    <input
-        type="text"
-        id="search"
-        placeholder="Search shoes, sandals, crocs..."
-        oninput="searchProducts()"
-    >
-</div>
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Search shoes, sandals, crocs..."
+            oninput="searchProducts()"
+        >
+    </div>
 
-<div class="header-buttons">
+    <div class="header-buttons">
 
-    <button id="loginButton" onclick="login()">
-        👤 Login
-    </button>
+        <button id="loginButton" onclick="login()">
+            👤 Login
+        </button>
 
-    <button onclick="showCart()">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </button>
+        <button onclick="showCart()">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
 
-</div>
-```
+    </div>
 
 </header>
+
 
 <!-- ================= HERO ================= -->
 
 <div class="hero">
 
-```
-<div class="hero-content">
+    <div class="hero-content">
 
-    <h1>MY FOOTWEAR</h1>
+        <h1>MY FOOTWEAR</h1>
 
-    <p>
-        Step Into Style. Walk With Confidence.
-    </p>
+        <p>
+            Step Into Style. Walk With Confidence.
+        </p>
 
-    <button
-        class="shop-btn"
-        onclick="scrollToProducts()">
-        SHOP NOW
-    </button>
+        <button
+            class="shop-btn"
+            onclick="scrollToProducts()">
+            SHOP NOW
+        </button>
 
-</div>
-```
+    </div>
 
 </div>
+
 
 <!-- ================= CATEGORIES ================= -->
 
 <section>
 
-```
-<h2 class="section-title">
-    Shop By <span>Category</span>
-</h2>
+    <h2 class="section-title">
+        Shop By <span>Category</span>
+    </h2>
 
-<div class="categories">
+    <div class="categories">
 
-    <div class="category" onclick="showAllProducts()">
-        <div class="category-icon">🛍️</div>
-        <h3>All Products</h3>
+        <div class="category" onclick="showAllProducts()">
+            <div class="category-icon">🛍️</div>
+            <h3>All Products</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('sports')">
+            <div class="category-icon">👟</div>
+            <h3>Sports Shoes</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('formal')">
+            <div class="category-icon">👞</div>
+            <h3>Formal Shoes</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('casual')">
+            <div class="category-icon">🥾</div>
+            <h3>Casual Shoes</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('slippers')">
+            <div class="category-icon">🩴</div>
+            <h3>Slippers</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('sandals')">
+            <div class="category-icon">👡</div>
+            <h3>Sandals</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('crocs')">
+            <div class="category-icon">🩴</div>
+            <h3>Crocs</h3>
+        </div>
+
     </div>
-
-    <div class="category" onclick="filterCategory('sports')">
-        <div class="category-icon">👟</div>
-        <h3>Sports Shoes</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('formal')">
-        <div class="category-icon">👞</div>
-        <h3>Formal Shoes</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('casual')">
-        <div class="category-icon">🥾</div>
-        <h3>Casual Shoes</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('slippers')">
-        <div class="category-icon">🩴</div>
-        <h3>Slippers</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('sandals')">
-        <div class="category-icon">👡</div>
-        <h3>Sandals</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('crocs')">
-        <div class="category-icon">🩴</div>
-        <h3>Crocs</h3>
-    </div>
-
-</div>
-```
 
 </section>
+
 
 <!-- ================= PRODUCTS ================= -->
 
 <section id="products">
 
-```
-<h2 class="section-title">
-    Featured <span>Products</span>
-</h2>
+    <h2 class="section-title">
+        Featured <span>Products</span>
+    </h2>
 
-<div class="products" id="productList">
+    <div class="products" id="productList">
 
 
-    <!-- 1 -->
+        <!-- 1. PREMIUM SPORTS SHOES -->
 
-    <div class="product" data-category="sports">
+        <div class="product" data-category="sports">
 
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Premium Sports Shoes',
-                1499,
-                1999,
-                'sports',
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'
-             )">
-
-            <span class="product-discount">25% OFF</span>
-
-            <img
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
-                alt="Premium Sports Shoes">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Premium Sports Shoes</h3>
-
-            <div class="price-row">
-                <div class="price">₹1,499</div>
-                <div class="original-price">₹1,999</div>
-            </div>
-
-            <select id="size-premium-sports" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
-
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Premium Sports Shoes',
                     1499,
-                    'size-premium-sports'
+                    1999,
+                    'sports',
+                    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    25% OFF
+                </span>
 
-    </div>
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+                    alt="Premium Sports Shoes"
+                >
 
-
-    <!-- 2 -->
-
-    <div class="product" data-category="casual">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Classic Sneakers',
-                1299,
-                1699,
-                'casual',
-                'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
-             )">
-
-            <span class="product-discount">24% OFF</span>
-
-            <img
-                src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
-                alt="Classic Sneakers">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Classic Sneakers</h3>
-
-            <div class="price-row">
-                <div class="price">₹1,299</div>
-                <div class="original-price">₹1,699</div>
             </div>
 
-            <select id="size-classic-sneakers" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Premium Sports Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹1,499</div>
+                    <div class="original-price">₹1,999</div>
+                </div>
+
+                <select id="size-premium-sports" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Premium Sports Shoes',
+                        1499,
+                        'size-premium-sports'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2. CLASSIC SNEAKERS -->
+
+        <div class="product" data-category="casual">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Classic Sneakers',
                     1299,
-                    'size-classic-sneakers'
+                    1699,
+                    'casual',
+                    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    24% OFF
+                </span>
 
-    </div>
+                <img
+                    src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic Sneakers"
+                >
 
-
-    <!-- 3 -->
-
-    <div class="product" data-category="casual">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Casual Shoes',
-                999,
-                1299,
-                'casual',
-                'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80'
-             )">
-
-            <span class="product-discount">23% OFF</span>
-
-            <img
-                src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
-                alt="Casual Shoes">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Casual Shoes</h3>
-
-            <div class="price-row">
-                <div class="price">₹999</div>
-                <div class="original-price">₹1,299</div>
             </div>
 
-            <select id="size-casual-shoes" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Classic Sneakers</h3>
+
+                <div class="price-row">
+                    <div class="price">₹1,299</div>
+                    <div class="original-price">₹1,699</div>
+                </div>
+
+                <select id="size-classic-sneakers" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Classic Sneakers',
+                        1299,
+                        'size-classic-sneakers'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3. CASUAL SHOES -->
+
+        <div class="product" data-category="casual">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Casual Shoes',
                     999,
-                    'size-casual-shoes'
+                    1299,
+                    'casual',
+                    'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    23% OFF
+                </span>
 
-    </div>
+                <img
+                    src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
+                    alt="Casual Shoes"
+                >
 
-
-    <!-- 4 -->
-
-    <div class="product" data-category="sandals">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Premium Sandals',
-                699,
-                999,
-                'sandals',
-                'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80'
-             )">
-
-            <span class="product-discount">30% OFF</span>
-
-            <img
-                src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
-                alt="Premium Sandals">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Premium Sandals</h3>
-
-            <div class="price-row">
-                <div class="price">₹699</div>
-                <div class="original-price">₹999</div>
             </div>
 
-            <select id="size-premium-sandals" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Casual Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹999</div>
+                    <div class="original-price">₹1,299</div>
+                </div>
+
+                <select id="size-casual-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Casual Shoes',
+                        999,
+                        'size-casual-shoes'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4. PREMIUM SANDALS -->
+
+        <div class="product" data-category="sandals">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Premium Sandals',
                     699,
-                    'size-premium-sandals'
+                    999,
+                    'sandals',
+                    'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    30% OFF
+                </span>
 
-    </div>
+                <img
+                    src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
+                    alt="Premium Sandals"
+                >
 
-
-    <!-- 5 -->
-
-    <div class="product" data-category="sports">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Running Shoes',
-                899,
-                1199,
-                'sports',
-                'running-shoes.jpeg'
-             )">
-
-            <span class="product-discount">25% OFF</span>
-
-            <img
-                src="running-shoes.jpeg"
-                alt="Running Shoes">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Running Shoes</h3>
-
-            <div class="price-row">
-                <div class="price">₹899</div>
-                <div class="original-price">₹1,199</div>
             </div>
 
-            <select id="size-running-shoes" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Premium Sandals</h3>
+
+                <div class="price-row">
+                    <div class="price">₹699</div>
+                    <div class="original-price">₹999</div>
+                </div>
+
+                <select id="size-premium-sandals" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Premium Sandals',
+                        699,
+                        'size-premium-sandals'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5. RUNNING SHOES -->
+
+        <div class="product" data-category="sports">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Running Shoes',
                     899,
-                    'size-running-shoes'
+                    1199,
+                    'sports',
+                    'running-shoes.jpeg'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    25% OFF
+                </span>
 
-    </div>
+                <img
+                    src="running-shoes.jpeg"
+                    alt="Running Shoes"
+                >
 
-
-    <!-- 6 -->
-
-    <div class="product" data-category="formal">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Formal Shoes',
-                949,
-                1499,
-                'formal',
-                'formal-shoes.png'
-             )">
-
-            <span class="product-discount">37% OFF</span>
-
-            <img
-                src="formal-shoes.png"
-                alt="Formal Shoes">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Formal Shoes</h3>
-
-            <div class="price-row">
-                <div class="price">₹949</div>
-                <div class="original-price">₹1,499</div>
             </div>
 
-            <select id="size-formal-shoes" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Running Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹899</div>
+                    <div class="original-price">₹1,199</div>
+                </div>
+
+                <select id="size-running-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Running Shoes',
+                        899,
+                        'size-running-shoes'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 6. FORMAL SHOES -->
+
+        <div class="product" data-category="formal">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Formal Shoes',
                     949,
-                    'size-formal-shoes'
+                    1499,
+                    'formal',
+                    'formal-shoes.png'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    37% OFF
+                </span>
 
-    </div>
+                <img
+                    src="formal-shoes.png"
+                    alt="Formal Shoes"
+                >
 
-
-    <!-- 7 -->
-
-    <div class="product" data-category="slippers">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Comfort Slippers',
-                299,
-                499,
-                'slippers',
-                'comfort-slippers.jpeg'
-             )">
-
-            <span class="product-discount">40% OFF</span>
-
-            <img
-                src="comfort-slippers.jpeg"
-                alt="Comfort Slippers">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Comfort Slippers</h3>
-
-            <div class="price-row">
-                <div class="price">₹299</div>
-                <div class="original-price">₹499</div>
             </div>
 
-            <select id="size-comfort-slippers" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Formal Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹949</div>
+                    <div class="original-price">₹1,499</div>
+                </div>
+
+                <select id="size-formal-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Formal Shoes',
+                        949,
+                        'size-formal-shoes'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 7. COMFORT SLIPPERS -->
+
+        <div class="product" data-category="slippers">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Comfort Slippers',
                     299,
-                    'size-comfort-slippers'
+                    499,
+                    'slippers',
+                    'comfort-slippers.jpeg'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    40% OFF
+                </span>
 
-    </div>
+                <img
+                    src="comfort-slippers.jpeg"
+                    alt="Comfort Slippers"
+                >
 
-
-    <!-- 8 -->
-
-    <div class="product" data-category="crocs">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Classic Crocs',
-                799,
-                999,
-                'crocs',
-                'classic-crocs2.png'
-             )">
-
-            <span class="product-discount">20% OFF</span>
-
-            <img
-                src="classic-crocs2.png"
-                alt="Classic Crocs">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Classic Crocs</h3>
-
-            <div class="price-row">
-                <div class="price">₹799</div>
-                <div class="original-price">₹999</div>
             </div>
 
-            <select id="size-classic-crocs" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Comfort Slippers</h3>
+
+                <div class="price-row">
+                    <div class="price">₹299</div>
+                    <div class="original-price">₹499</div>
+                </div>
+
+                <select id="size-comfort-slippers" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Comfort Slippers',
+                        299,
+                        'size-comfort-slippers'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 8. CLASSIC CROCS -->
+
+        <div class="product" data-category="crocs">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Classic Crocs',
                     799,
-                    'size-classic-crocs'
+                    999,
+                    'crocs',
+                    'classic-crocs2.png'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    20% OFF
+                </span>
 
-    </div>
+                <img
+                    src="classic-crocs2.png"
+                    alt="Classic Crocs"
+                >
 
-
-    <!-- 9 -->
-
-    <div class="product" data-category="sandals">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Women\'s Sandals',
-                699,
-                999,
-                'sandals',
-                'women-sandals.png'
-             )">
-
-            <span class="product-discount">30% OFF</span>
-
-            <img
-                src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=800&q=80"
-                alt="Women's Sandals">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Women's Sandals</h3>
-
-            <div class="price-row">
-                <div class="price">₹699</div>
-                <div class="original-price">₹999</div>
             </div>
 
-            <select id="size-womens-sandals" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
-                    'Women\'s Sandals',
+                <h3>Classic Crocs</h3>
+
+                <div class="price-row">
+                    <div class="price">₹799</div>
+                    <div class="original-price">₹999</div>
+                </div>
+
+                <select id="size-classic-crocs" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Classic Crocs',
+                        799,
+                        'size-classic-crocs'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 9. WOMEN'S SANDALS -->
+
+        <div class="product" data-category="sandals">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
+                    &quot;Women's Sandals&quot;,
                     699,
-                    'size-womens-sandals'
+                    999,
+                    'sandals',
+                    'women-sandals.png'
                 )">
-                Add To Cart
-            </button>
 
-        </div>
+                <span class="product-discount">
+                    30% OFF
+                </span>
 
-    </div>
+                <img
+                    src="women-sandals.png"
+                    alt="Women's Sandals"
+                >
 
-
-    <!-- 10 -->
-
-    <div class="product" data-category="sports">
-
-        <div class="product-image-container"
-             onclick="openProductDetails(
-                'Walking Shoes',
-                899,
-                1199,
-                'sports',
-                'walking-shoes.jpeg'
-             )">
-
-            <span class="product-discount">25% OFF</span>
-
-            <img
-                src="walking-shoes.jpeg"
-                alt="Walking Shoes">
-
-        </div>
-
-        <div class="product-info">
-
-            <h3>Walking Shoes</h3>
-
-            <div class="price-row">
-                <div class="price">₹899</div>
-                <div class="original-price">₹1,199</div>
             </div>
 
-            <select id="size-walking-shoes" class="size-select">
-                <option value="">Select Size</option>
-                <option value="6">Size 6</option>
-                <option value="7">Size 7</option>
-                <option value="8">Size 8</option>
-                <option value="9">Size 9</option>
-                <option value="10">Size 10</option>
-            </select>
+            <div class="product-info">
 
-            <button
-                class="add-cart"
-                onclick="addToCartWithSize(
+                <h3>Women's Sandals</h3>
+
+                <div class="price-row">
+                    <div class="price">₹699</div>
+                    <div class="original-price">₹999</div>
+                </div>
+
+                <select id="size-womens-sandals" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        &quot;Women's Sandals&quot;,
+                        699,
+                        'size-womens-sandals'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 10. WALKING SHOES -->
+
+        <div class="product" data-category="sports">
+
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Walking Shoes',
                     899,
-                    'size-walking-shoes'
+                    1199,
+                    'sports',
+                    'walking-shoes.jpeg'
                 )">
-                Add To Cart
-            </button>
+
+                <span class="product-discount">
+                    25% OFF
+                </span>
+
+                <img
+                    src="walking-shoes.jpeg"
+                    alt="Walking Shoes"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Walking Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹899</div>
+                    <div class="original-price">₹1,199</div>
+                </div>
+
+                <select id="size-walking-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Walking Shoes',
+                        899,
+                        'size-walking-shoes'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-```
-
 </section>
+
 
 <!-- ================= FOOTER ================= -->
 
 <footer>
 
-```
-<p>
-    © 2026 <strong>My Footwear</strong>
-</p>
+    <p>
+        © 2026 <strong>My Footwear</strong>
+    </p>
 
-<p>
-    Step Into Style. Walk With Confidence.
-</p>
-```
+    <p>
+        Step Into Style. Walk With Confidence.
+    </p>
 
 </footer>
+
 
 <!-- ================= CART ================= -->
 
 <div class="cart-overlay" id="cartOverlay">
 
-```
-<div class="cart-box">
+    <div class="cart-box">
 
-    <div class="cart-header">
+        <div class="cart-header">
 
-        <h2>🛒 Your Cart</h2>
+            <h2>🛒 Your Cart</h2>
+
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+            Total: ₹<span id="cartTotal">0</span>
+        </div>
 
         <button
-            class="close-cart"
-            onclick="closeCart()">
-            ×
+            class="checkout-btn"
+            onclick="openCheckout()">
+            Proceed to Checkout
         </button>
 
     </div>
 
-    <div id="cartItems"></div>
-
-    <div class="cart-total">
-        Total: ₹<span id="cartTotal">0</span>
-    </div>
-
-    <button
-        class="checkout-btn"
-        onclick="openCheckout()">
-        Proceed to Checkout
-    </button>
-
 </div>
-```
 
-</div>
 
 <!-- ================= CHECKOUT ================= -->
 
 <div class="checkout-form" id="checkoutForm">
 
-```
-<div class="checkout-box">
+    <div class="checkout-box">
 
-    <h2>🏠 Delivery Details</h2>
+        <h2>🏠 Delivery Details</h2>
 
-    <input
-        type="text"
-        id="customerName"
-        placeholder="Full Name">
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Full Name">
 
-    <input
-        type="tel"
-        id="customerPhone"
-        placeholder="Mobile Number">
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Mobile Number">
 
-    <textarea
-        id="customerAddress"
-        placeholder="Full Home Delivery Address"></textarea>
+        <textarea
+            id="customerAddress"
+            placeholder="Full Home Delivery Address"></textarea>
 
-    <input
-        type="text"
-        id="customerCity"
-        placeholder="City">
+        <input
+            type="text"
+            id="customerCity"
+            placeholder="City">
 
-    <input
-        type="text"
-        id="customerPincode"
-        placeholder="PIN Code">
+        <input
+            type="text"
+            id="customerPincode"
+            placeholder="PIN Code">
 
-    <div class="payment-option">
+        <div class="payment-option">
 
-        💵 <strong>Cash on Delivery</strong>
+            💵 <strong>Cash on Delivery</strong>
 
-        <br>
+            <br>
 
-        Pay when your order is delivered.
+            Pay when your order is delivered.
+
+        </div>
+
+        <button
+            class="whatsapp-order"
+            onclick="placeWhatsAppOrder()">
+
+            💬 Place Order on WhatsApp
+
+        </button>
+
+        <button
+            class="cancel-checkout"
+            onclick="closeCheckout()">
+
+            Cancel
+
+        </button>
 
     </div>
 
-    <button
-        class="whatsapp-order"
-        onclick="placeWhatsAppOrder()">
-
-        💬 Place Order on WhatsApp
-
-    </button>
-
-    <button
-        class="cancel-checkout"
-        onclick="closeCheckout()">
-
-        Cancel
-
-    </button>
-
 </div>
-```
 
-</div>
 
 <!-- ================= PRODUCT DETAILS ================= -->
 
@@ -1650,234 +1689,214 @@ footer strong {
     class="product-detail-overlay"
     id="productDetailOverlay">
 
-```
-<div class="product-detail-box">
+    <div class="product-detail-box">
 
-    <button
-        class="product-detail-close"
-        onclick="closeProductDetails()">
+        <button
+            class="product-detail-close"
+            onclick="closeProductDetails()">
 
-        ×
+            ×
 
-    </button>
+        </button>
 
+        <div class="product-detail-content">
 
-    <div class="product-detail-content">
-
-
-        <!-- IMAGE -->
-
-        <div class="product-detail-images">
-
-            <div
-                class="discount-badge"
-                id="detailBadge">
-
-                20% OFF
-
-            </div>
-
-            <img
-                id="detailMainImage"
-                src=""
-                class="detail-main-image"
-                alt="Product">
-
-            <div class="detail-thumbnails">
-
-                <img
-                    id="detailThumb1"
-                    src=""
-                    onclick="changeDetailImage(this.src)"
-                    alt="Product thumbnail">
-
-                <img
-                    id="detailThumb2"
-                    src=""
-                    onclick="changeDetailImage(this.src)"
-                    alt="Product thumbnail">
-
-            </div>
-
-        </div>
-
-
-        <!-- INFORMATION -->
-
-        <div class="product-detail-info">
-
-            <div class="breadcrumb">
-
-                Home → Products →
-                <span id="detailCategory"></span>
-
-            </div>
-
-            <h1 id="detailName">
-                Product Name
-            </h1>
-
-            <div class="detail-rating">
-                ⭐ 4.5 | 120 Reviews
-            </div>
-
-            <div class="detail-price">
-
-                <span
-                    class="detail-price-main"
-                    id="detailPrice">
-                    ₹999
-                </span>
-
-                <span
-                    class="detail-mrp"
-                    id="detailMRP">
-                    ₹1,299
-                </span>
-
-                <span
-                    class="detail-discount"
-                    id="detailDiscount">
-                    20% OFF
-                </span>
-
-            </div>
-
-
-            <div class="bank-offer">
-
-                🏦 <strong>Bank Offer</strong>
-
-                <br>
-
-                Get extra discount on selected bank cards.
-
-            </div>
-
-
-            <!-- COLOUR -->
-
-            <div class="detail-section">
-
-                <h3>Colour</h3>
-
-                <div class="color-options">
-
-                    <button
-                        class="color-option selected">
-                    </button>
-
-                    <button
-                        class="color-option black">
-                    </button>
-
-                    <button
-                        class="color-option grey">
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- SIZE -->
-
-            <div class="detail-section">
-
-                <div class="size-title">
-
-                    <h3>Select Size</h3>
-
-                    <span>Size Chart ›</span>
-
-                </div>
-
-                <div class="detail-size-options">
-
-                    <button
-                        onclick="selectDetailSize(this,'6')">
-                        6
-                    </button>
-
-                    <button
-                        onclick="selectDetailSize(this,'7')">
-                        7
-                    </button>
-
-                    <button
-                        onclick="selectDetailSize(this,'8')">
-                        8
-                    </button>
-
-                    <button
-                        onclick="selectDetailSize(this,'9')">
-                        9
-                    </button>
-
-                    <button
-                        onclick="selectDetailSize(this,'10')">
-                        10
-                    </button>
-
-                </div>
+            <div class="product-detail-images">
 
                 <div
-                    id="detailSizeAvailability"
-                    class="detail-availability">
+                    class="discount-badge"
+                    id="detailBadge">
+                    20% OFF
+                </div>
+
+                <img
+                    id="detailMainImage"
+                    src=""
+                    class="detail-main-image"
+                    alt="Product">
+
+                <div class="detail-thumbnails">
+
+                    <img
+                        id="detailThumb1"
+                        src=""
+                        onclick="changeDetailImage(this.src)"
+                        alt="Product thumbnail">
+
+                    <img
+                        id="detailThumb2"
+                        src=""
+                        onclick="changeDetailImage(this.src)"
+                        alt="Product thumbnail">
+
                 </div>
 
             </div>
 
 
-            <!-- ACTIONS -->
+            <div class="product-detail-info">
 
-            <div class="detail-actions">
+                <div class="breadcrumb">
 
-                <button
-                    class="detail-add-cart"
-                    onclick="addDetailProductToCart()">
+                    Home → Products →
 
-                    🛒 Add to Cart
+                    <span id="detailCategory"></span>
 
-                </button>
-
-                <button
-                    class="detail-buy-now"
-                    onclick="buyDetailProduct()">
-
-                    ⚡ Buy Now
-
-                </button>
-
-            </div>
-
-
-            <!-- SERVICES -->
-
-            <div class="service-features">
-
-                <div>
-                    🚚
-                    <strong>Free Delivery</strong>
-                    <small>On selected orders</small>
                 </div>
 
-                <div>
-                    💵
-                    <strong>Cash on Delivery</strong>
-                    <small>Pay when delivered</small>
+                <h1 id="detailName">
+                    Product Name
+                </h1>
+
+                <div class="detail-rating">
+                    ⭐ 4.5 | 120 Reviews
                 </div>
 
-                <div>
-                    🔄
-                    <strong>7 Days Return</strong>
-                    <small>Easy returns</small>
+                <div class="detail-price">
+
+                    <span
+                        class="detail-price-main"
+                        id="detailPrice">
+                        ₹999
+                    </span>
+
+                    <span
+                        class="detail-mrp"
+                        id="detailMRP">
+                        ₹1,299
+                    </span>
+
+                    <span
+                        class="detail-discount"
+                        id="detailDiscount">
+                        20% OFF
+                    </span>
+
                 </div>
 
-                <div>
-                    🛡️
-                    <strong>100% Original</strong>
-                    <small>Quality guaranteed</small>
+                <div class="bank-offer">
+
+                    🏦 <strong>Bank Offer</strong>
+
+                    <br>
+
+                    Get extra discount on selected bank cards.
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <h3>Colour</h3>
+
+                    <div class="color-options">
+
+                        <button
+                            class="color-option selected">
+                        </button>
+
+                        <button
+                            class="color-option black">
+                        </button>
+
+                        <button
+                            class="color-option grey">
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <div class="size-title">
+
+                        <h3>Select Size</h3>
+
+                        <span>Size Chart ›</span>
+
+                    </div>
+
+                    <div class="detail-size-options">
+
+                        <button onclick="selectDetailSize(this,'6')">
+                            6
+                        </button>
+
+                        <button onclick="selectDetailSize(this,'7')">
+                            7
+                        </button>
+
+                        <button onclick="selectDetailSize(this,'8')">
+                            8
+                        </button>
+
+                        <button onclick="selectDetailSize(this,'9')">
+                            9
+                        </button>
+
+                        <button onclick="selectDetailSize(this,'10')">
+                            10
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="detailSizeAvailability"
+                        class="detail-availability">
+                    </div>
+
+                </div>
+
+
+                <div class="detail-actions">
+
+                    <button
+                        class="detail-add-cart"
+                        onclick="addDetailProductToCart()">
+
+                        🛒 Add to Cart
+
+                    </button>
+
+                    <button
+                        class="detail-buy-now"
+                        onclick="buyDetailProduct()">
+
+                        ⚡ Buy Now
+
+                    </button>
+
+                </div>
+
+
+                <div class="service-features">
+
+                    <div>
+                        🚚
+                        <strong>Free Delivery</strong>
+                        <small>On selected orders</small>
+                    </div>
+
+                    <div>
+                        💵
+                        <strong>Cash on Delivery</strong>
+                        <small>Pay when delivered</small>
+                    </div>
+
+                    <div>
+                        🔄
+                        <strong>7 Days Return</strong>
+                        <small>Easy returns</small>
+                    </div>
+
+                    <div>
+                        🛡️
+                        <strong>100% Original</strong>
+                        <small>Quality guaranteed</small>
+                    </div>
+
                 </div>
 
             </div>
@@ -1887,9 +1906,7 @@ footer strong {
     </div>
 
 </div>
-```
 
-</div>
 
 <!-- ================= FIREBASE ================= -->
 
@@ -1935,7 +1952,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
-/* ================= CART ================= */
+/* ================= GLOBAL VARIABLES ================= */
 
 let cart = [];
 
@@ -1955,20 +1972,17 @@ window.openProductDetails = function(
 ) {
 
     selectedDetailProduct = {
-
-        name: name,
-        price: price,
-        originalPrice: originalPrice,
-        category: category,
-        image: image
-
+        name,
+        price,
+        originalPrice,
+        category,
+        image
     };
 
     selectedDetailSize = "";
 
 
-    document.getElementById("detailName").innerText =
-        name;
+    document.getElementById("detailName").innerText = name;
 
     document.getElementById("detailPrice").innerText =
         "₹" + price;
@@ -2010,10 +2024,8 @@ window.openProductDetails = function(
 
     document
         .querySelectorAll(".detail-size-options button")
-        .forEach(function(button) {
-
+        .forEach(button => {
             button.classList.remove("selected");
-
         });
 
 
@@ -2054,10 +2066,8 @@ window.selectDetailSize = function(
 
     document
         .querySelectorAll(".detail-size-options button")
-        .forEach(function(btn) {
-
+        .forEach(btn => {
             btn.classList.remove("selected");
-
         });
 
 
@@ -2079,59 +2089,23 @@ window.selectDetailSize = function(
 window.addDetailProductToCart = function() {
 
     if (!selectedDetailProduct) {
-
         alert("Product information not found.");
-
         return;
-
     }
 
 
     if (!selectedDetailSize) {
-
         alert("Please select a size first.");
-
         return;
-
     }
 
 
-    const existingProduct = cart.find(
-        item =>
-            item.name === selectedDetailProduct.name &&
-            item.size === selectedDetailSize
+    addProductToCart(
+        selectedDetailProduct.name,
+        selectedDetailProduct.price,
+        selectedDetailSize
     );
 
-
-    if (existingProduct) {
-
-        existingProduct.quantity++;
-
-    } else {
-
-        cart.push({
-
-            name: selectedDetailProduct.name,
-
-            price: selectedDetailProduct.price,
-
-            size: selectedDetailSize,
-
-            quantity: 1
-
-        });
-
-    }
-
-
-    updateCart();
-
-    alert(
-        selectedDetailProduct.name +
-        " (Size " +
-        selectedDetailSize +
-        ") added to cart!"
-    );
 
     closeProductDetails();
 
@@ -2143,48 +2117,23 @@ window.addDetailProductToCart = function() {
 window.buyDetailProduct = function() {
 
     if (!selectedDetailProduct) {
-
         alert("Product information not found.");
-
         return;
-
     }
 
 
     if (!selectedDetailSize) {
-
         alert("Please select a size first.");
-
         return;
-
     }
 
 
-    const existingProduct = cart.find(
-        item =>
-            item.name === selectedDetailProduct.name &&
-            item.size === selectedDetailSize
+    addProductToCart(
+        selectedDetailProduct.name,
+        selectedDetailProduct.price,
+        selectedDetailSize
     );
 
-
-    if (!existingProduct) {
-
-        cart.push({
-
-            name: selectedDetailProduct.name,
-
-            price: selectedDetailProduct.price,
-
-            size: selectedDetailSize,
-
-            quantity: 1
-
-        });
-
-    }
-
-
-    updateCart();
 
     closeProductDetails();
 
@@ -2193,26 +2142,13 @@ window.buyDetailProduct = function() {
 };
 
 
-/* ================= CART ================= */
+/* ================= CART CORE ================= */
 
-window.addToCartWithSize = function(
+function addProductToCart(
     name,
     price,
-    sizeId
+    size
 ) {
-
-    const size =
-        document.getElementById(sizeId).value;
-
-
-    if (!size) {
-
-        alert("Please select a size first.");
-
-        return;
-
-    }
-
 
     const existingProduct = cart.find(
         item =>
@@ -2229,12 +2165,9 @@ window.addToCartWithSize = function(
 
         cart.push({
 
-            name: name,
-
-            price: price,
-
-            size: size,
-
+            name,
+            price,
+            size,
             quantity: 1
 
         });
@@ -2252,8 +2185,50 @@ window.addToCartWithSize = function(
         ") added to cart!"
     );
 
+}
+
+
+window.addToCartWithSize = function(
+    name,
+    price,
+    sizeId
+) {
+
+    const sizeElement =
+        document.getElementById(sizeId);
+
+
+    if (!sizeElement) {
+
+        alert("Size selector not found.");
+
+        return;
+
+    }
+
+
+    const size = sizeElement.value;
+
+
+    if (!size) {
+
+        alert("Please select a size first.");
+
+        return;
+
+    }
+
+
+    addProductToCart(
+        name,
+        price,
+        size
+    );
+
 };
 
+
+/* ================= UPDATE CART ================= */
 
 function updateCart() {
 
@@ -2271,9 +2246,7 @@ function updateCart() {
 
 
     const cartItems =
-        document.getElementById(
-            "cartItems"
-        );
+        document.getElementById("cartItems");
 
 
     if (cart.length === 0) {
@@ -2312,10 +2285,8 @@ function updateCart() {
                 <div class="cart-item-info">
 
                     <h3>
-                        ${item.name}
-                        ${item.size
-                            ? " - Size " + item.size
-                            : ""}
+                        ${escapeHTML(item.name)}
+                        - Size ${escapeHTML(item.size)}
                     </h3>
 
                     <div class="cart-price">
@@ -2327,7 +2298,7 @@ function updateCart() {
                 <div class="quantity-controls">
 
                     <button
-                        onclick="changeQuantity(${index},-1)">
+                        onclick="changeQuantity(${index}, -1)">
                         −
                     </button>
 
@@ -2336,7 +2307,7 @@ function updateCart() {
                     </span>
 
                     <button
-                        onclick="changeQuantity(${index},1)">
+                        onclick="changeQuantity(${index}, 1)">
                         +
                     </button>
 
@@ -2362,10 +2333,29 @@ function updateCart() {
 }
 
 
+/* Prevent HTML injection inside cart text */
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ================= QUANTITY ================= */
+
 window.changeQuantity = function(
     index,
     change
 ) {
+
+    if (!cart[index]) return;
+
 
     cart[index].quantity += change;
 
@@ -2384,6 +2374,9 @@ window.changeQuantity = function(
 
 window.removeFromCart = function(index) {
 
+    if (!cart[index]) return;
+
+
     cart.splice(index, 1);
 
     updateCart();
@@ -2391,13 +2384,17 @@ window.removeFromCart = function(index) {
 };
 
 
+/* ================= SHOW CART ================= */
+
 window.showCart = function() {
 
     updateCart();
 
+
     document.getElementById(
         "cartOverlay"
     ).style.display = "block";
+
 
     document.body.classList.add(
         "no-scroll"
@@ -2411,6 +2408,7 @@ window.closeCart = function() {
     document.getElementById(
         "cartOverlay"
     ).style.display = "none";
+
 
     document.body.classList.remove(
         "no-scroll"
@@ -2514,6 +2512,28 @@ window.placeWhatsAppOrder = function() {
     }
 
 
+    if (!/^[0-9]{10}$/.test(phone)) {
+
+        alert(
+            "Please enter a valid 10-digit mobile number."
+        );
+
+        return;
+
+    }
+
+
+    if (!/^[0-9]{6}$/.test(pincode)) {
+
+        alert(
+            "Please enter a valid 6-digit PIN code."
+        );
+
+        return;
+
+    }
+
+
     if (cart.length === 0) {
 
         alert("Your cart is empty.");
@@ -2565,7 +2585,7 @@ window.placeWhatsAppOrder = function() {
         orderMessage +=
             item.name +
             " | Size: " +
-            (item.size || "N/A") +
+            item.size +
             " | Qty: " +
             item.quantity +
             " | ₹" +
@@ -2588,6 +2608,8 @@ window.placeWhatsAppOrder = function() {
     orderMessage +=
         "Delivery: Home Delivery";
 
+
+    /* Your My Footwear WhatsApp number */
 
     const whatsappNumber =
         "917758827177";
@@ -2623,9 +2645,7 @@ window.searchProducts = function() {
 
 
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
     products.forEach(function(product) {
@@ -2637,14 +2657,21 @@ window.searchProducts = function() {
                 .toLowerCase();
 
 
-        if (name.includes(text)) {
+        const category =
+            product.dataset.category
+                .toLowerCase();
+
+
+        if (
+            name.includes(text) ||
+            category.includes(text)
+        ) {
 
             product.style.display = "";
 
         } else {
 
-            product.style.display =
-                "none";
+            product.style.display = "none";
 
         }
 
@@ -2659,10 +2686,13 @@ window.filterCategory = function(
     category
 ) {
 
+    document.getElementById(
+        "search"
+    ).value = "";
+
+
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
     products.forEach(function(product) {
@@ -2676,8 +2706,7 @@ window.filterCategory = function(
 
         } else {
 
-            product.style.display =
-                "none";
+            product.style.display = "none";
 
         }
 
@@ -2692,9 +2721,7 @@ window.filterCategory = function(
 window.showAllProducts = function() {
 
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
     products.forEach(function(product) {
@@ -2805,13 +2832,51 @@ window.login = async function() {
 
     catch (error) {
 
+        console.error(error);
+
         alert(
-            error.message
+            getFriendlyFirebaseError(error)
         );
 
     }
 
 };
+
+
+/* ================= FIREBASE ERROR MESSAGES ================= */
+
+function getFriendlyFirebaseError(error) {
+
+    switch (error.code) {
+
+        case "auth/invalid-email":
+            return "Please enter a valid email address.";
+
+        case "auth/user-not-found":
+            return "No account exists with this email.";
+
+        case "auth/wrong-password":
+        case "auth/invalid-credential":
+            return "Incorrect email or password.";
+
+        case "auth/email-already-in-use":
+            return "An account already exists with this email.";
+
+        case "auth/weak-password":
+            return "Password should be at least 6 characters.";
+
+        case "auth/too-many-requests":
+            return "Too many attempts. Please try again later.";
+
+        case "auth/network-request-failed":
+            return "Network error. Please check your internet connection.";
+
+        default:
+            return error.message || "Something went wrong.";
+
+    }
+
+}
 
 
 /* ================= LOGOUT ================= */
@@ -2831,7 +2896,7 @@ window.logout = async function() {
     catch (error) {
 
         alert(
-            error.message
+            getFriendlyFirebaseError(error)
         );
 
     }
@@ -2856,13 +2921,17 @@ onAuthStateChanged(
             loginButton.innerText =
                 "👤 Account";
 
+
             loginButton.onclick =
                 function() {
 
                     const choice =
                         confirm(
-                            "You are logged in.\n\nClick OK to logout."
+                            "You are logged in as:\n" +
+                            user.email +
+                            "\n\nClick OK to logout."
                         );
+
 
                     if (choice) {
 
@@ -2879,8 +2948,68 @@ onAuthStateChanged(
             loginButton.innerText =
                 "👤 Login";
 
+
             loginButton.onclick =
                 login;
+
+        }
+
+    }
+);
+
+
+/* ================= CLOSE POPUPS WITH ESC ================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key !== "Escape") return;
+
+
+        closeProductDetails();
+
+        closeCart();
+
+        closeCheckout();
+
+    }
+);
+
+
+/* ================= CLICK OUTSIDE PRODUCT DETAILS ================= */
+
+document.getElementById(
+    "productDetailOverlay"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === this
+        ) {
+
+            closeProductDetails();
+
+        }
+
+    }
+);
+
+
+/* ================= CLICK OUTSIDE CART ================= */
+
+document.getElementById(
+    "cartOverlay"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === this
+        ) {
+
+            closeCart();
 
         }
 
