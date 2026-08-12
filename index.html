@@ -1940,6 +1940,10 @@ footer strong {
 
 <script type="module">
 
+/* =========================================================
+   FIREBASE
+========================================================= */
+
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
@@ -1976,36 +1980,126 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
 
 
-/* ================= GLOBAL VARIABLES ================= */
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
 
 let cart = [];
 
 let selectedDetailProduct = null;
 
 let selectedDetailSize = "";
-const selectedColorName =
-    document.getElementById("selectedColorName");
 
-if (selectedColorName) {
-    selectedColorName.innerText = "Black";
+let selectedDetailColor = "Black";
+
+let selectedDetailImages = [];
+
+
+/* =========================================================
+   LOAD CART FROM LOCAL STORAGE
+========================================================= */
+
+try {
+
+    const savedCart = localStorage.getItem("myFootwearCart");
+
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+    }
+
+} catch (error) {
+
+    console.error("Could not load cart:", error);
+
+    cart = [];
+
 }
-document
-    .querySelectorAll(".color-option")
-    .forEach(function(button) {
-        button.classList.remove("selected");
-    });
 
-const firstColor =
-    document.querySelector(".color-option");
 
-if (firstColor) {
-    firstColor.classList.add("selected");
+/* =========================================================
+   SAVE CART
+========================================================= */
+
+function saveCart() {
+
+    try {
+
+        localStorage.setItem(
+            "myFootwearCart",
+            JSON.stringify(cart)
+        );
+
+    } catch (error) {
+
+        console.error("Could not save cart:", error);
+
+    }
+
 }
-/* ================= PRODUCT DETAILS ================= */
+
+
+/* =========================================================
+   IMAGE URL CLEANER
+   Handles both normal URLs and accidental Markdown URLs
+========================================================= */
+
+function cleanImageURL(image) {
+
+    if (!image) {
+        return "";
+    }
+
+    image = String(image).trim();
+
+    /*
+       Handles:
+
+       [https://example.com/image.jpg](https://example.com/image.jpg)
+    */
+
+    const markdownMatch =
+        image.match(/^\[.*?\]\((.*?)\)$/);
+
+    if (markdownMatch) {
+        return markdownMatch[1];
+    }
+
+    return image;
+
+}
+
+
+/* =========================================================
+   CONVERT IMAGE INPUT INTO ARRAY
+========================================================= */
+
+function normalizeImages(images) {
+
+    if (!images) {
+        return [];
+    }
+
+    if (Array.isArray(images)) {
+
+        return images
+            .map(cleanImageURL)
+            .filter(Boolean);
+
+    }
+
+    return [
+        cleanImageURL(images)
+    ].filter(Boolean);
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
 
 window.openProductDetails = function(
     name,
@@ -2014,110 +2108,406 @@ window.openProductDetails = function(
     category,
     images
 ) {
+
+    selectedDetailImages =
+        normalizeImages(images);
+
+    if (selectedDetailImages.length === 0) {
+
+        selectedDetailImages = [
+            "https://via.placeholder.com/800x600?text=My+Footwear"
+        ];
+
+    }
+
+
     selectedDetailProduct = {
+
         name: name,
-        price: price,
-        originalPrice: originalPrice,
+
+        price: Number(price),
+
+        originalPrice: Number(originalPrice),
+
         category: category,
-        image: images[0],
-        images: images
+
+        images: selectedDetailImages,
+
+        image: selectedDetailImages[0],
+
+        color: "Black"
+
     };
+
 
     selectedDetailSize = "";
 
-    document.getElementById("detailName").innerText = name;
+    selectedDetailColor = "Black";
 
-    document.getElementById("detailPrice").innerText =
-        "₹" + price;
 
-    document.getElementById("detailMRP").innerText =
-        "₹" + originalPrice;
+    /* PRODUCT NAME */
+
+    document.getElementById(
+        "detailName"
+    ).innerText = name;
+
+
+    /* PRICE */
+
+    document.getElementById(
+        "detailPrice"
+    ).innerText =
+        "₹" + Number(price).toLocaleString("en-IN");
+
+
+    /* MRP */
+
+    document.getElementById(
+        "detailMRP"
+    ).innerText =
+        "₹" + Number(originalPrice).toLocaleString("en-IN");
+
+
+    /* DISCOUNT */
 
     const discount = Math.round(
-        ((originalPrice - price) / originalPrice) * 100
+        (
+            (Number(originalPrice) - Number(price))
+            /
+            Number(originalPrice)
+        ) * 100
     );
 
-    document.getElementById("detailDiscount").innerText =
+
+    document.getElementById(
+        "detailDiscount"
+    ).innerText =
         discount + "% OFF";
 
-    document.getElementById("detailBadge").innerText =
+
+    document.getElementById(
+        "detailBadge"
+    ).innerText =
         discount + "% OFF";
 
-    document.getElementById("detailCategory").innerText =
+
+    /* CATEGORY */
+
+    document.getElementById(
+        "detailCategory"
+    ).innerText =
         category;
 
-    document.getElementById("detailMainImage").src =
-        images[0];
 
-    document.getElementById("detailThumb1").src =
-        images[0];
+    /* MAIN IMAGE */
 
-    document.getElementById("detailThumb2").src =
-        images[1] || images[0];
+    document.getElementById(
+        "detailMainImage"
+    ).src =
+        selectedDetailImages[0];
 
-    document.getElementById("detailSizeAvailability").innerText = "";
+
+    /* THUMBNAIL 1 */
+
+    document.getElementById(
+        "detailThumb1"
+    ).src =
+        selectedDetailImages[0];
+
+
+    /* THUMBNAIL 2 */
+
+    document.getElementById(
+        "detailThumb2"
+    ).src =
+        selectedDetailImages[1]
+        ||
+        selectedDetailImages[0];
+
+
+    /* THUMBNAIL VISIBILITY */
+
+    const thumb2 =
+        document.getElementById("detailThumb2");
+
+    if (selectedDetailImages.length > 1) {
+
+        thumb2.style.display = "block";
+
+    } else {
+
+        thumb2.style.display = "none";
+
+    }
+
+
+    /* RESET SIZE */
 
     document
-        .querySelectorAll(".detail-size-options button")
-        .forEach(button => {
+        .querySelectorAll(
+            ".detail-size-options button"
+        )
+        .forEach(function(button) {
+
             button.classList.remove("selected");
+
         });
+
+
+    document.getElementById(
+        "detailSizeAvailability"
+    ).innerText = "";
+
+
+    /* RESET COLOR */
+
+    const colorName =
+        document.getElementById(
+            "selectedColorName"
+        );
+
+    if (colorName) {
+        colorName.innerText = "Black";
+    }
+
+
+    document
+        .querySelectorAll(".color-option")
+        .forEach(function(button) {
+
+            button.classList.remove("selected");
+
+        });
+
+
+    const firstColor =
+        document.querySelector(".color-option");
+
+    if (firstColor) {
+        firstColor.classList.add("selected");
+    }
+
+
+    /*
+       Show colour selector only when the product
+       has multiple images.
+    */
+
+    const colorSection =
+        document.querySelector(
+            ".color-options"
+        )?.closest(".detail-section");
+
+
+    if (colorSection) {
+
+        if (selectedDetailImages.length > 1) {
+
+            colorSection.style.display = "";
+
+        } else {
+
+            colorSection.style.display = "none";
+
+        }
+
+    }
+
+
+    /* OPEN POPUP */
 
     document.getElementById(
         "productDetailOverlay"
     ).style.display = "block";
 
-    document.body.classList.add("no-scroll");
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
 };
 
+
+/* =========================================================
+   CLOSE PRODUCT DETAILS
+========================================================= */
 
 window.closeProductDetails = function() {
 
-    document.getElementById(
-        "productDetailOverlay"
-    ).style.display = "none";
+    const overlay =
+        document.getElementById(
+            "productDetailOverlay"
+        );
 
-    document.body.classList.remove("no-scroll");
+    if (overlay) {
+        overlay.style.display = "none";
+    }
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
 
 };
 
+
+/* =========================================================
+   CHANGE DETAIL IMAGE
+========================================================= */
 
 window.changeDetailImage = function(image) {
 
+    const cleanedImage =
+        cleanImageURL(image);
+
+    if (!cleanedImage) {
+        return;
+    }
+
     document.getElementById(
         "detailMainImage"
-    ).src = image;
+    ).src = cleanedImage;
 
-};
-window.selectProductColor = function(button, image, colorName) {
 
-    // Remove selected border from all colours
-    document
-        .querySelectorAll(".color-option")
-        .forEach(function(btn) {
-            btn.classList.remove("selected");
-        });
-
-    // Select clicked colour
-    button.classList.add("selected");
-
-    // Change main product image
-    document.getElementById("detailMainImage").src = image;
-
-    // Change thumbnails
-    document.getElementById("detailThumb1").src = image;
-    document.getElementById("detailThumb2").src = image;
-
-    // Show selected colour name
-    document.getElementById("selectedColorName").innerText = colorName;
-
-    // Save selected colour
     if (selectedDetailProduct) {
-        selectedDetailProduct.image = image;
-        selectedDetailProduct.color = colorName;
+
+        selectedDetailProduct.image =
+            cleanedImage;
+
     }
 
 };
+
+
+/* =========================================================
+   SELECT PRODUCT COLOR
+========================================================= */
+
+window.selectProductColor = function(
+    button,
+    image,
+    colorName
+) {
+
+    if (!selectedDetailProduct) {
+        return;
+    }
+
+
+    /*
+       For the Premium Sports Shoes,
+       automatically use the corresponding
+       image from its actual image array.
+    */
+
+    const colorIndex = {
+
+        "Black": 0,
+
+        "Navy Blue": 2,
+
+        "Grey": 1,
+
+        "White": 3
+
+    };
+
+
+    let selectedImage =
+        selectedDetailImages[
+            colorIndex[colorName]
+        ];
+
+
+    /*
+       If a matching image doesn't exist,
+       use the supplied image.
+    */
+
+    if (!selectedImage) {
+
+        selectedImage =
+            cleanImageURL(image);
+
+    }
+
+
+    /*
+       If still unavailable, use first image.
+    */
+
+    if (!selectedImage) {
+
+        selectedImage =
+            selectedDetailImages[0];
+
+    }
+
+
+    /* Remove selected state */
+
+    document
+        .querySelectorAll(".color-option")
+        .forEach(function(btn) {
+
+            btn.classList.remove("selected");
+
+        });
+
+
+    /* Select clicked colour */
+
+    button.classList.add("selected");
+
+
+    /* Change main image */
+
+    document.getElementById(
+        "detailMainImage"
+    ).src =
+        selectedImage;
+
+
+    /* Change thumbnails */
+
+    document.getElementById(
+        "detailThumb1"
+    ).src =
+        selectedImage;
+
+
+    document.getElementById(
+        "detailThumb2"
+    ).src =
+        selectedImage;
+
+
+    /* Show colour */
+
+    document.getElementById(
+        "selectedColorName"
+    ).innerText =
+        colorName;
+
+
+    /* Save colour */
+
+    selectedDetailColor =
+        colorName;
+
+
+    selectedDetailProduct.color =
+        colorName;
+
+
+    selectedDetailProduct.image =
+        selectedImage;
+
+};
+
+
+/* =========================================================
+   SELECT DETAIL SIZE
+========================================================= */
 
 window.selectDetailSize = function(
     button,
@@ -2125,45 +2515,73 @@ window.selectDetailSize = function(
 ) {
 
     document
-        .querySelectorAll(".detail-size-options button")
-        .forEach(btn => {
+        .querySelectorAll(
+            ".detail-size-options button"
+        )
+        .forEach(function(btn) {
+
             btn.classList.remove("selected");
+
         });
 
 
     button.classList.add("selected");
 
-    selectedDetailSize = size;
+
+    selectedDetailSize =
+        String(size);
 
 
     document.getElementById(
         "detailSizeAvailability"
     ).innerText =
-        "✓ Size " + size + " is available";
+        "✓ Size " +
+        size +
+        " is available";
 
 };
 
 
-/* ================= ADD DETAIL PRODUCT ================= */
+/* =========================================================
+   ADD DETAIL PRODUCT TO CART
+========================================================= */
 
 window.addDetailProductToCart = function() {
 
     if (!selectedDetailProduct) {
-        alert("Product information not found.");
+
+        alert(
+            "Product information not found."
+        );
+
         return;
+
     }
 
 
     if (!selectedDetailSize) {
-        alert("Please select a size first.");
+
+        alert(
+            "Please select a size first."
+        );
+
         return;
+
     }
 
 
     addProductToCart(
+
         selectedDetailProduct.name,
+
         selectedDetailProduct.price,
-        selectedDetailSize
+
+        selectedDetailSize,
+
+        selectedDetailColor,
+
+        selectedDetailProduct.image
+
     );
 
 
@@ -2172,75 +2590,113 @@ window.addDetailProductToCart = function() {
 };
 
 
-/* ================= BUY NOW ================= */
+/* =========================================================
+   BUY NOW
+========================================================= */
 
 window.buyDetailProduct = function() {
 
     if (!selectedDetailProduct) {
-        alert("Product information not found.");
+
+        alert(
+            "Product information not found."
+        );
+
         return;
+
     }
 
 
     if (!selectedDetailSize) {
-        alert("Please select a size first.");
+
+        alert(
+            "Please select a size first."
+        );
+
         return;
+
     }
 
 
     addProductToCart(
+
         selectedDetailProduct.name,
+
         selectedDetailProduct.price,
-        selectedDetailSize
+
+        selectedDetailSize,
+
+        selectedDetailColor,
+
+        selectedDetailProduct.image
+
     );
 
 
     closeProductDetails();
+
 
     openCheckout();
 
 };
 
 
-/* ================= CART CORE ================= */
+/* =========================================================
+   ADD PRODUCT TO CART
+========================================================= */
 
 function addProductToCart(
     name,
     price,
-    size
+    size,
+    color = "Black",
+    image = ""
 ) {
 
-   const selectedColor =
-    selectedDetailProduct.color || "Black";
+    const existingProduct =
+        cart.find(function(item) {
 
-const selectedColor =
-    selectedDetailProduct.color || "Black";
+            return (
 
-const existingProduct = cart.find(
-    item =>
-        item.name === selectedDetailProduct.name &&
-        item.color === selectedColor &&
-        item.size === selectedDetailSize
-);
+                item.name === name &&
+
+                item.size === String(size) &&
+
+                item.color === color
+
+            );
+
+        });
+
+
     if (existingProduct) {
 
         existingProduct.quantity++;
 
-    } else {
+    }
 
-       cart.push({
+    else {
 
-    name: selectedDetailProduct.name,
+        cart.push({
 
-    price: selectedDetailProduct.price,
+            name: name,
 
-    color: selectedDetailProduct.color || "Black",
+            price: Number(price),
 
-    size: selectedDetailSize,
+            size: String(size),
 
-    quantity: 1
+            color: color || "Black",
 
-});
+            image: image || "",
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
 
     updateCart();
 
@@ -2255,6 +2711,10 @@ const existingProduct = cart.find(
 }
 
 
+/* =========================================================
+   ADD FROM PRODUCT CARD
+========================================================= */
+
 window.addToCartWithSize = function(
     name,
     price,
@@ -2267,63 +2727,125 @@ window.addToCartWithSize = function(
 
     if (!sizeElement) {
 
-        alert("Size selector not found.");
+        alert(
+            "Size selector not found."
+        );
 
         return;
 
     }
 
 
-    const size = sizeElement.value;
+    const size =
+        sizeElement.value;
 
 
     if (!size) {
 
-        alert("Please select a size first.");
+        alert(
+            "Please select a size first."
+        );
 
         return;
 
     }
 
 
+    /*
+       Card products don't have a selected
+       popup colour, so default to Black.
+    */
+
     addProductToCart(
+
         name,
-        price,
-        size
+
+        Number(price),
+
+        size,
+
+        "Black",
+
+        ""
+
     );
 
 };
 
 
-/* ================= UPDATE CART ================= */
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart() {
 
     const cartCount =
         cart.reduce(
-            (total, item) =>
-                total + item.quantity,
+            function(total, item) {
+
+                return total + item.quantity;
+
+            },
             0
         );
 
 
-    document.getElementById(
-        "cartCount"
-    ).innerText = cartCount;
+    const countElement =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    if (countElement) {
+
+        countElement.innerText =
+            cartCount;
+
+    }
 
 
     const cartItems =
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    if (!cartItems || !cartTotal) {
+        return;
+    }
 
 
     if (cart.length === 0) {
 
         cartItems.innerHTML =
-            "<p>Your cart is empty.</p>";
+            `
+            <div style="
+                text-align:center;
+                padding:40px 10px;
+                color:#777;
+            ">
+                <div style="
+                    font-size:50px;
+                    margin-bottom:15px;
+                ">
+                    🛒
+                </div>
 
-        document.getElementById(
-            "cartTotal"
-        ).innerText = "0";
+                <h3>Your cart is empty</h3>
+
+                <p style="margin-top:8px;">
+                    Add some footwear to your cart.
+                </p>
+            </div>
+            `;
+
+        cartTotal.innerText = "0";
 
         return;
 
@@ -2336,97 +2858,129 @@ function updateCart() {
     cartItems.innerHTML = "";
 
 
-    cart.forEach(function(item, index) {
+    cart.forEach(
+        function(item, index) {
 
-        const itemTotal =
-            item.price * item.quantity;
+            const itemTotal =
+                Number(item.price) *
+                Number(item.quantity);
 
 
-        total += itemTotal;
+            total += itemTotal;
 
 
-        cartItems.innerHTML += `
+            const safeName =
+                escapeHTML(item.name);
 
-            <div class="cart-item">
+            const safeColor =
+                escapeHTML(
+                    item.color || "Black"
+                );
 
-                <div class="cart-item-info">
+            const safeSize =
+                escapeHTML(
+                    item.size || ""
+                );
 
-                   <h3>
-    ${item.name}
-    ${item.color
-        ? " - " + item.color
-        : ""}
-    ${item.size
-        ? " - Size " + item.size
-        : ""}
-</h3>
 
-                    <div class="cart-price">
-                        ₹${item.price}
+            cartItems.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div class="cart-item-info">
+
+                        <h3>
+                            ${safeName}
+                        </h3>
+
+                        <div style="
+                            font-size:13px;
+                            color:#777;
+                            margin-bottom:5px;
+                        ">
+                            Colour: ${safeColor}
+                            <br>
+                            Size: ${safeSize}
+                        </div>
+
+                        <div class="cart-price">
+                            ₹${Number(item.price).toLocaleString("en-IN")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="quantity-controls">
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
+                            −
+                        </button>
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
+                            +
+                        </button>
+
+                        <button
+                            class="remove-item"
+                            onclick="removeFromCart(${index})">
+                            ×
+                        </button>
+
                     </div>
 
                 </div>
 
-                <div class="quantity-controls">
+            `;
 
-                    <button
-                        onclick="changeQuantity(${index}, -1)">
-                        −
-                    </button>
-
-                    <span>
-                        ${item.quantity}
-                    </span>
-
-                    <button
-                        onclick="changeQuantity(${index}, 1)">
-                        +
-                    </button>
-
-                    <button
-                        class="remove-item"
-                        onclick="removeFromCart(${index})">
-                        ×
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
+        }
+    );
 
 
-    document.getElementById(
-        "cartTotal"
-    ).innerText = total;
+    cartTotal.innerText =
+        total.toLocaleString("en-IN");
 
 }
 
 
-/* Prevent HTML injection inside cart text */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(text) {
 
     return String(text)
+
         .replace(/&/g, "&amp;")
+
         .replace(/</g, "&lt;")
+
         .replace(/>/g, "&gt;")
+
         .replace(/"/g, "&quot;")
+
         .replace(/'/g, "&#039;");
 
 }
 
 
-/* ================= QUANTITY ================= */
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
 
 window.changeQuantity = function(
     index,
     change
 ) {
 
-    if (!cart[index]) return;
+    if (!cart[index]) {
+        return;
+    }
 
 
     cart[index].quantity += change;
@@ -2439,24 +2993,37 @@ window.changeQuantity = function(
     }
 
 
+    saveCart();
+
     updateCart();
 
 };
 
 
+/* =========================================================
+   REMOVE FROM CART
+========================================================= */
+
 window.removeFromCart = function(index) {
 
-    if (!cart[index]) return;
+    if (!cart[index]) {
+        return;
+    }
 
 
     cart.splice(index, 1);
 
+
+    saveCart();
+
     updateCart();
 
 };
 
 
-/* ================= SHOW CART ================= */
+/* =========================================================
+   SHOW CART
+========================================================= */
 
 window.showCart = function() {
 
@@ -2465,7 +3032,8 @@ window.showCart = function() {
 
     document.getElementById(
         "cartOverlay"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     document.body.classList.add(
@@ -2475,11 +3043,16 @@ window.showCart = function() {
 };
 
 
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
 window.closeCart = function() {
 
     document.getElementById(
         "cartOverlay"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.body.classList.remove(
@@ -2489,13 +3062,17 @@ window.closeCart = function() {
 };
 
 
-/* ================= CHECKOUT ================= */
+/* =========================================================
+   OPEN CHECKOUT
+========================================================= */
 
 window.openCheckout = function() {
 
     if (cart.length === 0) {
 
-        alert("Your cart is empty.");
+        alert(
+            "Your cart is empty."
+        );
 
         return;
 
@@ -2504,12 +3081,14 @@ window.openCheckout = function() {
 
     document.getElementById(
         "cartOverlay"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "checkoutForm"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     document.body.classList.add(
@@ -2519,11 +3098,16 @@ window.openCheckout = function() {
 };
 
 
+/* =========================================================
+   CLOSE CHECKOUT
+========================================================= */
+
 window.closeCheckout = function() {
 
     document.getElementById(
         "checkoutForm"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.body.classList.remove(
@@ -2533,7 +3117,9 @@ window.closeCheckout = function() {
 };
 
 
-/* ================= WHATSAPP ORDER ================= */
+/* =========================================================
+   WHATSAPP ORDER
+========================================================= */
 
 window.placeWhatsAppOrder = function() {
 
@@ -2584,7 +3170,9 @@ window.placeWhatsAppOrder = function() {
     }
 
 
-    if (!/^[0-9]{10}$/.test(phone)) {
+    if (
+        !/^[0-9]{10}$/.test(phone)
+    ) {
 
         alert(
             "Please enter a valid 10-digit mobile number."
@@ -2595,7 +3183,9 @@ window.placeWhatsAppOrder = function() {
     }
 
 
-    if (!/^[0-9]{6}$/.test(pincode)) {
+    if (
+        !/^[0-9]{6}$/.test(pincode)
+    ) {
 
         alert(
             "Please enter a valid 6-digit PIN code."
@@ -2608,7 +3198,9 @@ window.placeWhatsAppOrder = function() {
 
     if (cart.length === 0) {
 
-        alert("Your cart is empty.");
+        alert(
+            "Your cart is empty."
+        );
 
         return;
 
@@ -2619,52 +3211,82 @@ window.placeWhatsAppOrder = function() {
 
 
     let orderMessage =
-        "🛍️ *MY FOOTWEAR ORDER*\n\n";
+        "*🛍️ MY FOOTWEAR ORDER*\n\n";
 
 
     orderMessage +=
         "*Customer Details*\n";
 
-    orderMessage +=
-        "Name: " + name + "\n";
 
     orderMessage +=
-        "Phone: " + phone + "\n";
+        "Name: " +
+        name +
+        "\n";
+
 
     orderMessage +=
-        "Address: " + address + "\n";
+        "Phone: " +
+        phone +
+        "\n";
+
 
     orderMessage +=
-        "City: " + city + "\n";
+        "Address: " +
+        address +
+        "\n";
+
 
     orderMessage +=
-        "PIN: " + pincode + "\n\n";
+        "City: " +
+        city +
+        "\n";
+
+
+    orderMessage +=
+        "PIN: " +
+        pincode +
+        "\n\n";
 
 
     orderMessage +=
         "*Order Items*\n";
 
 
-    cart.forEach(function(item) {
+    cart.forEach(
+        function(item) {
 
-        const itemTotal =
-            item.price * item.quantity;
+            const itemTotal =
+                Number(item.price) *
+                Number(item.quantity);
 
 
-        total += itemTotal;
+            total += itemTotal;
 
 
-        orderMessage +=
-            item.name +
-            " | Size: " +
-            item.size +
-            " | Qty: " +
-            item.quantity +
-            " | ₹" +
-            itemTotal +
-            "\n";
+            orderMessage +=
 
-    });
+                item.name +
+
+                " | Colour: " +
+
+                (item.color || "Black") +
+
+                " | Size: " +
+
+                item.size +
+
+                " | Qty: " +
+
+                item.quantity +
+
+                " | ₹" +
+
+                itemTotal +
+
+                "\n";
+
+        }
+    );
 
 
     orderMessage +=
@@ -2681,7 +3303,7 @@ window.placeWhatsAppOrder = function() {
         "Delivery: Home Delivery";
 
 
-    /* Your My Footwear WhatsApp number */
+    /* YOUR WHATSAPP NUMBER */
 
     const whatsappNumber =
         "917758827177";
@@ -2704,7 +3326,9 @@ window.placeWhatsAppOrder = function() {
 };
 
 
-/* ================= SEARCH ================= */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 window.searchProducts = function() {
 
@@ -2717,42 +3341,51 @@ window.searchProducts = function() {
 
 
     const products =
-        document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
 
 
-    products.forEach(function(product) {
+    products.forEach(
+        function(product) {
 
-        const name =
-            product
-                .querySelector("h3")
-                .textContent
-                .toLowerCase();
-
-
-        const category =
-            product.dataset.category
-                .toLowerCase();
+            const name =
+                product
+                    .querySelector("h3")
+                    .textContent
+                    .toLowerCase();
 
 
-        if (
-            name.includes(text) ||
-            category.includes(text)
-        ) {
+            const category =
+                product.dataset.category
+                    .toLowerCase();
 
-            product.style.display = "";
 
-        } else {
+            if (
+                name.includes(text) ||
+                category.includes(text)
+            ) {
 
-            product.style.display = "none";
+                product.style.display = "";
+
+            }
+
+            else {
+
+                product.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
 };
 
 
-/* ================= FILTER ================= */
+/* =========================================================
+   FILTER CATEGORY
+========================================================= */
 
 window.filterCategory = function(
     category
@@ -2764,25 +3397,32 @@ window.filterCategory = function(
 
 
     const products =
-        document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
 
 
-    products.forEach(function(product) {
+    products.forEach(
+        function(product) {
 
-        if (
-            product.dataset.category ===
-            category
-        ) {
+            if (
+                product.dataset.category ===
+                category
+            ) {
 
-            product.style.display = "";
+                product.style.display = "";
 
-        } else {
+            }
 
-            product.style.display = "none";
+            else {
+
+                product.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
 
     scrollToProducts();
@@ -2790,17 +3430,25 @@ window.filterCategory = function(
 };
 
 
+/* =========================================================
+   SHOW ALL PRODUCTS
+========================================================= */
+
 window.showAllProducts = function() {
 
     const products =
-        document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
 
 
-    products.forEach(function(product) {
+    products.forEach(
+        function(product) {
 
-        product.style.display = "";
+            product.style.display = "";
 
-    });
+        }
+    );
 
 
     document.getElementById(
@@ -2812,6 +3460,10 @@ window.showAllProducts = function() {
 
 };
 
+
+/* =========================================================
+   SCROLL TO PRODUCTS
+========================================================= */
 
 window.scrollToProducts = function() {
 
@@ -2824,7 +3476,9 @@ window.scrollToProducts = function() {
 };
 
 
-/* ================= LOGIN / SIGN UP ================= */
+/* =========================================================
+   FIREBASE LOGIN / SIGN UP
+========================================================= */
 
 window.login = async function() {
 
@@ -2849,17 +3503,32 @@ window.login = async function() {
 
 
     const email =
-        prompt("Enter your email:");
+        prompt(
+            "Enter your email:"
+        );
+
+
+    if (!email) {
+
+        alert(
+            "Please enter your email."
+        );
+
+        return;
+
+    }
 
 
     const password =
-        prompt("Enter your password:");
+        prompt(
+            "Enter your password:"
+        );
 
 
-    if (!email || !password) {
+    if (!password) {
 
         alert(
-            "Please enter email and password."
+            "Please enter your password."
         );
 
         return;
@@ -2873,7 +3542,7 @@ window.login = async function() {
 
             await signInWithEmailAndPassword(
                 auth,
-                email,
+                email.trim(),
                 password
             );
 
@@ -2885,11 +3554,11 @@ window.login = async function() {
         }
 
 
-        if (choice === "2") {
+        else if (choice === "2") {
 
             await createUserWithEmailAndPassword(
                 auth,
-                email,
+                email.trim(),
                 password
             );
 
@@ -2904,7 +3573,11 @@ window.login = async function() {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "Firebase Auth Error:",
+            error
+        );
+
 
         alert(
             getFriendlyFirebaseError(error)
@@ -2915,49 +3588,96 @@ window.login = async function() {
 };
 
 
-/* ================= FIREBASE ERROR MESSAGES ================= */
+/* =========================================================
+   FIREBASE ERROR MESSAGES
+========================================================= */
 
-function getFriendlyFirebaseError(error) {
+function getFriendlyFirebaseError(
+    error
+) {
 
     switch (error.code) {
 
         case "auth/invalid-email":
-            return "Please enter a valid email address.";
+
+            return (
+                "Please enter a valid email address."
+            );
+
 
         case "auth/user-not-found":
-            return "No account exists with this email.";
+
+            return (
+                "No account exists with this email."
+            );
+
 
         case "auth/wrong-password":
+
         case "auth/invalid-credential":
-            return "Incorrect email or password.";
+
+            return (
+                "Incorrect email or password."
+            );
+
 
         case "auth/email-already-in-use":
-            return "An account already exists with this email.";
+
+            return (
+                "An account already exists with this email."
+            );
+
 
         case "auth/weak-password":
-            return "Password should be at least 6 characters.";
+
+            return (
+                "Password should be at least 6 characters."
+            );
+
 
         case "auth/too-many-requests":
-            return "Too many attempts. Please try again later.";
+
+            return (
+                "Too many attempts. Please try again later."
+            );
+
 
         case "auth/network-request-failed":
-            return "Network error. Please check your internet connection.";
+
+            return (
+                "Network error. Please check your internet connection."
+            );
+
+
+        case "auth/operation-not-allowed":
+
+            return (
+                "Email/Password login is not enabled in Firebase."
+            );
+
 
         default:
-            return error.message || "Something went wrong.";
+
+            return (
+                error.message ||
+                "Something went wrong. Please try again."
+            );
 
     }
 
 }
 
 
-/* ================= LOGOUT ================= */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 window.logout = async function() {
 
     try {
 
         await signOut(auth);
+
 
         alert(
             "You have been logged out."
@@ -2967,6 +3687,9 @@ window.logout = async function() {
 
     catch (error) {
 
+        console.error(error);
+
+
         alert(
             getFriendlyFirebaseError(error)
         );
@@ -2976,7 +3699,9 @@ window.logout = async function() {
 };
 
 
-/* ================= ACCOUNT STATUS ================= */
+/* =========================================================
+   FIREBASE ACCOUNT STATUS
+========================================================= */
 
 onAuthStateChanged(
     auth,
@@ -2988,6 +3713,11 @@ onAuthStateChanged(
             );
 
 
+        if (!loginButton) {
+            return;
+        }
+
+
         if (user) {
 
             loginButton.innerText =
@@ -2997,15 +3727,19 @@ onAuthStateChanged(
             loginButton.onclick =
                 function() {
 
-                    const choice =
+                    const logoutConfirm =
                         confirm(
+
                             "You are logged in as:\n" +
+
                             user.email +
+
                             "\n\nClick OK to logout."
+
                         );
 
 
-                    if (choice) {
+                    if (logoutConfirm) {
 
                         logout();
 
@@ -3030,13 +3764,19 @@ onAuthStateChanged(
 );
 
 
-/* ================= CLOSE POPUPS WITH ESC ================= */
+/* =========================================================
+   ESC KEY
+========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
-        if (event.key !== "Escape") return;
+        if (
+            event.key !== "Escape"
+        ) {
+            return;
+        }
 
 
         closeProductDetails();
@@ -3049,46 +3789,73 @@ document.addEventListener(
 );
 
 
-/* ================= CLICK OUTSIDE PRODUCT DETAILS ================= */
+/* =========================================================
+   CLICK OUTSIDE PRODUCT DETAILS
+========================================================= */
 
-document.getElementById(
-    "productDetailOverlay"
-).addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target === this
-        ) {
-
-            closeProductDetails();
-
-        }
-
-    }
-);
+const productDetailOverlay =
+    document.getElementById(
+        "productDetailOverlay"
+    );
 
 
-/* ================= CLICK OUTSIDE CART ================= */
+if (productDetailOverlay) {
 
-document.getElementById(
-    "cartOverlay"
-).addEventListener(
-    "click",
-    function(event) {
+    productDetailOverlay.addEventListener(
+        "click",
+        function(event) {
 
-        if (
-            event.target === this
-        ) {
+            if (
+                event.target === this
+            ) {
 
-            closeCart();
+                closeProductDetails();
+
+            }
 
         }
+    );
 
-    }
-);
+}
+
+
+/* =========================================================
+   CLICK OUTSIDE CART
+========================================================= */
+
+const cartOverlay =
+    document.getElementById(
+        "cartOverlay"
+    );
+
+
+if (cartOverlay) {
+
+    cartOverlay.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeCart();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INITIAL CART DISPLAY
+========================================================= */
+
+updateCart();
+
 
 </script>
-
 </body>
 </html>
