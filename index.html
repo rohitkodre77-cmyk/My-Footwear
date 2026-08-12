@@ -8,890 +8,905 @@
 
 <style>
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-background: #f7f7f7;
-color: #111;
+    background: #f7f7f7;
+    color: #111;
 }
 
 body.no-scroll {
-overflow: hidden;
+    overflow: hidden;
 }
 
 /* ================= HEADER ================= */
 
 header {
-background: #111;
-color: white;
-padding: 15px 5%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 20px;
-position: sticky;
-top: 0;
-z-index: 1000;
+    background: #111;
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-font-size: 28px;
-font-weight: 900;
-letter-spacing: 2px;
-color: #d4af37;
-white-space: nowrap;
-text-transform: uppercase;
-cursor: pointer;
-text-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
-transition: 0.3s ease;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #d4af37;
+    white-space: nowrap;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
+    transition: 0.3s ease;
 }
 
 .logo:hover {
-transform: scale(1.05);
-letter-spacing: 3px;
-text-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+    transform: scale(1.05);
+    letter-spacing: 3px;
+    text-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
 }
+
 .logo span {
-color: #ffffff;
+    color: #ffffff;
 }
+
 .search-box {
-flex: 1;
-max-width: 500px;
+    flex: 1;
+    max-width: 500px;
 }
 
 .search-box input {
-width: 100%;
-padding: 12px 18px;
-border: none;
-border-radius: 25px;
-outline: none;
-font-size: 15px;
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 15px;
 }
 
 .header-buttons {
-display: flex;
-gap: 8px;
+    display: flex;
+    gap: 8px;
 }
 
 .header-buttons button {
-padding: 10px 14px;
-border: 1px solid #d4af37;
-background: transparent;
-color: white;
-border-radius: 20px;
-cursor: pointer;
-transition: 0.3s;
+    padding: 10px 14px;
+    border: 1px solid #d4af37;
+    background: transparent;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .header-buttons button:hover {
-background: #d4af37;
-color: #111;
+    background: #d4af37;
+    color: #111;
 }
 
 /* ================= HERO ================= */
 
 .hero {
-min-height: 450px;
+    min-height: 450px;
 
-background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-    url("[https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80](https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format\&fit=crop\&w=1600\&q=80)");
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80");
 
-background-size: cover;
-background-position: center;
+    background-size: cover;
+    background-position: center;
 
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-text-align: center;
-color: white;
-
-padding: 40px 20px;
-
-
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
 }
 
 .hero-content h1 {
-font-size: 55px;
-color: #d4af37;
-margin-bottom: 10px;
+    font-size: 55px;
+    color: #d4af37;
+    margin-bottom: 10px;
 }
 
 .hero-content p {
-font-size: 20px;
-margin-bottom: 25px;
+    font-size: 20px;
+    margin-bottom: 25px;
 }
 
 .shop-btn {
-background: #d4af37;
-color: #111;
-padding: 14px 30px;
-border: none;
-border-radius: 30px;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
-transition: 0.3s;
+    background: #d4af37;
+    color: #111;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .shop-btn:hover {
-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* ================= SECTIONS ================= */
 
 section {
-padding: 45px 5%;
+    padding: 45px 5%;
 }
 
 .section-title {
-text-align: center;
-margin-bottom: 30px;
-font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
 }
 
 .section-title span {
-color: #d4af37;
+    color: #d4af37;
 }
 
 /* ================= CATEGORIES ================= */
 
 .categories {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
 }
 
 .category {
-background: white;
-padding: 25px 10px;
-text-align: center;
-border-radius: 15px;
-box-shadow: 0 4px 15px rgba(0,0,0,.08);
-cursor: pointer;
-transition: .3s;
+    background: white;
+    padding: 25px 10px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    cursor: pointer;
+    transition: .3s;
 }
 
 .category:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
 .category-icon {
-font-size: 40px;
-margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .category h3 {
-font-size: 16px;
+    font-size: 16px;
 }
 
 /* ================= PRODUCTS ================= */
 
 .products {
-display: grid;
-grid-template-columns: repeat(4, minmax(0, 1fr));
-gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .product {
-background: white;
-border-radius: 15px;
-overflow: hidden;
-box-shadow: 0 5px 18px rgba(0,0,0,.10);
-transition: .3s;
-border: 1px solid #eee;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,.10);
+    transition: .3s;
+    border: 1px solid #eee;
 }
 
 .product:hover {
-transform: translateY(-7px);
-box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
 
 .product-image-container {
-position: relative;
-cursor: pointer;
-overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .product img {
-width: 100%;
-height: 220px;
-object-fit: cover;
-display: block;
-transition: transform 0.4s ease;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
 .product:hover img {
-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .product-discount {
-position: absolute;
-top: 12px;
-left: 12px;
-background: #d4af37;
-color: #111;
-padding: 6px 10px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: bold;
-z-index: 2;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #d4af37;
+    color: #111;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
 }
 
 .product-info {
-padding: 15px;
+    padding: 15px;
 }
 
 .product-info h3 {
-margin-bottom: 8px;
-font-size: 17px;
-font-weight: 600;
-line-height: 1.3;
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .price-row {
-display: flex;
-align-items: center;
-gap: 8px;
-margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .price {
-color: #d4af37;
-font-size: 20px;
-font-weight: 700;
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .original-price {
-color: #888;
-text-decoration: line-through;
-font-size: 14px;
+    color: #888;
+    text-decoration: line-through;
+    font-size: 14px;
 }
 
 .size-select {
-width: 100%;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 8px;
-margin-bottom: 10px;
-background: white;
-cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: white;
+    cursor: pointer;
 }
 
 .add-cart {
-width: 100%;
-padding: 12px;
-border: none;
-border-radius: 8px;
-background: #111;
-color: white;
-cursor: pointer;
-font-weight: 600;
-transition: 0.3s;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #111;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .add-cart:hover {
-background: #d4af37;
-color: #111;
+    background: #d4af37;
+    color: #111;
 }
 
 /* ================= CART ================= */
 
 .cart-overlay {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,.6);
-z-index: 2000;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 2000;
 }
 
 .cart-box {
-position: absolute;
-right: 0;
-top: 0;
-width: 100%;
-max-width: 450px;
-height: 100%;
-background: white;
-padding: 25px;
-overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background: white;
+    padding: 25px;
+    overflow-y: auto;
 }
 
 .cart-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .close-cart {
-background: #111;
-color: white;
-border: none;
-width: 35px;
-height: 35px;
-border-radius: 50%;
-cursor: pointer;
-font-size: 20px;
+    background: #111;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .cart-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 10px;
-padding: 15px 0;
-border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .cart-item-info {
-flex: 1;
+    flex: 1;
 }
 
 .cart-item-info h3 {
-font-size: 16px;
-margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .cart-price {
-color: #b08d20;
-font-weight: bold;
+    color: #b08d20;
+    font-weight: bold;
+}
+
+.cart-item-image {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .quantity-controls {
-display: flex;
-align-items: center;
-gap: 7px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
 }
 
 .quantity-controls button {
-width: 28px;
-height: 28px;
-border: none;
-background: #111;
-color: white;
-border-radius: 5px;
-cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #111;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .remove-item {
-background: #d32f2f !important;
+    background: #d32f2f !important;
 }
 
 .cart-total {
-margin-top: 25px;
-padding-top: 20px;
-border-top: 2px solid #111;
-font-size: 21px;
-font-weight: bold;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #111;
+    font-size: 21px;
+    font-weight: bold;
 }
 
 .checkout-btn {
-width: 100%;
-padding: 14px;
-margin-top: 15px;
-border: none;
-border-radius: 8px;
-background: #d4af37;
-color: #111;
-font-weight: bold;
-font-size: 16px;
-cursor: pointer;
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #d4af37;
+    color: #111;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /* ================= CHECKOUT ================= */
 
 .checkout-form {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,.7);
-z-index: 3000;
-overflow-y: auto;
-padding: 20px;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 3000;
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .checkout-box {
-background: white;
-width: 95%;
-max-width: 500px;
-margin: 40px auto;
-padding: 25px;
-border-radius: 15px;
+    background: white;
+    width: 95%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .checkout-box h2 {
-margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .checkout-box input,
 .checkout-box textarea {
-width: 100%;
-padding: 13px;
-margin-bottom: 12px;
-border: 1px solid #ccc;
-border-radius: 8px;
-outline: none;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
 }
 
 .checkout-box textarea {
-height: 90px;
-resize: vertical;
+    height: 90px;
+    resize: vertical;
 }
 
 .payment-option {
-background: #f5f5f5;
-padding: 14px;
-border-radius: 8px;
-margin: 10px 0;
+    background: #f5f5f5;
+    padding: 14px;
+    border-radius: 8px;
+    margin: 10px 0;
 }
 
 .whatsapp-order {
-background: #25D366;
-color: white;
-width: 100%;
-padding: 14px;
-border: none;
-border-radius: 8px;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
+    background: #25D366;
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .cancel-checkout {
-width: 100%;
-padding: 12px;
-margin-top: 10px;
-background: #111;
-color: white;
-border: none;
-border-radius: 8px;
-cursor: pointer;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 /* ================= PRODUCT DETAILS ================= */
 
 .product-detail-overlay {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,.75);
-z-index: 5000;
-overflow-y: auto;
-padding: 30px 15px;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    z-index: 5000;
+    overflow-y: auto;
+    padding: 30px 15px;
 }
 
 .product-detail-box {
-position: relative;
-background: white;
-width: 95%;
-max-width: 1100px;
-margin: auto;
-border-radius: 18px;
-overflow: hidden;
-box-shadow: 0 15px 50px rgba(0,0,0,.3);
+    position: relative;
+    background: white;
+    width: 95%;
+    max-width: 1100px;
+    margin: auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
 }
 
 .product-detail-close {
-position: absolute;
-right: 18px;
-top: 18px;
-z-index: 10;
-width: 42px;
-height: 42px;
-border: none;
-border-radius: 50%;
-background: #111;
-color: white;
-font-size: 25px;
-cursor: pointer;
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .product-detail-close:hover {
-background: #d4af37;
-color: #111;
+    background: #d4af37;
+    color: #111;
 }
 
 .product-detail-content {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 35px;
-padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 35px;
 }
 
 .product-detail-images {
-position: relative;
+    position: relative;
 }
 
 .discount-badge {
-position: absolute;
-top: 15px;
-left: 15px;
-z-index: 2;
-background: #d4af37;
-color: #111;
-padding: 8px 14px;
-border-radius: 20px;
-font-weight: bold;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    background: #d4af37;
+    color: #111;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
 .detail-main-image {
-width: 100%;
-height: 430px;
-object-fit: cover;
-border-radius: 15px;
-background: #f7f7f7;
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #f7f7f7;
 }
 
 .detail-thumbnails {
-display: flex;
-gap: 12px;
-margin-top: 15px;
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
 }
 
 .detail-thumbnails img {
-width: 75px;
-height: 75px;
-object-fit: cover;
-border-radius: 10px;
-border: 2px solid #ddd;
-cursor: pointer;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    cursor: pointer;
 }
 
 .detail-thumbnails img:hover {
-border-color: #d4af37;
+    border-color: #d4af37;
+}
+
+.detail-thumbnails img.active {
+    border-color: #d4af37;
 }
 
 .product-detail-info {
-padding: 10px 5px;
+    padding: 10px 5px;
 }
 
 .breadcrumb {
-color: #777;
-font-size: 14px;
-margin-bottom: 15px;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 .breadcrumb span {
-color: #111;
-font-weight: bold;
+    color: #111;
+    font-weight: bold;
 }
 
 .product-detail-info h1 {
-font-size: 30px;
-margin-bottom: 10px;
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .detail-rating {
-margin-bottom: 20px;
-color: #555;
+    margin-bottom: 20px;
+    color: #555;
 }
 
 .detail-price {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 20px;
-flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .detail-price-main {
-font-size: 30px;
-font-weight: bold;
-color: #d4af37;
+    font-size: 30px;
+    font-weight: bold;
+    color: #d4af37;
 }
 
 .detail-mrp {
-color: #888;
-text-decoration: line-through;
-font-size: 18px;
+    color: #888;
+    text-decoration: line-through;
+    font-size: 18px;
 }
 
 .detail-discount {
-color: #219653;
-font-weight: bold;
+    color: #219653;
+    font-weight: bold;
 }
 
 .bank-offer {
-background: #fff9e6;
-border: 1px solid #ead58b;
-padding: 15px;
-border-radius: 10px;
-margin-bottom: 22px;
-line-height: 1.6;
+    background: #fff9e6;
+    border: 1px solid #ead58b;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    line-height: 1.6;
 }
 
 .detail-section {
-margin-bottom: 22px;
+    margin-bottom: 22px;
 }
 
 .detail-section h3 {
-margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .color-options {
-display: flex;
-gap: 12px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .color-option {
-width: 38px;
-height: 38px;
-border-radius: 50%;
-border: 2px solid #ddd;
-background: white;
-cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
 }
 
 .color-option.selected {
-border: 3px solid #d4af37;
+    border: 3px solid #d4af37;
 }
 
 .color-option.black {
-background: #111;
+    background: #111;
 }
 
 .color-option.grey {
-background: #777;
+    background: #777;
 }
+
 .color-option.navy {
-background: #1f3a5f;
+    background: #1f3a5f;
 }
 
 .color-option.white {
-background: white;
-border: 2px solid #aaa;
+    background: white;
+    border: 2px solid #aaa;
 }
+
 .size-title {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .size-title span {
-color: #d4af37;
-font-weight: bold;
+    color: #d4af37;
+    font-weight: bold;
 }
 
 .detail-size-options {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .detail-size-options button {
-width: 55px;
-height: 48px;
-background: white;
-border: 1px solid #ccc;
-border-radius: 10px;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
+    width: 55px;
+    height: 48px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .detail-size-options button:hover {
-border-color: #d4af37;
+    border-color: #d4af37;
 }
 
 .detail-size-options button.selected {
-background: #fff9e6;
-border: 2px solid #d4af37;
+    background: #fff9e6;
+    border: 2px solid #d4af37;
 }
 
 .detail-availability {
-color: #219653;
-font-weight: bold;
-margin-top: 10px;
-min-height: 20px;
+    color: #219653;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 20px;
 }
 
 .detail-actions {
-display: flex;
-gap: 12px;
-margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 
 .detail-add-cart,
 .detail-buy-now {
-flex: 1;
-padding: 15px;
-border: none;
-border-radius: 9px;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .detail-add-cart {
-background: #111;
-color: white;
+    background: #111;
+    color: white;
 }
 
 .detail-buy-now {
-background: #d4af37;
-color: #111;
+    background: #d4af37;
+    color: #111;
 }
 
 .service-features {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 12px;
-margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
 }
 
 .service-features div {
-background: #f7f7f7;
-padding: 13px;
-border-radius: 10px;
-font-size: 14px;
+    background: #f7f7f7;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 14px;
 }
 
 .service-features strong {
-display: block;
-margin: 4px 0;
+    display: block;
+    margin: 4px 0;
 }
 
 .service-features small {
-color: #777;
+    color: #777;
 }
 
 /* ================= FOOTER ================= */
 
 footer {
-background: #111;
-color: white;
-text-align: center;
-padding: 30px 20px;
-margin-top: 30px;
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 30px;
 }
 
 footer strong {
-color: #d4af37;
+    color: #d4af37;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
-
-.products {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-
+    .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 700px) {
 
-header {
-    flex-wrap: wrap;
-}
+    header {
+        flex-wrap: wrap;
+    }
 
-.logo {
-    width: 100%;
-    text-align: center;
-}
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
 
-.search-box {
-    order: 3;
-    max-width: 100%;
-    width: 100%;
-}
+    .search-box {
+        order: 3;
+        max-width: 100%;
+        width: 100%;
+    }
 
-.header-buttons {
-    margin: auto;
-}
+    .header-buttons {
+        margin: auto;
+    }
 
-.hero {
-    min-height: 400px;
-}
+    .hero {
+        min-height: 400px;
+    }
 
-.hero-content h1 {
-    font-size: 40px;
-}
+    .hero-content h1 {
+        font-size: 40px;
+    }
 
-.hero-content p {
-    font-size: 17px;
-}
+    .hero-content p {
+        font-size: 17px;
+    }
 
-.products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
 
-.product img {
-    height: 160px;
-}
+    .product img {
+        height: 160px;
+    }
 
-.product-info {
-    padding: 10px;
-}
+    .product-info {
+        padding: 10px;
+    }
 
-.product-info h3 {
-    font-size: 15px;
-}
+    .product-info h3 {
+        font-size: 15px;
+    }
 
-.price {
-    font-size: 16px;
-}
+    .price {
+        font-size: 16px;
+    }
 
-.add-cart {
-    padding: 9px;
-    font-size: 13px;
-}
+    .add-cart {
+        padding: 9px;
+        font-size: 13px;
+    }
 
-.product-detail-overlay {
-    padding: 10px;
-}
+    .product-detail-overlay {
+        padding: 10px;
+    }
 
-.product-detail-content {
-    grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 20px;
-}
+    .product-detail-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
 
-.detail-main-image {
-    height: 300px;
-}
+    .detail-main-image {
+        height: 300px;
+    }
 
-.product-detail-info h1 {
-    font-size: 24px;
-}
+    .product-detail-info h1 {
+        font-size: 24px;
+    }
 
-.detail-price-main {
-    font-size: 25px;
-}
+    .detail-price-main {
+        font-size: 25px;
+    }
 
-.service-features {
-    grid-template-columns: 1fr 1fr;
-}
-
-
+    .service-features {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 400px) {
 
-.products {
-    grid-template-columns: 1fr 1fr;
-}
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
 
-.header-buttons button {
-    padding: 9px 10px;
-    font-size: 12px;
-}
+    .header-buttons button {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
 
-.service-features {
-    grid-template-columns: 1fr;
-}
+    .service-features {
+        grid-template-columns: 1fr;
+    }
 
+    .quantity-controls {
+        gap: 4px;
+    }
 
+    .cart-box {
+        padding: 18px;
+    }
 }
 </style>
 </head>
@@ -902,31 +917,30 @@ header {
 
 <header>
 
-<div class="logo">
-MY <span>FOOTWEAR</span>
-</div>
+    <div class="logo">
+        MY <span>FOOTWEAR</span>
+    </div>
 
-\<div class="search-box">
-    \<input
-        type="text"
-        id="search"
-        placeholder="Search shoes, sandals, crocs..."
-        oninput="searchProducts()"
-    \>
-\</div>
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Search shoes, sandals, crocs..."
+            oninput="searchProducts()"
+        >
+    </div>
 
-\<div class="header-buttons">
+    <div class="header-buttons">
 
-    \<button id="loginButton" onclick="login()">
-        👤 Login
-    \</button>
+        <button id="loginButton" onclick="login()">
+            👤 Login
+        </button>
 
-    \<button onclick="showCart()">
-        🛒 Cart (\<span id="cartCount">0\</span>)
-    \</button>
+        <button onclick="showCart()">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
 
-\</div>
-
+    </div>
 
 </header>
 
@@ -934,22 +948,21 @@ MY <span>FOOTWEAR</span>
 
 <div class="hero">
 
-\<div class="hero-content">
+    <div class="hero-content">
 
-    \<h1>MY FOOTWEAR\</h1>
+        <h1>MY FOOTWEAR</h1>
 
-    \<p>
-        Step Into Style. Walk With Confidence.
-    \</p>
+        <p>
+            Step Into Style. Walk With Confidence.
+        </p>
 
-    \<button
-        class="shop-btn"
-        onclick="scrollToProducts()">
-        SHOP NOW
-    \</button>
+        <button
+            class="shop-btn"
+            onclick="scrollToProducts()">
+            SHOP NOW
+        </button>
 
-\</div>
-
+    </div>
 
 </div>
 
@@ -957,49 +970,48 @@ MY <span>FOOTWEAR</span>
 
 <section>
 
-\<h2 class="section-title">
-    Shop By \<span>Category\</span>
-\</h2>
+    <h2 class="section-title">
+        Shop By <span>Category</span>
+    </h2>
 
-\<div class="categories">
+    <div class="categories">
 
-    \<div class="category" onclick="showAllProducts()">
-        \<div class="category-icon">🛍️\</div>
-        \<h3>All Products\</h3>
-    \</div>
+        <div class="category" onclick="showAllProducts()">
+            <div class="category-icon">🛍️</div>
+            <h3>All Products</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('sports')">
-        \<div class="category-icon">👟\</div>
-        \<h3>Sports Shoes\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('sports')">
+            <div class="category-icon">👟</div>
+            <h3>Sports Shoes</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('formal')">
-        \<div class="category-icon">👞\</div>
-        \<h3>Formal Shoes\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('formal')">
+            <div class="category-icon">👞</div>
+            <h3>Formal Shoes</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('casual')">
-        \<div class="category-icon">🥾\</div>
-        \<h3>Casual Shoes\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('casual')">
+            <div class="category-icon">🥾</div>
+            <h3>Casual Shoes</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('slippers')">
-        \<div class="category-icon">🩴\</div>
-        \<h3>Slippers\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('slippers')">
+            <div class="category-icon">🩴</div>
+            <h3>Slippers</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('sandals')">
-        \<div class="category-icon">👡\</div>
-        \<h3>Sandals\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('sandals')">
+            <div class="category-icon">👡</div>
+            <h3>Sandals</h3>
+        </div>
 
-    \<div class="category" onclick="filterCategory('crocs')">
-        \<div class="category-icon">🩴\</div>
-        \<h3>Crocs\</h3>
-    \</div>
+        <div class="category" onclick="filterCategory('crocs')">
+            <div class="category-icon">🩴</div>
+            <h3>Crocs</h3>
+        </div>
 
-\</div>
-
+    </div>
 
 </section>
 
@@ -1007,593 +1019,616 @@ MY <span>FOOTWEAR</span>
 
 <section id="products">
 
-\<h2 class="section-title">
-    Featured \<span>Products\</span>
-\</h2>
+    <h2 class="section-title">
+        Featured <span>Products</span>
+    </h2>
 
-\<div class="products" id="productList">
+    <div class="products" id="productList">
 
+        <!-- 1. PREMIUM SPORTS SHOES -->
 
-   \<!-- 1. Premium Sports Shoes -->
+        <div class="product" data-category="sports">
 
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
+                    'Premium Sports Shoes',
+                    1499,
+                    1999,
+                    'sports',
+                    [
+                        'premium-sports-black.jpg',
+                        'premium-sports-grey.jpg',
+                        'premium-sports-navy.jpg',
+                        'premium-sports-white.jpg'
+                    ],
+                    true
+                )">
 
-<div class="product" data-category="sports">
+                <span class="product-discount">25% OFF</span>
 
-\<div class="product-image-container"
-     onclick="openProductDetails(
-        'Premium Sports Shoes',
-        1499,
-        1999,
-        'sports',
-        [
-            'premium-sports-black.jpg',
-            'premium-sports-grey.jpg',
-            'premium-sports-navy.jpg',
-            'premium-sports-white.jpg'
-        ]
-     )">
+                <img
+                    src="premium-sports-black.jpg"
+                    alt="Premium Sports Shoes"
+                    onerror="imageError(this)"
+                >
 
-    \<span class="product-discount">25% OFF\</span>
+            </div>
 
-    \<img
-        src="premium-sports-black.jpg"
-        alt="Premium Sports Shoes">
+            <div class="product-info">
 
-\</div>
+                <h3>Premium Sports Shoes</h3>
 
-\<div class="product-info">
+                <div class="price-row">
+                    <div class="price">₹1,499</div>
+                    <div class="original-price">₹1,999</div>
+                </div>
 
-    \<h3>Premium Sports Shoes\</h3>
+                <select id="size-premium-sports" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-    \<div class="price-row">
-        \<div class="price">₹1,499\</div>
-        \<div class="original-price">₹1,999\</div>
-    \</div>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Premium Sports Shoes',
+                        1499,
+                        'size-premium-sports',
+                        'premium-sports-black.jpg'
+                    )">
+                    Add To Cart
+                </button>
 
-    \<select id="size-premium-sports" class="size-select">
-        \<option value="">Select Size\</option>
-        \<option value="6">Size 6\</option>
-        \<option value="7">Size 7\</option>
-        \<option value="8">Size 8\</option>
-        \<option value="9">Size 9\</option>
-        \<option value="10">Size 10\</option>
-    \</select>
+            </div>
 
-    \<button
-        class="add-cart"
-        onclick="addToCartWithSize(
-            'Premium Sports Shoes',
-            1499,
-            'size-premium-sports'
-        )">
-        Add To Cart
-    \</button>
+        </div>
 
-\</div>
+        <!-- 2. CLASSIC SNEAKERS -->
 
+        <div class="product" data-category="casual">
 
-</div>
-
-    \<!-- 2. CLASSIC SNEAKERS -->
-
-    \<div class="product" data-category="casual">
-
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Classic Sneakers',
-                1299,
-                1699,
-                'casual',
-                '[https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format\&fit=crop\&w=800\&q=80)'
-            )">
-
-            \<span class="product-discount">
-                24% OFF
-            \</span>
-
-            \<img
-                src="[https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format\&fit=crop\&w=800\&q=80)"
-                alt="Classic Sneakers"
-            \>
-
-        \</div>
-
-        \<div class="product-info">
-
-            \<h3>Classic Sneakers\</h3>
-
-            \<div class="price-row">
-                \<div class="price">₹1,299\</div>
-                \<div class="original-price">₹1,699\</div>
-            \</div>
-
-            \<select id="size-classic-sneakers" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Classic Sneakers',
                     1299,
-                    'size-classic-sneakers'
+                    1699,
+                    'casual',
+                    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    24% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic Sneakers"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 3. CASUAL SHOES -->
+            <div class="product-info">
 
-    \<div class="product" data-category="casual">
+                <h3>Classic Sneakers</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Casual Shoes',
-                999,
-                1299,
-                'casual',
-                '[https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format\&fit=crop\&w=800\&q=80)'
-            )">
+                <div class="price-row">
+                    <div class="price">₹1,299</div>
+                    <div class="original-price">₹1,699</div>
+                </div>
 
-            \<span class="product-discount">
-                23% OFF
-            \</span>
+                <select id="size-classic-sneakers" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="[https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format\&fit=crop\&w=800\&q=80)"
-                alt="Casual Shoes"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Classic Sneakers',
+                        1299,
+                        'size-classic-sneakers',
+                        'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Casual Shoes\</h3>
+        <!-- 3. CASUAL SHOES -->
 
-            \<div class="price-row">
-                \<div class="price">₹999\</div>
-                \<div class="original-price">₹1,299\</div>
-            \</div>
+        <div class="product" data-category="casual">
 
-            \<select id="size-casual-shoes" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Casual Shoes',
                     999,
-                    'size-casual-shoes'
+                    1299,
+                    'casual',
+                    'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    23% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
+                    alt="Casual Shoes"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 4. PREMIUM SANDALS -->
+            <div class="product-info">
 
-    \<div class="product" data-category="sandals">
+                <h3>Casual Shoes</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Premium Sandals',
-                699,
-                999,
-                'sandals',
-                '[https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format\&fit=crop\&w=800\&q=80)'
-            )">
+                <div class="price-row">
+                    <div class="price">₹999</div>
+                    <div class="original-price">₹1,299</div>
+                </div>
 
-            \<span class="product-discount">
-                30% OFF
-            \</span>
+                <select id="size-casual-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="[https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format\&fit=crop\&w=800\&q=80)"
-                alt="Premium Sandals"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Casual Shoes',
+                        999,
+                        'size-casual-shoes',
+                        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Premium Sandals\</h3>
+        <!-- 4. PREMIUM SANDALS -->
 
-            \<div class="price-row">
-                \<div class="price">₹699\</div>
-                \<div class="original-price">₹999\</div>
-            \</div>
+        <div class="product" data-category="sandals">
 
-            \<select id="size-premium-sandals" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Premium Sandals',
                     699,
-                    'size-premium-sandals'
+                    999,
+                    'sandals',
+                    'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    30% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
+                    alt="Premium Sandals"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 5. RUNNING SHOES -->
+            <div class="product-info">
 
-    \<div class="product" data-category="sports">
+                <h3>Premium Sandals</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Running Shoes',
-                899,
-                1199,
-                'sports',
-                'running-shoes.jpeg'
-            )">
+                <div class="price-row">
+                    <div class="price">₹699</div>
+                    <div class="original-price">₹999</div>
+                </div>
 
-            \<span class="product-discount">
-                25% OFF
-            \</span>
+                <select id="size-premium-sandals" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="running-shoes.jpeg"
-                alt="Running Shoes"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Premium Sandals',
+                        699,
+                        'size-premium-sandals',
+                        'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Running Shoes\</h3>
+        <!-- 5. RUNNING SHOES -->
 
-            \<div class="price-row">
-                \<div class="price">₹899\</div>
-                \<div class="original-price">₹1,199\</div>
-            \</div>
+        <div class="product" data-category="sports">
 
-            \<select id="size-running-shoes" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Running Shoes',
                     899,
-                    'size-running-shoes'
+                    1199,
+                    'sports',
+                    'running-shoes.jpeg',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    25% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="running-shoes.jpeg"
+                    alt="Running Shoes"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 6. FORMAL SHOES -->
+            <div class="product-info">
 
-    \<div class="product" data-category="formal">
+                <h3>Running Shoes</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Formal Shoes',
-                949,
-                1499,
-                'formal',
-                'formal-shoes.png'
-            )">
+                <div class="price-row">
+                    <div class="price">₹899</div>
+                    <div class="original-price">₹1,199</div>
+                </div>
 
-            \<span class="product-discount">
-                37% OFF
-            \</span>
+                <select id="size-running-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="formal-shoes.png"
-                alt="Formal Shoes"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Running Shoes',
+                        899,
+                        'size-running-shoes',
+                        'running-shoes.jpeg'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Formal Shoes\</h3>
+        <!-- 6. FORMAL SHOES -->
 
-            \<div class="price-row">
-                \<div class="price">₹949\</div>
-                \<div class="original-price">₹1,499\</div>
-            \</div>
+        <div class="product" data-category="formal">
 
-            \<select id="size-formal-shoes" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Formal Shoes',
                     949,
-                    'size-formal-shoes'
+                    1499,
+                    'formal',
+                    'formal-shoes.png',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    37% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="formal-shoes.png"
+                    alt="Formal Shoes"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 7. COMFORT SLIPPERS -->
+            <div class="product-info">
 
-    \<div class="product" data-category="slippers">
+                <h3>Formal Shoes</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Comfort Slippers',
-                299,
-                499,
-                'slippers',
-                'comfort-slippers.jpeg'
-            )">
+                <div class="price-row">
+                    <div class="price">₹949</div>
+                    <div class="original-price">₹1,499</div>
+                </div>
 
-            \<span class="product-discount">
-                40% OFF
-            \</span>
+                <select id="size-formal-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="comfort-slippers.jpeg"
-                alt="Comfort Slippers"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Formal Shoes',
+                        949,
+                        'size-formal-shoes',
+                        'formal-shoes.png'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Comfort Slippers\</h3>
+        <!-- 7. COMFORT SLIPPERS -->
 
-            \<div class="price-row">
-                \<div class="price">₹299\</div>
-                \<div class="original-price">₹499\</div>
-            \</div>
+        <div class="product" data-category="slippers">
 
-            \<select id="size-comfort-slippers" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Comfort Slippers',
                     299,
-                    'size-comfort-slippers'
+                    499,
+                    'slippers',
+                    'comfort-slippers.jpeg',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    40% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="comfort-slippers.jpeg"
+                    alt="Comfort Slippers"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 8. CLASSIC CROCS -->
+            <div class="product-info">
 
-    \<div class="product" data-category="crocs">
+                <h3>Comfort Slippers</h3>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Classic Crocs',
-                799,
-                999,
-                'crocs',
-                'classic-crocs2.png'
-            )">
+                <div class="price-row">
+                    <div class="price">₹299</div>
+                    <div class="original-price">₹499</div>
+                </div>
 
-            \<span class="product-discount">
-                20% OFF
-            \</span>
+                <select id="size-comfort-slippers" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-            \<img
-                src="classic-crocs2.png"
-                alt="Classic Crocs"
-            \>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Comfort Slippers',
+                        299,
+                        'size-comfort-slippers',
+                        'comfort-slippers.jpeg'
+                    )">
+                    Add To Cart
+                </button>
 
-        \</div>
+            </div>
 
-        \<div class="product-info">
+        </div>
 
-            \<h3>Classic Crocs\</h3>
+        <!-- 8. CLASSIC CROCS -->
 
-            \<div class="price-row">
-                \<div class="price">₹799\</div>
-                \<div class="original-price">₹999\</div>
-            \</div>
+        <div class="product" data-category="crocs">
 
-            \<select id="size-classic-crocs" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Classic Crocs',
                     799,
-                    'size-classic-crocs'
+                    999,
+                    'crocs',
+                    'classic-crocs2.png',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    20% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="classic-crocs2.png"
+                    alt="Classic Crocs"
+                    onerror="imageError(this)"
+                >
 
+            </div>
 
-    \<!-- 9. WOMEN'S SANDALS -->
+            <div class="product-info">
 
+                <h3>Classic Crocs</h3>
 
-<div class="product" data-category="sandals">
+                <div class="price-row">
+                    <div class="price">₹799</div>
+                    <div class="original-price">₹999</div>
+                </div>
 
-\<div class="product-image-container"
-     onclick="openProductDetails(
-        'Women\\'s Sandals',
-        699,
-        999,
-        'sandals',
-        '[https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format\&fit=crop\&w=800\&q=80)'
-     )">
+                <select id="size-classic-crocs" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-    \<span class="product-discount">30% OFF\</span>
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Classic Crocs',
+                        799,
+                        'size-classic-crocs',
+                        'classic-crocs2.png'
+                    )">
+                    Add To Cart
+                </button>
 
-    \<img
-        src="[https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format\&fit=crop\&w=800\&q=80)"
-        alt="Women's Sandals">
+            </div>
 
-\</div>
+        </div>
 
-\<div class="product-info">
+        <!-- 9. WOMEN'S SANDALS -->
 
-    \<h3>Women's Sandals\</h3>
+        <div class="product" data-category="sandals">
 
-    \<div class="price-row">
-        \<div class="price">₹699\</div>
-        \<div class="original-price">₹999\</div>
-    \</div>
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
+                    'Women\\'s Sandals',
+                    699,
+                    999,
+                    'sandals',
+                    'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80',
+                    false
+                )">
 
-    \<select id="size-womens-sandals" class="size-select">
-        \<option value="">Select Size\</option>
-        \<option value="6">Size 6\</option>
-        \<option value="7">Size 7\</option>
-        \<option value="8">Size 8\</option>
-        \<option value="9">Size 9\</option>
-        \<option value="10">Size 10\</option>
-    \</select>
+                <span class="product-discount">
+                    30% OFF
+                </span>
 
-    \<button
-        class="add-cart"
-        onclick="addToCartWithSize(
-            'Women\\'s Sandals',
-            699,
-            'size-womens-sandals'
-        )">
-        Add To Cart
-    \</button>
+                <img
+                    src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80"
+                    alt="Women's Sandals"
+                    onerror="imageError(this)"
+                >
 
-\</div>
+            </div>
 
+            <div class="product-info">
 
-</div>
+                <h3>Women's Sandals</h3>
 
-    \<!-- 10. WALKING SHOES -->
+                <div class="price-row">
+                    <div class="price">₹699</div>
+                    <div class="original-price">₹999</div>
+                </div>
 
-    \<div class="product" data-category="sports">
+                <select id="size-womens-sandals" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
 
-        \<div
-            class="product-image-container"
-            onclick="openProductDetails(
-                'Walking Shoes',
-                899,
-                1199,
-                'sports',
-                'walking-shoes.jpeg'
-            )">
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Women\\'s Sandals',
+                        699,
+                        'size-womens-sandals',
+                        'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80'
+                    )">
+                    Add To Cart
+                </button>
 
-            \<span class="product-discount">
-                25% OFF
-            \</span>
+            </div>
 
-            \<img
-                src="walking-shoes.jpeg"
-                alt="Walking Shoes"
-            \>
+        </div>
 
-        \</div>
+        <!-- 10. WALKING SHOES -->
 
-        \<div class="product-info">
+        <div class="product" data-category="sports">
 
-            \<h3>Walking Shoes\</h3>
-
-            \<div class="price-row">
-                \<div class="price">₹899\</div>
-                \<div class="original-price">₹1,199\</div>
-            \</div>
-
-            \<select id="size-walking-shoes" class="size-select">
-                \<option value="">Select Size\</option>
-                \<option value="6">Size 6\</option>
-                \<option value="7">Size 7\</option>
-                \<option value="8">Size 8\</option>
-                \<option value="9">Size 9\</option>
-                \<option value="10">Size 10\</option>
-            \</select>
-
-            \<button
-                class="add-cart"
-                onclick="addToCartWithSize(
+            <div
+                class="product-image-container"
+                onclick="openProductDetails(
                     'Walking Shoes',
                     899,
-                    'size-walking-shoes'
+                    1199,
+                    'sports',
+                    'walking-shoes.jpeg',
+                    false
                 )">
-                Add To Cart
-            \</button>
 
-        \</div>
+                <span class="product-discount">
+                    25% OFF
+                </span>
 
-    \</div>
+                <img
+                    src="walking-shoes.jpeg"
+                    alt="Walking Shoes"
+                    onerror="imageError(this)"
+                >
 
-\</div>
+            </div>
 
+            <div class="product-info">
+
+                <h3>Walking Shoes</h3>
+
+                <div class="price-row">
+                    <div class="price">₹899</div>
+                    <div class="original-price">₹1,199</div>
+                </div>
+
+                <select id="size-walking-shoes" class="size-select">
+                    <option value="">Select Size</option>
+                    <option value="6">Size 6</option>
+                    <option value="7">Size 7</option>
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                </select>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCartWithSize(
+                        'Walking Shoes',
+                        899,
+                        'size-walking-shoes',
+                        'walking-shoes.jpeg'
+                    )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1601,14 +1636,13 @@ MY <span>FOOTWEAR</span>
 
 <footer>
 
-\<p>
-    © 2026 \<strong>My Footwear\</strong>
-\</p>
+    <p>
+        © 2026 <strong>My Footwear</strong>
+    </p>
 
-\<p>
-    Step Into Style. Walk With Confidence.
-\</p>
-
+    <p>
+        Step Into Style. Walk With Confidence.
+    </p>
 
 </footer>
 
@@ -1616,34 +1650,33 @@ MY <span>FOOTWEAR</span>
 
 <div class="cart-overlay" id="cartOverlay">
 
-\<div class="cart-box">
+    <div class="cart-box">
 
-    \<div class="cart-header">
+        <div class="cart-header">
 
-        \<h2>🛒 Your Cart\</h2>
+            <h2>🛒 Your Cart</h2>
 
-        \<button
-            class="close-cart"
-            onclick="closeCart()">
-            ×
-        \</button>
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                ×
+            </button>
 
-    \</div>
+        </div>
 
-    \<div id="cartItems">\</div>
+        <div id="cartItems"></div>
 
-    \<div class="cart-total">
-        Total: ₹\<span id="cartTotal">0\</span>
-    \</div>
+        <div class="cart-total">
+            Total: ₹<span id="cartTotal">0</span>
+        </div>
 
-    \<button
-        class="checkout-btn"
-        onclick="openCheckout()">
-        Proceed to Checkout
-    \</button>
+        <button
+            class="checkout-btn"
+            onclick="openCheckout()">
+            Proceed to Checkout
+        </button>
 
-\</div>
-
+    </div>
 
 </div>
 
@@ -1651,312 +1684,323 @@ MY <span>FOOTWEAR</span>
 
 <div class="checkout-form" id="checkoutForm">
 
-\<div class="checkout-box">
+    <div class="checkout-box">
 
-    \<h2>🏠 Delivery Details\</h2>
+        <h2>🏠 Delivery Details</h2>
 
-    \<input
-        type="text"
-        id="customerName"
-        placeholder="Full Name">
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Full Name">
 
-    \<input
-        type="tel"
-        id="customerPhone"
-        placeholder="Mobile Number">
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Mobile Number"
+            maxlength="10">
 
-    \<textarea
-        id="customerAddress"
-        placeholder="Full Home Delivery Address">\</textarea>
+        <textarea
+            id="customerAddress"
+            placeholder="Full Home Delivery Address"></textarea>
 
-    \<input
-        type="text"
-        id="customerCity"
-        placeholder="City">
+        <input
+            type="text"
+            id="customerCity"
+            placeholder="City">
 
-    \<input
-        type="text"
-        id="customerPincode"
-        placeholder="PIN Code">
+        <input
+            type="text"
+            id="customerPincode"
+            placeholder="PIN Code"
+            maxlength="6">
 
-    \<div class="payment-option">
+        <div class="payment-option">
 
-        💵 \<strong>Cash on Delivery\</strong>
+            💵 <strong>Cash on Delivery</strong>
 
-        \<br>
+            <br>
 
-        Pay when your order is delivered.
+            Pay when your order is delivered.
 
-    \</div>
+        </div>
 
-    \<button
-        class="whatsapp-order"
-        onclick="placeWhatsAppOrder()">
+        <button
+            class="whatsapp-order"
+            onclick="placeWhatsAppOrder()">
 
-        💬 Place Order on WhatsApp
+            💬 Place Order on WhatsApp
 
-    \</button>
+        </button>
 
-    \<button
-        class="cancel-checkout"
-        onclick="closeCheckout()">
+        <button
+            class="cancel-checkout"
+            onclick="closeCheckout()">
 
-        Cancel
+            Cancel
 
-    \</button>
+        </button>
 
-\</div>
-
+    </div>
 
 </div>
 
 <!-- ================= PRODUCT DETAILS ================= -->
 
 <div
-class="product-detail-overlay"
-id="productDetailOverlay">
+    class="product-detail-overlay"
+    id="productDetailOverlay">
 
-\<div class="product-detail-box">
+    <div class="product-detail-box">
 
-    \<button
-        class="product-detail-close"
-        onclick="closeProductDetails()">
+        <button
+            class="product-detail-close"
+            onclick="closeProductDetails()">
+            ×
+        </button>
 
-        ×
+        <div class="product-detail-content">
 
-    \</button>
+            <div class="product-detail-images">
 
-    \<div class="product-detail-content">
-
-        \<div class="product-detail-images">
-
-            \<div
-                class="discount-badge"
-                id="detailBadge">
-                20% OFF
-            \</div>
-
-            \<img
-                id="detailMainImage"
-                src=""
-                class="detail-main-image"
-                alt="Product">
-
-            \<div class="detail-thumbnails">
-
-                \<img
-                    id="detailThumb1"
-                    src=""
-                    onclick="changeDetailImage(this.src)"
-                    alt="Product thumbnail">
-
-                \<img
-                    id="detailThumb2"
-                    src=""
-                    onclick="changeDetailImage(this.src)"
-                    alt="Product thumbnail">
-
-            \</div>
-
-        \</div>
-
-
-        \<div class="product-detail-info">
-
-            \<div class="breadcrumb">
-
-                Home → Products →
-
-                \<span id="detailCategory">\</span>
-
-            \</div>
-
-            \<h1 id="detailName">
-                Product Name
-            \</h1>
-
-            \<div class="detail-rating">
-                ⭐ 4.5 | 120 Reviews
-            \</div>
-
-            \<div class="detail-price">
-
-                \<span
-                    class="detail-price-main"
-                    id="detailPrice">
-                    ₹999
-                \</span>
-
-                \<span
-                    class="detail-mrp"
-                    id="detailMRP">
-                    ₹1,299
-                \</span>
-
-                \<span
-                    class="detail-discount"
-                    id="detailDiscount">
+                <div
+                    class="discount-badge"
+                    id="detailBadge">
                     20% OFF
-                \</span>
+                </div>
 
-            \</div>
+                <img
+                    id="detailMainImage"
+                    src=""
+                    class="detail-main-image"
+                    alt="Product"
+                    onerror="imageError(this)">
 
-            \<div class="bank-offer">
+                <div class="detail-thumbnails">
 
-                🏦 \<strong>Bank Offer\</strong>
+                    <img
+                        id="detailThumb1"
+                        src=""
+                        onclick="changeDetailImage(this.src)"
+                        alt="Product thumbnail"
+                        onerror="imageError(this)">
 
-                \<br>
+                    <img
+                        id="detailThumb2"
+                        src=""
+                        onclick="changeDetailImage(this.src)"
+                        alt="Product thumbnail"
+                        onerror="imageError(this)">
 
-                Get extra discount on selected bank cards.
+                </div>
 
-            \</div>
+            </div>
 
+            <div class="product-detail-info">
 
-           \<div class="detail-section">
+                <div class="breadcrumb">
+                    Home → Products →
+                    <span id="detailCategory"></span>
+                </div>
 
-\<h3>
-    Colour:
-    \<span id="selectedColorName">Black\</span>
-\</h3>
+                <h1 id="detailName">
+                    Product Name
+                </h1>
 
-\<div class="color-options">
+                <div class="detail-rating">
+                    ⭐ 4.5 | 120 Reviews
+                </div>
 
-    \<button
-        class="color-option selected"
-        title="Black"
-        onclick="selectProductColor(this, 'premium-black.jpg', 'Black')">
-    \</button>
+                <div class="detail-price">
 
-    \<button
-        class="color-option navy"
-        title="Navy Blue"
-        onclick="selectProductColor(this, 'premium-navy.jpg', 'Navy Blue')">
-    \</button>
+                    <span
+                        class="detail-price-main"
+                        id="detailPrice">
+                        ₹999
+                    </span>
 
-    \<button
-        class="color-option grey"
-        title="Grey"
-        onclick="selectProductColor(this, 'premium-grey.jpg', 'Grey')">
-    \</button>
+                    <span
+                        class="detail-mrp"
+                        id="detailMRP">
+                        ₹1,299
+                    </span>
 
-    \<button
-        class="color-option white"
-        title="White"
-        onclick="selectProductColor(this, 'premium-white.jpg', 'White')">
-    \</button>
+                    <span
+                        class="detail-discount"
+                        id="detailDiscount">
+                        20% OFF
+                    </span>
 
-\</div>
+                </div>
 
+                <div class="bank-offer">
 
-</div>
+                    🏦 <strong>Bank Offer</strong>
 
-            \<div class="detail-section">
+                    <br>
 
-                \<div class="size-title">
+                    Get extra discount on selected bank cards.
 
-                    \<h3>Select Size\</h3>
+                </div>
 
-                    \<span>Size Chart ›\</span>
+                <!-- COLOR SECTION -->
 
-                \</div>
+                <div
+                    class="detail-section"
+                    id="detailColorSection">
 
-                \<div class="detail-size-options">
+                    <h3>
+                        Colour:
+                        <span id="selectedColorName">
+                            Black
+                        </span>
+                    </h3>
 
-                    \<button onclick="selectDetailSize(this,'6')">
-                        6
-                    \</button>
+                    <div
+                        class="color-options"
+                        id="colorOptions">
 
-                    \<button onclick="selectDetailSize(this,'7')">
-                        7
-                    \</button>
+                        <button
+                            class="color-option black selected"
+                            title="Black"
+                            data-color="Black"
+                            data-image="premium-sports-black.jpg"
+                            onclick="selectProductColor(this)">
+                        </button>
 
-                    \<button onclick="selectDetailSize(this,'8')">
-                        8
-                    \</button>
+                        <button
+                            class="color-option navy"
+                            title="Navy Blue"
+                            data-color="Navy Blue"
+                            data-image="premium-sports-navy.jpg"
+                            onclick="selectProductColor(this)">
+                        </button>
 
-                    \<button onclick="selectDetailSize(this,'9')">
-                        9
-                    \</button>
+                        <button
+                            class="color-option grey"
+                            title="Grey"
+                            data-color="Grey"
+                            data-image="premium-sports-grey.jpg"
+                            onclick="selectProductColor(this)">
+                        </button>
 
-                    \<button onclick="selectDetailSize(this,'10')">
-                        10
-                    \</button>
+                        <button
+                            class="color-option white"
+                            title="White"
+                            data-color="White"
+                            data-image="premium-sports-white.jpg"
+                            onclick="selectProductColor(this)">
+                        </button>
 
-                \</div>
+                    </div>
 
-                \<div
-                    id="detailSizeAvailability"
-                    class="detail-availability">
-                \</div>
+                </div>
 
-            \</div>
+                <!-- SIZE -->
 
+                <div class="detail-section">
 
-            \<div class="detail-actions">
+                    <div class="size-title">
 
-                \<button
-                    class="detail-add-cart"
-                    onclick="addDetailProductToCart()">
+                        <h3>Select Size</h3>
 
-                    🛒 Add to Cart
+                        <span>Size Chart ›</span>
 
-                \</button>
+                    </div>
 
-                \<button
-                    class="detail-buy-now"
-                    onclick="buyDetailProduct()">
+                    <div class="detail-size-options">
 
-                    ⚡ Buy Now
+                        <button onclick="selectDetailSize(this,'6')">
+                            6
+                        </button>
 
-                \</button>
+                        <button onclick="selectDetailSize(this,'7')">
+                            7
+                        </button>
 
-            \</div>
+                        <button onclick="selectDetailSize(this,'8')">
+                            8
+                        </button>
 
+                        <button onclick="selectDetailSize(this,'9')">
+                            9
+                        </button>
 
-            \<div class="service-features">
+                        <button onclick="selectDetailSize(this,'10')">
+                            10
+                        </button>
 
-                \<div>
-                    🚚
-                    \<strong>Free Delivery\</strong>
-                    \<small>On selected orders\</small>
-                \</div>
+                    </div>
 
-                \<div>
-                    💵
-                    \<strong>Cash on Delivery\</strong>
-                    \<small>Pay when delivered\</small>
-                \</div>
+                    <div
+                        id="detailSizeAvailability"
+                        class="detail-availability">
+                    </div>
 
-                \<div>
-                    🔄
-                    \<strong>7 Days Return\</strong>
-                    \<small>Easy returns\</small>
-                \</div>
+                </div>
 
-                \<div>
-                    🛡️
-                    \<strong>100% Original\</strong>
-                    \<small>Quality guaranteed\</small>
-                \</div>
+                <!-- ACTIONS -->
 
-            \</div>
+                <div class="detail-actions">
 
-        \</div>
+                    <button
+                        class="detail-add-cart"
+                        onclick="addDetailProductToCart()">
 
-    \</div>
+                        🛒 Add to Cart
 
-\</div>
+                    </button>
 
+                    <button
+                        class="detail-buy-now"
+                        onclick="buyDetailProduct()">
+
+                        ⚡ Buy Now
+
+                    </button>
+
+                </div>
+
+                <!-- SERVICES -->
+
+                <div class="service-features">
+
+                    <div>
+                        🚚
+                        <strong>Free Delivery</strong>
+                        <small>On selected orders</small>
+                    </div>
+
+                    <div>
+                        💵
+                        <strong>Cash on Delivery</strong>
+                        <small>Pay when delivered</small>
+                    </div>
+
+                    <div>
+                        🔄
+                        <strong>7 Days Return</strong>
+                        <small>Easy returns</small>
+                    </div>
+
+                    <div>
+                        🛡️
+                        <strong>100% Original</strong>
+                        <small>Quality guaranteed</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 <!-- ================= FIREBASE ================= -->
 
 <script type="module">
-
-/* =========================================================
-   FIREBASE
-========================================================= */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
@@ -1970,6 +2014,10 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
 
 const firebaseConfig = {
 
@@ -2013,20 +2061,56 @@ let selectedDetailImages = [];
 
 
 /* =========================================================
-   LOAD CART FROM LOCAL STORAGE
+   FALLBACK IMAGE
+========================================================= */
+
+const fallbackImage =
+    "https://via.placeholder.com/800x600?text=My+Footwear";
+
+
+window.imageError = function(img) {
+
+    if (!img.dataset.fallbackUsed) {
+
+        img.dataset.fallbackUsed = "true";
+
+        img.src = fallbackImage;
+
+    }
+
+};
+
+
+/* =========================================================
+   LOAD CART
 ========================================================= */
 
 try {
 
-    const savedCart = localStorage.getItem("myFootwearCart");
+    const savedCart =
+        localStorage.getItem("myFootwearCart");
 
     if (savedCart) {
-        cart = JSON.parse(savedCart);
+
+        const parsedCart =
+            JSON.parse(savedCart);
+
+        if (Array.isArray(parsedCart)) {
+
+            cart = parsedCart;
+
+        }
+
     }
 
-} catch (error) {
+}
 
-    console.error("Could not load cart:", error);
+catch (error) {
+
+    console.error(
+        "Could not load cart:",
+        error
+    );
 
     cart = [];
 
@@ -2046,9 +2130,14 @@ function saveCart() {
             JSON.stringify(cart)
         );
 
-    } catch (error) {
+    }
 
-        console.error("Could not save cart:", error);
+    catch (error) {
+
+        console.error(
+            "Could not save cart:",
+            error
+        );
 
     }
 
@@ -2056,8 +2145,7 @@ function saveCart() {
 
 
 /* =========================================================
-   IMAGE URL CLEANER
-   Handles both normal URLs and accidental Markdown URLs
+   CLEAN IMAGE URL
 ========================================================= */
 
 function cleanImageURL(image) {
@@ -2066,28 +2154,55 @@ function cleanImageURL(image) {
         return "";
     }
 
-    image = String(image).trim();
+    let value =
+        String(image).trim();
 
     /*
-       Handles:
-
-       [https://example.com/image.jpg](https://example.com/image.jpg)
+       Remove accidental Markdown formatting.
     */
 
     const markdownMatch =
-        image.match(/^\[.*?\]\((.*?)\)$/);
+        value.match(
+            /^\[.*?\]\((https?:\/\/.*?)\)$/
+        );
 
     if (markdownMatch) {
-        return markdownMatch[1];
+
+        value =
+            markdownMatch[1];
+
     }
 
-    return image;
+    /*
+       If there is still a URL inside the string,
+       extract it.
+    */
+
+    const urlMatch =
+        value.match(
+            /(https?:\/\/[^\s"'<>]+)/i
+        );
+
+    if (
+        urlMatch &&
+        !value.startsWith("http")
+    ) {
+
+        value =
+            urlMatch[1];
+
+    }
+
+    return value
+        .replace(/\\&/g, "&")
+        .replace(/\\\//g, "/")
+        .trim();
 
 }
 
 
 /* =========================================================
-   CONVERT IMAGE INPUT INTO ARRAY
+   NORMALIZE IMAGES
 ========================================================= */
 
 function normalizeImages(images) {
@@ -2112,7 +2227,7 @@ function normalizeImages(images) {
 
 
 /* =========================================================
-   PRODUCT DETAILS
+   OPEN PRODUCT DETAILS
 ========================================================= */
 
 window.openProductDetails = function(
@@ -2120,16 +2235,19 @@ window.openProductDetails = function(
     price,
     originalPrice,
     category,
-    images
+    images,
+    hasColors = false
 ) {
 
     selectedDetailImages =
         normalizeImages(images);
 
-    if (selectedDetailImages.length === 0) {
+    if (
+        selectedDetailImages.length === 0
+    ) {
 
         selectedDetailImages = [
-            "https://via.placeholder.com/800x600?text=My+Footwear"
+            fallbackImage
         ];
 
     }
@@ -2141,22 +2259,30 @@ window.openProductDetails = function(
 
         price: Number(price),
 
-        originalPrice: Number(originalPrice),
+        originalPrice:
+            Number(originalPrice),
 
         category: category,
 
-        images: selectedDetailImages,
+        images:
+            selectedDetailImages,
 
-        image: selectedDetailImages[0],
+        image:
+            selectedDetailImages[0],
 
-        color: "Black"
+        color:
+            hasColors ? "Black" : "Default",
+
+        hasColors:
+            Boolean(hasColors)
 
     };
 
 
     selectedDetailSize = "";
 
-    selectedDetailColor = "Black";
+    selectedDetailColor =
+        hasColors ? "Black" : "Default";
 
 
     /* PRODUCT NAME */
@@ -2171,7 +2297,9 @@ window.openProductDetails = function(
     document.getElementById(
         "detailPrice"
     ).innerText =
-        "₹" + Number(price).toLocaleString("en-IN");
+        "₹" +
+        Number(price)
+            .toLocaleString("en-IN");
 
 
     /* MRP */
@@ -2179,18 +2307,28 @@ window.openProductDetails = function(
     document.getElementById(
         "detailMRP"
     ).innerText =
-        "₹" + Number(originalPrice).toLocaleString("en-IN");
+        "₹" +
+        Number(originalPrice)
+            .toLocaleString("en-IN");
 
 
     /* DISCOUNT */
 
-    const discount = Math.round(
-        (
-            (Number(originalPrice) - Number(price))
-            /
-            Number(originalPrice)
-        ) * 100
-    );
+    let discount = 0;
+
+    if (Number(originalPrice) > 0) {
+
+        discount =
+            Math.round(
+                (
+                    (Number(originalPrice) -
+                    Number(price))
+                    /
+                    Number(originalPrice)
+                ) * 100
+            );
+
+    }
 
 
     document.getElementById(
@@ -2215,44 +2353,77 @@ window.openProductDetails = function(
 
     /* MAIN IMAGE */
 
-    document.getElementById(
-        "detailMainImage"
-    ).src =
+    const mainImage =
+        document.getElementById(
+            "detailMainImage"
+        );
+
+    mainImage.dataset.fallbackUsed = "";
+
+    mainImage.src =
         selectedDetailImages[0];
 
 
     /* THUMBNAIL 1 */
 
-    document.getElementById(
-        "detailThumb1"
-    ).src =
+    const thumb1 =
+        document.getElementById(
+            "detailThumb1"
+        );
+
+    thumb1.dataset.fallbackUsed = "";
+
+    thumb1.src =
         selectedDetailImages[0];
 
 
     /* THUMBNAIL 2 */
 
-    document.getElementById(
-        "detailThumb2"
-    ).src =
-        selectedDetailImages[1]
-        ||
-        selectedDetailImages[0];
-
-
-    /* THUMBNAIL VISIBILITY */
-
     const thumb2 =
-        document.getElementById("detailThumb2");
+        document.getElementById(
+            "detailThumb2"
+        );
 
-    if (selectedDetailImages.length > 1) {
+    if (
+        selectedDetailImages.length > 1
+    ) {
 
-        thumb2.style.display = "block";
+        thumb2.style.display =
+            "block";
 
-    } else {
+        thumb2.dataset.fallbackUsed =
+            "";
 
-        thumb2.style.display = "none";
+        thumb2.src =
+            selectedDetailImages[1];
 
     }
+
+    else {
+
+        thumb2.style.display =
+            "none";
+
+        thumb2.src = "";
+
+    }
+
+
+    /* RESET THUMBNAIL BORDER */
+
+    document
+        .querySelectorAll(
+            ".detail-thumbnails img"
+        )
+        .forEach(function(img) {
+
+            img.classList.remove(
+                "active"
+            );
+
+        });
+
+    thumb1.classList.add("active");
 
 
     /* RESET SIZE */
@@ -2263,7 +2434,9 @@ window.openProductDetails = function(
         )
         .forEach(function(button) {
 
-            button.classList.remove("selected");
+            button.classList.remove(
+                "selected"
+            );
 
         });
 
@@ -2273,66 +2446,73 @@ window.openProductDetails = function(
     ).innerText = "";
 
 
-    /* RESET COLOR */
+    /* COLOR SECTION */
 
-    const colorName =
+    const colorSection =
         document.getElementById(
-            "selectedColorName"
+            "detailColorSection"
         );
 
-    if (colorName) {
-        colorName.innerText = "Black";
+
+    if (hasColors) {
+
+        colorSection.style.display =
+            "";
+
+    }
+
+    else {
+
+        colorSection.style.display =
+            "none";
+
     }
 
 
+    /* RESET COLOR BUTTONS */
+
     document
-        .querySelectorAll(".color-option")
+        .querySelectorAll(
+            "#colorOptions .color-option"
+        )
         .forEach(function(button) {
 
-            button.classList.remove("selected");
+            button.classList.remove(
+                "selected"
+            );
 
         });
 
 
     const firstColor =
-        document.querySelector(".color-option");
+        document.querySelector(
+            "#colorOptions .color-option"
+        );
+
 
     if (firstColor) {
-        firstColor.classList.add("selected");
-    }
 
-
-    /*
-       Show colour selector only when the product
-       has multiple images.
-    */
-
-    const colorSection =
-        document.querySelector(
-            ".color-options"
-        )?.closest(".detail-section");
-
-
-    if (colorSection) {
-
-        if (selectedDetailImages.length > 1) {
-
-            colorSection.style.display = "";
-
-        } else {
-
-            colorSection.style.display = "none";
-
-        }
+        firstColor.classList.add(
+            "selected"
+        );
 
     }
+
+
+    document.getElementById(
+        "selectedColorName"
+    ).innerText =
+        hasColors
+            ? "Black"
+            : "Default";
 
 
     /* OPEN POPUP */
 
     document.getElementById(
         "productDetailOverlay"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     document.body.classList.add(
@@ -2346,7 +2526,8 @@ window.openProductDetails = function(
    CLOSE PRODUCT DETAILS
 ========================================================= */
 
-window.closeProductDetails = function() {
+window.closeProductDetails =
+function() {
 
     const overlay =
         document.getElementById(
@@ -2354,7 +2535,10 @@ window.closeProductDetails = function() {
         );
 
     if (overlay) {
-        overlay.style.display = "none";
+
+        overlay.style.display =
+            "none";
+
     }
 
     document.body.classList.remove(
@@ -2368,7 +2552,8 @@ window.closeProductDetails = function() {
    CHANGE DETAIL IMAGE
 ========================================================= */
 
-window.changeDetailImage = function(image) {
+window.changeDetailImage =
+function(image) {
 
     const cleanedImage =
         cleanImageURL(image);
@@ -2377,9 +2562,43 @@ window.changeDetailImage = function(image) {
         return;
     }
 
-    document.getElementById(
-        "detailMainImage"
-    ).src = cleanedImage;
+
+    const mainImage =
+        document.getElementById(
+            "detailMainImage"
+        );
+
+
+    mainImage.dataset.fallbackUsed =
+        "";
+
+
+    mainImage.src =
+        cleanedImage;
+
+
+    document
+        .querySelectorAll(
+            ".detail-thumbnails img"
+        )
+        .forEach(function(img) {
+
+            img.classList.remove(
+                "active"
+            );
+
+            if (
+                img.src ===
+                mainImage.src
+            ) {
+
+                img.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
 
 
     if (selectedDetailProduct) {
@@ -2396,106 +2615,107 @@ window.changeDetailImage = function(image) {
    SELECT PRODUCT COLOR
 ========================================================= */
 
-window.selectProductColor = function(
-    button,
-    image,
-    colorName
-) {
+window.selectProductColor =
+function(button) {
 
-    if (!selectedDetailProduct) {
+    if (
+        !selectedDetailProduct ||
+        !selectedDetailProduct.hasColors
+    ) {
+
+        return;
+
+    }
+
+
+    const colorName =
+        button.dataset.color;
+
+
+    const selectedImage =
+        cleanImageURL(
+            button.dataset.image
+        );
+
+
+    if (!selectedImage) {
         return;
     }
 
 
-    /*
-       For the Premium Sports Shoes,
-       automatically use the corresponding
-       image from its actual image array.
-    */
-
-    const colorIndex = {
-
-        "Black": 0,
-
-        "Navy Blue": 2,
-
-        "Grey": 1,
-
-        "White": 3
-
-    };
-
-
-    let selectedImage =
-        selectedDetailImages[
-            colorIndex[colorName]
-        ];
-
-
-    /*
-       If a matching image doesn't exist,
-       use the supplied image.
-    */
-
-    if (!selectedImage) {
-
-        selectedImage =
-            cleanImageURL(image);
-
-    }
-
-
-    /*
-       If still unavailable, use first image.
-    */
-
-    if (!selectedImage) {
-
-        selectedImage =
-            selectedDetailImages[0];
-
-    }
-
-
-    /* Remove selected state */
+    /* REMOVE SELECTED */
 
     document
-        .querySelectorAll(".color-option")
+        .querySelectorAll(
+            "#colorOptions .color-option"
+        )
         .forEach(function(btn) {
 
-            btn.classList.remove("selected");
+            btn.classList.remove(
+                "selected"
+            );
 
         });
 
 
-    /* Select clicked colour */
+    /* SELECT BUTTON */
 
-    button.classList.add("selected");
+    button.classList.add(
+        "selected"
+    );
 
 
-    /* Change main image */
+    /* CHANGE MAIN IMAGE */
 
-    document.getElementById(
-        "detailMainImage"
-    ).src =
+    const mainImage =
+        document.getElementById(
+            "detailMainImage"
+        );
+
+    mainImage.dataset.fallbackUsed =
+        "";
+
+    mainImage.src =
         selectedImage;
 
 
-    /* Change thumbnails */
+    /* CHANGE THUMBNAIL 1 */
 
-    document.getElementById(
-        "detailThumb1"
-    ).src =
+    const thumb1 =
+        document.getElementById(
+            "detailThumb1"
+        );
+
+    thumb1.dataset.fallbackUsed =
+        "";
+
+    thumb1.src =
         selectedImage;
 
-
-    document.getElementById(
-        "detailThumb2"
-    ).src =
-        selectedImage;
+    thumb1.classList.add("active");
 
 
-    /* Show colour */
+    /* KEEP SECOND THUMBNAIL */
+
+    const thumb2 =
+        document.getElementById(
+            "detailThumb2"
+        );
+
+    if (
+        selectedDetailImages.length > 1
+    ) {
+
+        thumb2.src =
+            selectedDetailImages[1];
+
+        thumb2.style.display =
+            "block";
+
+    }
+
+
+    /* COLOR NAME */
 
     document.getElementById(
         "selectedColorName"
@@ -2503,7 +2723,7 @@ window.selectProductColor = function(
         colorName;
 
 
-    /* Save colour */
+    /* SAVE COLOR */
 
     selectedDetailColor =
         colorName;
@@ -2523,10 +2743,8 @@ window.selectProductColor = function(
    SELECT DETAIL SIZE
 ========================================================= */
 
-window.selectDetailSize = function(
-    button,
-    size
-) {
+window.selectDetailSize =
+function(button, size) {
 
     document
         .querySelectorAll(
@@ -2534,12 +2752,16 @@ window.selectDetailSize = function(
         )
         .forEach(function(btn) {
 
-            btn.classList.remove("selected");
+            btn.classList.remove(
+                "selected"
+            );
 
         });
 
 
-    button.classList.add("selected");
+    button.classList.add(
+        "selected"
+    );
 
 
     selectedDetailSize =
@@ -2560,7 +2782,8 @@ window.selectDetailSize = function(
    ADD DETAIL PRODUCT TO CART
 ========================================================= */
 
-window.addDetailProductToCart = function() {
+window.addDetailProductToCart =
+function() {
 
     if (!selectedDetailProduct) {
 
@@ -2592,7 +2815,9 @@ window.addDetailProductToCart = function() {
 
         selectedDetailSize,
 
-        selectedDetailColor,
+        selectedDetailProduct.hasColors
+            ? selectedDetailColor
+            : "Default",
 
         selectedDetailProduct.image
 
@@ -2608,7 +2833,8 @@ window.addDetailProductToCart = function() {
    BUY NOW
 ========================================================= */
 
-window.buyDetailProduct = function() {
+window.buyDetailProduct =
+function() {
 
     if (!selectedDetailProduct) {
 
@@ -2640,7 +2866,9 @@ window.buyDetailProduct = function() {
 
         selectedDetailSize,
 
-        selectedDetailColor,
+        selectedDetailProduct.hasColors
+            ? selectedDetailColor
+            : "Default",
 
         selectedDetailProduct.image
 
@@ -2648,7 +2876,6 @@ window.buyDetailProduct = function() {
 
 
     closeProductDetails();
-
 
     openCheckout();
 
@@ -2663,7 +2890,7 @@ function addProductToCart(
     name,
     price,
     size,
-    color = "Black",
+    color = "Default",
     image = ""
 ) {
 
@@ -2674,7 +2901,8 @@ function addProductToCart(
 
                 item.name === name &&
 
-                item.size === String(size) &&
+                item.size ===
+                    String(size) &&
 
                 item.color === color
 
@@ -2686,6 +2914,16 @@ function addProductToCart(
     if (existingProduct) {
 
         existingProduct.quantity++;
+
+        if (
+            image &&
+            !existingProduct.image
+        ) {
+
+            existingProduct.image =
+                image;
+
+        }
 
     }
 
@@ -2699,7 +2937,7 @@ function addProductToCart(
 
             size: String(size),
 
-            color: color || "Black",
+            color: color,
 
             image: image || "",
 
@@ -2729,14 +2967,18 @@ function addProductToCart(
    ADD FROM PRODUCT CARD
 ========================================================= */
 
-window.addToCartWithSize = function(
+window.addToCartWithSize =
+function(
     name,
     price,
-    sizeId
+    sizeId,
+    image = ""
 ) {
 
     const sizeElement =
-        document.getElementById(sizeId);
+        document.getElementById(
+            sizeId
+        );
 
 
     if (!sizeElement) {
@@ -2765,11 +3007,6 @@ window.addToCartWithSize = function(
     }
 
 
-    /*
-       Card products don't have a selected
-       popup colour, so default to Black.
-    */
-
     addProductToCart(
 
         name,
@@ -2778,9 +3015,9 @@ window.addToCartWithSize = function(
 
         size,
 
-        "Black",
+        "Default",
 
-        ""
+        image
 
     );
 
@@ -2797,7 +3034,10 @@ function updateCart() {
         cart.reduce(
             function(total, item) {
 
-                return total + item.quantity;
+                return (
+                    total +
+                    Number(item.quantity || 0)
+                );
 
             },
             0
@@ -2823,27 +3063,32 @@ function updateCart() {
             "cartItems"
         );
 
-
     const cartTotal =
         document.getElementById(
             "cartTotal"
         );
 
 
-    if (!cartItems || !cartTotal) {
+    if (
+        !cartItems ||
+        !cartTotal
+    ) {
+
         return;
+
     }
 
 
     if (cart.length === 0) {
 
-        cartItems.innerHTML =
-            `
+        cartItems.innerHTML = `
+
             <div style="
                 text-align:center;
                 padding:40px 10px;
                 color:#777;
             ">
+
                 <div style="
                     font-size:50px;
                     margin-bottom:15px;
@@ -2856,10 +3101,14 @@ function updateCart() {
                 <p style="margin-top:8px;">
                     Add some footwear to your cart.
                 </p>
-            </div>
-            `;
 
-        cartTotal.innerText = "0";
+            </div>
+
+        `;
+
+
+        cartTotal.innerText =
+            "0";
 
         return;
 
@@ -2875,21 +3124,34 @@ function updateCart() {
     cart.forEach(
         function(item, index) {
 
+            const quantity =
+                Number(item.quantity) || 0;
+
+            const price =
+                Number(item.price) || 0;
+
+
             const itemTotal =
-                Number(item.price) *
-                Number(item.quantity);
+                price * quantity;
 
 
             total += itemTotal;
 
 
             const safeName =
-                escapeHTML(item.name);
+                escapeHTML(
+                    item.name
+                );
+
 
             const safeColor =
                 escapeHTML(
-                    item.color || "Black"
+                    item.color &&
+                    item.color !== "Default"
+                        ? item.color
+                        : "—"
                 );
+
 
             const safeSize =
                 escapeHTML(
@@ -2897,9 +3159,22 @@ function updateCart() {
                 );
 
 
+            const safeImage =
+                item.image
+                    ? cleanImageURL(item.image)
+                    : fallbackImage;
+
+
             cartItems.innerHTML += `
 
                 <div class="cart-item">
+
+                    <img
+                        class="cart-item-image"
+                        src="${escapeHTML(safeImage)}"
+                        alt="${safeName}"
+                        onerror="imageError(this)"
+                    >
 
                     <div class="cart-item-info">
 
@@ -2912,17 +3187,25 @@ function updateCart() {
                             color:#777;
                             margin-bottom:5px;
                         ">
-                            Colour: ${safeColor}
-                            <br>
+
+                            ${
+                                item.color &&
+                                item.color !== "Default"
+                                ? "Colour: " +
+                                  safeColor +
+                                  "<br>"
+                                : ""
+                            }
+
                             Size: ${safeSize}
+
                         </div>
 
                         <div class="cart-price">
-                            ₹${Number(item.price).toLocaleString("en-IN")}
+                            ₹${price.toLocaleString("en-IN")}
                         </div>
 
                     </div>
-
 
                     <div class="quantity-controls">
 
@@ -2932,7 +3215,7 @@ function updateCart() {
                         </button>
 
                         <span>
-                            ${item.quantity}
+                            ${quantity}
                         </span>
 
                         <button
@@ -2987,20 +3270,22 @@ function escapeHTML(text) {
    CHANGE QUANTITY
 ========================================================= */
 
-window.changeQuantity = function(
-    index,
-    change
-) {
+window.changeQuantity =
+function(index, change) {
 
     if (!cart[index]) {
         return;
     }
 
 
-    cart[index].quantity += change;
+    cart[index].quantity =
+        Number(cart[index].quantity) +
+        Number(change);
 
 
-    if (cart[index].quantity <= 0) {
+    if (
+        cart[index].quantity <= 0
+    ) {
 
         cart.splice(index, 1);
 
@@ -3018,7 +3303,8 @@ window.changeQuantity = function(
    REMOVE FROM CART
 ========================================================= */
 
-window.removeFromCart = function(index) {
+window.removeFromCart =
+function(index) {
 
     if (!cart[index]) {
         return;
@@ -3039,7 +3325,8 @@ window.removeFromCart = function(index) {
    SHOW CART
 ========================================================= */
 
-window.showCart = function() {
+window.showCart =
+function() {
 
     updateCart();
 
@@ -3061,7 +3348,8 @@ window.showCart = function() {
    CLOSE CART
 ========================================================= */
 
-window.closeCart = function() {
+window.closeCart =
+function() {
 
     document.getElementById(
         "cartOverlay"
@@ -3080,7 +3368,8 @@ window.closeCart = function() {
    OPEN CHECKOUT
 ========================================================= */
 
-window.openCheckout = function() {
+window.openCheckout =
+function() {
 
     if (cart.length === 0) {
 
@@ -3116,7 +3405,8 @@ window.openCheckout = function() {
    CLOSE CHECKOUT
 ========================================================= */
 
-window.closeCheckout = function() {
+window.closeCheckout =
+function() {
 
     document.getElementById(
         "checkoutForm"
@@ -3135,7 +3425,8 @@ window.closeCheckout = function() {
    WHATSAPP ORDER
 ========================================================= */
 
-window.placeWhatsAppOrder = function() {
+window.placeWhatsAppOrder =
+function() {
 
     const name =
         document.getElementById(
@@ -3281,9 +3572,13 @@ window.placeWhatsAppOrder = function() {
 
                 item.name +
 
-                " | Colour: " +
-
-                (item.color || "Black") +
+                (
+                    item.color &&
+                    item.color !== "Default"
+                        ? " | Colour: " +
+                          item.color
+                        : ""
+                ) +
 
                 " | Size: " +
 
@@ -3317,7 +3612,10 @@ window.placeWhatsAppOrder = function() {
         "Delivery: Home Delivery";
 
 
-    /* YOUR WHATSAPP NUMBER */
+    /*
+       Your WhatsApp number.
+       Country code 91 + mobile number.
+    */
 
     const whatsappNumber =
         "917758827177";
@@ -3344,7 +3642,8 @@ window.placeWhatsAppOrder = function() {
    SEARCH
 ========================================================= */
 
-window.searchProducts = function() {
+window.searchProducts =
+function() {
 
     const text =
         document
@@ -3363,16 +3662,22 @@ window.searchProducts = function() {
     products.forEach(
         function(product) {
 
+            const nameElement =
+                product.querySelector("h3");
+
+
             const name =
-                product
-                    .querySelector("h3")
-                    .textContent
-                    .toLowerCase();
+                nameElement
+                    ? nameElement.textContent
+                        .toLowerCase()
+                    : "";
 
 
             const category =
-                product.dataset.category
-                    .toLowerCase();
+                (
+                    product.dataset.category ||
+                    ""
+                ).toLowerCase();
 
 
             if (
@@ -3380,7 +3685,8 @@ window.searchProducts = function() {
                 category.includes(text)
             ) {
 
-                product.style.display = "";
+                product.style.display =
+                    "";
 
             }
 
@@ -3401,9 +3707,8 @@ window.searchProducts = function() {
    FILTER CATEGORY
 ========================================================= */
 
-window.filterCategory = function(
-    category
-) {
+window.filterCategory =
+function(category) {
 
     document.getElementById(
         "search"
@@ -3424,7 +3729,8 @@ window.filterCategory = function(
                 category
             ) {
 
-                product.style.display = "";
+                product.style.display =
+                    "";
 
             }
 
@@ -3448,7 +3754,8 @@ window.filterCategory = function(
    SHOW ALL PRODUCTS
 ========================================================= */
 
-window.showAllProducts = function() {
+window.showAllProducts =
+function() {
 
     const products =
         document.querySelectorAll(
@@ -3459,7 +3766,8 @@ window.showAllProducts = function() {
     products.forEach(
         function(product) {
 
-            product.style.display = "";
+            product.style.display =
+                "";
 
         }
     );
@@ -3479,13 +3787,22 @@ window.showAllProducts = function() {
    SCROLL TO PRODUCTS
 ========================================================= */
 
-window.scrollToProducts = function() {
+window.scrollToProducts =
+function() {
 
-    document.getElementById(
-        "products"
-    ).scrollIntoView({
-        behavior: "smooth"
-    });
+    const productsSection =
+        document.getElementById(
+            "products"
+        );
+
+
+    if (productsSection) {
+
+        productsSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
 
 };
 
@@ -3494,7 +3811,8 @@ window.scrollToProducts = function() {
    FIREBASE LOGIN / SIGN UP
 ========================================================= */
 
-window.login = async function() {
+window.login =
+async function() {
 
     const choice =
         prompt(
@@ -3567,8 +3885,7 @@ window.login = async function() {
 
         }
 
-
-        else if (choice === "2") {
+        else {
 
             await createUserWithEmailAndPassword(
                 auth,
@@ -3594,7 +3911,9 @@ window.login = async function() {
 
 
         alert(
-            getFriendlyFirebaseError(error)
+            getFriendlyFirebaseError(
+                error
+            )
         );
 
     }
@@ -3686,7 +4005,8 @@ function getFriendlyFirebaseError(
    LOGOUT
 ========================================================= */
 
-window.logout = async function() {
+window.logout =
+async function() {
 
     try {
 
@@ -3705,7 +4025,9 @@ window.logout = async function() {
 
 
         alert(
-            getFriendlyFirebaseError(error)
+            getFriendlyFirebaseError(
+                error
+            )
         );
 
     }
@@ -3755,7 +4077,7 @@ onAuthStateChanged(
 
                     if (logoutConfirm) {
 
-                        logout();
+                        window.logout();
 
                     }
 
@@ -3770,7 +4092,7 @@ onAuthStateChanged(
 
 
             loginButton.onclick =
-                login;
+                window.login;
 
         }
 
@@ -3789,7 +4111,9 @@ document.addEventListener(
         if (
             event.key !== "Escape"
         ) {
+
             return;
+
         }
 
 
@@ -3864,11 +4188,10 @@ if (cartOverlay) {
 
 
 /* =========================================================
-   INITIAL CART DISPLAY
+   INITIAL CART
 ========================================================= */
 
 updateCart();
-
 
 </script>
 
