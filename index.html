@@ -1451,61 +1451,56 @@ footer strong {
 
 
         <!-- 9. WOMEN'S SANDALS -->
+<div class="product" data-category="sandals">
 
-        <div class="product" data-category="sandals">
+    <div class="product-image-container"
+         onclick="openProductDetails(
+            'Women\'s Sandals',
+            699,
+            999,
+            'sandals',
+            'women-sandals.png'
+         )">
 
-            <div
-                class="product-image-container"
-                onclick="openProductDetails(
-                    &quot;Women's Sandals&quot;,
-                    699,
-                    999,
-                    'sandals',
-                    'women-sandals.png'
-                )">
+        <span class="product-discount">30% OFF</span>
 
-                <span class="product-discount">
-                    30% OFF
-                </span>
+        <img
+            src="women-sandals.png"
+            alt="Women's Sandals">
 
-                <img
-                    src="women-sandals.png"
-                    alt="Women's Sandals"
-                >
+    </div>
 
-            </div>
+    <div class="product-info">
 
-            <div class="product-info">
+        <h3>Women's Sandals</h3>
 
-                <h3>Women's Sandals</h3>
-
-                <div class="price-row">
-                    <div class="price">₹699</div>
-                    <div class="original-price">₹999</div>
-                </div>
-
-                <select id="size-womens-sandals" class="size-select">
-                    <option value="">Select Size</option>
-                    <option value="6">Size 6</option>
-                    <option value="7">Size 7</option>
-                    <option value="8">Size 8</option>
-                    <option value="9">Size 9</option>
-                    <option value="10">Size 10</option>
-                </select>
-
-                <button
-                    class="add-cart"
-                    onclick="addToCartWithSize(
-                        &quot;Women's Sandals&quot;,
-                        699,
-                        'size-womens-sandals'
-                    )">
-                    Add To Cart
-                </button>
-
-            </div>
-
+        <div class="price-row">
+            <div class="price">₹699</div>
+            <div class="original-price">₹999</div>
         </div>
+
+        <select id="size-womens-sandals" class="size-select">
+            <option value="">Select Size</option>
+            <option value="6">Size 6</option>
+            <option value="7">Size 7</option>
+            <option value="8">Size 8</option>
+            <option value="9">Size 9</option>
+            <option value="10">Size 10</option>
+        </select>
+
+        <button
+            class="add-cart"
+            onclick="addToCartWithSize(
+                'Women\'s Sandals',
+                699,
+                'size-womens-sandals'
+            )">
+            Add To Cart
+        </button>
+
+    </div>
+
+</div>
 
 
         <!-- 10. WALKING SHOES -->
