@@ -227,7 +227,13 @@ section {
     padding: 10px;
     transition: transform 0.4s ease;
 }
-.product:hover img {
+    .premium-shoe-image {
+    object-fit: contain !important;
+    object-position: center;
+    background: #f7f7f7;
+    padding: 10px;
+}
+.product:hover .premium-shoe-image {
     transform: scale(1.02);
 }
 
@@ -1035,9 +1041,9 @@ footer strong {
         <span class="product-discount">25% OFF</span>
 
         <img
-            src="premium-sports-black.jpg"
-            alt="Premium Sports Shoes">
-
+    src="premium-sports-black.jpg"
+    alt="Premium Sports Shoes"
+    class="premium-shoe-image">
     </div>
 
     <div class="product-info">
