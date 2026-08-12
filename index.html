@@ -658,7 +658,14 @@ section {
 .color-option.grey {
     background: #777;
 }
+.color-option.navy {
+    background: #1f3a5f;
+}
 
+.color-option.white {
+    background: white;
+    border: 2px solid #aaa;
+}
 .size-title {
     display: flex;
     justify-content: space-between;
@@ -999,63 +1006,62 @@ footer strong {
     <div class="products" id="productList">
 
 
-        <!-- 1. PREMIUM SPORTS SHOES -->
+       <!-- 1. Premium Sports Shoes -->
+<div class="product" data-category="sports">
 
-        <div class="product" data-category="sports">
+    <div class="product-image-container"
+         onclick="openProductDetails(
+            'Premium Sports Shoes',
+            1499,
+            1999,
+            'sports',
+            [
+                'premium-sports-black.jpg',
+                'premium-sports-grey.jpg',
+                'premium-sports-navy.jpg',
+                'premium-sports-white.jpg'
+            ]
+         )">
 
-            <div
-                class="product-image-container"
-                onclick="openProductDetails(
-                    'Premium Sports Shoes',
-                    1499,
-                    1999,
-                    'sports',
-                    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'
-                )">
+        <span class="product-discount">25% OFF</span>
 
-                <span class="product-discount">
-                    25% OFF
-                </span>
+        <img
+            src="premium-sports-black.jpg"
+            alt="Premium Sports Shoes">
 
-                <img
-                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
-                    alt="Premium Sports Shoes"
-                >
+    </div>
 
-            </div>
+    <div class="product-info">
 
-            <div class="product-info">
+        <h3>Premium Sports Shoes</h3>
 
-                <h3>Premium Sports Shoes</h3>
-
-                <div class="price-row">
-                    <div class="price">₹1,499</div>
-                    <div class="original-price">₹1,999</div>
-                </div>
-
-                <select id="size-premium-sports" class="size-select">
-                    <option value="">Select Size</option>
-                    <option value="6">Size 6</option>
-                    <option value="7">Size 7</option>
-                    <option value="8">Size 8</option>
-                    <option value="9">Size 9</option>
-                    <option value="10">Size 10</option>
-                </select>
-
-                <button
-                    class="add-cart"
-                    onclick="addToCartWithSize(
-                        'Premium Sports Shoes',
-                        1499,
-                        'size-premium-sports'
-                    )">
-                    Add To Cart
-                </button>
-
-            </div>
-
+        <div class="price-row">
+            <div class="price">₹1,499</div>
+            <div class="original-price">₹1,999</div>
         </div>
 
+        <select id="size-premium-sports" class="size-select">
+            <option value="">Select Size</option>
+            <option value="6">Size 6</option>
+            <option value="7">Size 7</option>
+            <option value="8">Size 8</option>
+            <option value="9">Size 9</option>
+            <option value="10">Size 10</option>
+        </select>
+
+        <button
+            class="add-cart"
+            onclick="addToCartWithSize(
+                'Premium Sports Shoes',
+                1499,
+                'size-premium-sports'
+            )">
+            Add To Cart
+        </button>
+
+    </div>
+
+</div>
 
         <!-- 2. CLASSIC SNEAKERS -->
 
@@ -1793,28 +1799,42 @@ footer strong {
                 </div>
 
 
-                <div class="detail-section">
+               <div class="detail-section">
 
-                    <h3>Colour</h3>
+    <h3>
+        Colour:
+        <span id="selectedColorName">Black</span>
+    </h3>
 
-                    <div class="color-options">
+    <div class="color-options">
 
-                        <button
-                            class="color-option selected">
-                        </button>
+        <button
+            class="color-option selected"
+            title="Black"
+            onclick="selectProductColor(this, 'premium-black.jpg', 'Black')">
+        </button>
 
-                        <button
-                            class="color-option black">
-                        </button>
+        <button
+            class="color-option navy"
+            title="Navy Blue"
+            onclick="selectProductColor(this, 'premium-navy.jpg', 'Navy Blue')">
+        </button>
 
-                        <button
-                            class="color-option grey">
-                        </button>
+        <button
+            class="color-option grey"
+            title="Grey"
+            onclick="selectProductColor(this, 'premium-grey.jpg', 'Grey')">
+        </button>
 
-                    </div>
+        <button
+            class="color-option white"
+            title="White"
+            onclick="selectProductColor(this, 'premium-white.jpg', 'White')">
+        </button>
 
-                </div>
+    </div>
 
+</div>
 
                 <div class="detail-section">
 
@@ -1967,8 +1987,24 @@ let cart = [];
 let selectedDetailProduct = null;
 
 let selectedDetailSize = "";
+const selectedColorName =
+    document.getElementById("selectedColorName");
 
+if (selectedColorName) {
+    selectedColorName.innerText = "Black";
+}
+document
+    .querySelectorAll(".color-option")
+    .forEach(function(button) {
+        button.classList.remove("selected");
+    });
 
+const firstColor =
+    document.querySelector(".color-option");
+
+if (firstColor) {
+    firstColor.classList.add("selected");
+}
 /* ================= PRODUCT DETAILS ================= */
 
 window.openProductDetails = function(
@@ -2065,7 +2101,35 @@ window.changeDetailImage = function(image) {
     ).src = image;
 
 };
+window.selectProductColor = function(button, image, colorName) {
 
+    // Remove selected border from all colours
+    document
+        .querySelectorAll(".color-option")
+        .forEach(function(btn) {
+            btn.classList.remove("selected");
+        });
+
+    // Select clicked colour
+    button.classList.add("selected");
+
+    // Change main product image
+    document.getElementById("detailMainImage").src = image;
+
+    // Change thumbnails
+    document.getElementById("detailThumb1").src = image;
+    document.getElementById("detailThumb2").src = image;
+
+    // Show selected colour name
+    document.getElementById("selectedColorName").innerText = colorName;
+
+    // Save selected colour
+    if (selectedDetailProduct) {
+        selectedDetailProduct.image = image;
+        selectedDetailProduct.color = colorName;
+    }
+
+};
 
 window.selectDetailSize = function(
     button,
@@ -2158,30 +2222,37 @@ function addProductToCart(
     size
 ) {
 
-    const existingProduct = cart.find(
-        item =>
-            item.name === name &&
-            item.size === size
-    );
+   const selectedColor =
+    selectedDetailProduct.color || "Black";
 
+const selectedColor =
+    selectedDetailProduct.color || "Black";
 
+const existingProduct = cart.find(
+    item =>
+        item.name === selectedDetailProduct.name &&
+        item.color === selectedColor &&
+        item.size === selectedDetailSize
+);
     if (existingProduct) {
 
         existingProduct.quantity++;
 
     } else {
 
-        cart.push({
+       cart.push({
 
-            name,
-            price,
-            size,
-            quantity: 1
+    name: selectedDetailProduct.name,
 
-        });
+    price: selectedDetailProduct.price,
 
-    }
+    color: selectedDetailProduct.color || "Black",
 
+    size: selectedDetailSize,
+
+    quantity: 1
+
+});
 
     updateCart();
 
@@ -2292,10 +2363,15 @@ function updateCart() {
 
                 <div class="cart-item-info">
 
-                    <h3>
-                        ${escapeHTML(item.name)}
-                        - Size ${escapeHTML(item.size)}
-                    </h3>
+                   <h3>
+    ${item.name}
+    ${item.color
+        ? " - " + item.color
+        : ""}
+    ${item.size
+        ? " - Size " + item.size
+        : ""}
+</h3>
 
                     <div class="cart-price">
                         ₹${item.price}
