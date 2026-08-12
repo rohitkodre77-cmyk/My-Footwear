@@ -55,9 +55,11 @@ header {
     letter-spacing: 3px;
     text-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
 }
-    .logo span {
+
+.logo span {
     color: #ffffff;
 }
+
 .search-box {
     flex: 1;
     max-width: 500px;
@@ -211,29 +213,28 @@ section {
     box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
 
+/* ================= PRODUCT CARD IMAGE ================= */
+
 .product-image-container {
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    width: 100%;
+    height: 220px;
+    background: #f7f7f7;
 }
 
 .product img {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: contain;
     object-position: center;
     display: block;
-    background: #f7f7f7;
-    padding: 8px;
-    transition: transform 0.4s ease;
-}
-    .premium-shoe-image {
-    object-fit: contain !important;
-    object-position: center;
-    background: #f7f7f7;
     padding: 10px;
+    transition: transform 0.3s ease;
 }
-.product:hover .premium-shoe-image {
+
+.product:hover img {
     transform: scale(1.02);
 }
 
@@ -535,6 +536,8 @@ section {
     position: relative;
 }
 
+/* ================= POPUP MAIN IMAGE ================= */
+
 .discount-badge {
     position: absolute;
     top: 15px;
@@ -552,10 +555,14 @@ section {
     height: 430px;
     object-fit: contain;
     object-position: center;
+    display: block;
     border-radius: 15px;
     background: #f7f7f7;
     padding: 15px;
 }
+
+/* ================= POPUP THUMBNAILS ================= */
+
 .detail-thumbnails {
     display: flex;
     gap: 12px;
@@ -573,6 +580,7 @@ section {
     background: #f7f7f7;
     padding: 5px;
 }
+
 .detail-thumbnails img:hover {
     border-color: #d4af37;
 }
@@ -669,6 +677,7 @@ section {
 .color-option.grey {
     background: #777;
 }
+
 .color-option.navy {
     background: #1f3a5f;
 }
@@ -677,6 +686,7 @@ section {
     background: white;
     border: 2px solid #aaa;
 }
+
 .size-title {
     display: flex;
     justify-content: space-between;
@@ -833,11 +843,18 @@ footer strong {
         gap: 12px;
     }
 
-   .product img {
-    height: 160px;
-    object-fit: contain;
-    padding: 8px;
-}
+    /* Main product card images on mobile */
+    .product-image-container {
+        height: 160px;
+    }
+
+    .product img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        padding: 8px;
+    }
 
     .product-info {
         padding: 10px;
@@ -866,8 +883,13 @@ footer strong {
         gap: 20px;
     }
 
+    /* Popup image on mobile */
     .detail-main-image {
+        width: 100%;
         height: 300px;
+        object-fit: contain;
+        object-position: center;
+        padding: 10px;
     }
 
     .product-detail-info h1 {
