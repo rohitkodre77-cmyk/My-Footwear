@@ -39,12 +39,25 @@ header {
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
     color: #d4af37;
     white-space: nowrap;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
+    transition: 0.3s ease;
 }
 
+.logo:hover {
+    transform: scale(1.05);
+    letter-spacing: 3px;
+    text-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}
+    .logo span {
+    color: #ffffff;
+}
 .search-box {
     flex: 1;
     max-width: 500px;
@@ -874,9 +887,9 @@ footer strong {
 
 <header>
 
-    <div class="logo">
-        MY FOOTWEAR
-    </div>
+   <div class="logo">
+    MY <span>FOOTWEAR</span>
+</div>
 
     <div class="search-box">
         <input
