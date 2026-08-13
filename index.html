@@ -2384,50 +2384,41 @@ window.openProductDetails = function(
     mainImage.src =
         selectedDetailImages[0];
 
-    /* THUMBNAIL 1 */
+   /* THUMBNAILS 1–4 */
 
-    const thumb1 =
-        document.getElementById(
-            "detailThumb1"
-        );
+const thumbnails = [
+    document.getElementById("detailThumb1"),
+    document.getElementById("detailThumb2"),
+    document.getElementById("detailThumb3"),
+    document.getElementById("detailThumb4")
+];
 
-    thumb1.dataset.fallbackUsed = "";
+thumbnails.forEach(function(thumb, index) {
 
-    thumb1.src =
-        selectedDetailImages[0];
+    if (!thumb) return;
 
+    thumb.classList.remove("active");
 
-    /* THUMBNAIL 2 */
+    if (selectedDetailImages[index]) {
 
-    const thumb2 =
-        document.getElementById(
-            "detailThumb2"
-        );
+        thumb.dataset.fallbackUsed = "";
 
-    if (
-        selectedDetailImages.length > 1
-    ) {
+        thumb.src =
+            selectedDetailImages[index];
 
-        thumb2.style.display =
+        thumb.style.display =
             "block";
 
-        thumb2.dataset.fallbackUsed =
-            "";
+    } else {
 
-        thumb2.src =
-            selectedDetailImages[1];
+        thumb.src = "";
 
-    }
-
-    else {
-
-        thumb2.style.display =
+        thumb.style.display =
             "none";
-
-        thumb2.src = "";
-
     }
+});
 
+thumbnails[0].classList.add("active");
 
     /* RESET THUMBNAIL BORDER */
 
