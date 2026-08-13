@@ -556,7 +556,11 @@ section {
     border-radius: 15px;
     background: #f7f7f7;
 }
-
+.premium-sports-popup-image {
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: scale(1.18);
+}
 .detail-thumbnails {
     display: flex;
     gap: 12px;
@@ -1776,12 +1780,12 @@ footer strong {
                     20% OFF
                 </div>
 
-                <img
-                    id="detailMainImage"
-                    src=""
-                    class="detail-main-image"
-                    alt="Product"
-                    onerror="imageError(this)">
+               <img
+    id="detailMainImage"
+    src=""
+    class="detail-main-image"
+    alt="Product"
+    onerror="imageError(this)">
 
                 <div class="detail-thumbnails">
 
@@ -2370,7 +2374,11 @@ window.openProductDetails = function(
 
     mainImage.src =
         selectedDetailImages[0];
-
+if (name === "Premium Sports Shoes") {
+    mainImage.classList.add("premium-sports-popup-image");
+} else {
+    mainImage.classList.remove("premium-sports-popup-image");
+}
 
     /* THUMBNAIL 1 */
 
