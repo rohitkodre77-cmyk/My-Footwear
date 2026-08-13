@@ -1783,24 +1783,37 @@ footer strong {
     alt="Product"
     onerror="imageError(this)">
 
-                <div class="detail-thumbnails">
+               <div class="detail-thumbnails">
 
-                    <img
-                        id="detailThumb1"
-                        src=""
-                        onclick="changeDetailImage(this.src)"
-                        alt="Product thumbnail"
-                        onerror="imageError(this)">
+    <img
+        id="detailThumb1"
+        src=""
+        onclick="changeDetailImage(this.src)"
+        alt="Product thumbnail 1"
+        onerror="imageError(this)">
 
-                    <img
-                        id="detailThumb2"
-                        src=""
-                        onclick="changeDetailImage(this.src)"
-                        alt="Product thumbnail"
-                        onerror="imageError(this)">
+    <img
+        id="detailThumb2"
+        src=""
+        onclick="changeDetailImage(this.src)"
+        alt="Product thumbnail 2"
+        onerror="imageError(this)">
 
-                </div>
+    <img
+        id="detailThumb3"
+        src=""
+        onclick="changeDetailImage(this.src)"
+        alt="Product thumbnail 3"
+        onerror="imageError(this)">
 
+    <img
+        id="detailThumb4"
+        src=""
+        onclick="changeDetailImage(this.src)"
+        alt="Product thumbnail 4"
+        onerror="imageError(this)">
+
+</div>
             </div>
 
             <div class="product-detail-info">
@@ -2686,41 +2699,43 @@ function(button) {
         selectedImage;
 
 
-    /* CHANGE THUMBNAIL 1 */
+   /* CHANGE THUMBNAILS 1–4 */
 
-    const thumb1 =
-        document.getElementById(
-            "detailThumb1"
-        );
+const thumbnails = [
+    document.getElementById("detailThumb1"),
+    document.getElementById("detailThumb2"),
+    document.getElementById("detailThumb3"),
+    document.getElementById("detailThumb4")
+];
 
-    thumb1.dataset.fallbackUsed =
-        "";
+thumbnails.forEach(function(thumb, index) {
 
-    thumb1.src =
-        selectedImage;
+    if (!thumb) return;
 
-    thumb1.classList.add("active");
+    thumb.classList.remove("active");
 
+    if (selectedDetailImages[index]) {
 
-    /* KEEP SECOND THUMBNAIL */
+        thumb.src =
+            selectedDetailImages[index];
 
-    const thumb2 =
-        document.getElementById(
-            "detailThumb2"
-        );
-
-    if (
-        selectedDetailImages.length > 1
-    ) {
-
-        thumb2.src =
-            selectedDetailImages[1];
-
-        thumb2.style.display =
+        thumb.style.display =
             "block";
 
-    }
+        thumb.dataset.fallbackUsed =
+            "";
 
+    } else {
+
+        thumb.style.display =
+            "none";
+    }
+});
+
+/* Select the first thumbnail */
+if (thumbnails[0]) {
+    thumbnails[0].classList.add("active");
+}
 
     /* COLOR NAME */
 
