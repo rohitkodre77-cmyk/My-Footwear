@@ -55,11 +55,9 @@ header {
     letter-spacing: 3px;
     text-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
 }
-
-.logo span {
+    .logo span {
     color: #ffffff;
 }
-
 .search-box {
     flex: 1;
     max-width: 500px;
@@ -112,6 +110,7 @@ header {
 
     text-align: center;
     color: white;
+
     padding: 40px 20px;
 }
 
@@ -363,14 +362,6 @@ section {
     font-weight: bold;
 }
 
-.cart-item-image {
-    width: 65px;
-    height: 65px;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
 .quantity-controls {
     display: flex;
     align-items: center;
@@ -482,6 +473,9 @@ section {
     cursor: pointer;
 }
 
+
+/* Image error helper is defined in the JavaScript fallback below. */
+
 /* ================= PRODUCT DETAILS ================= */
 
 .product-detail-overlay {
@@ -551,8 +545,7 @@ section {
 .detail-main-image {
     width: 100%;
     height: 430px;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
     border-radius: 15px;
     background: #f7f7f7;
 }
@@ -573,10 +566,6 @@ section {
 }
 
 .detail-thumbnails img:hover {
-    border-color: #d4af37;
-}
-
-.detail-thumbnails img.active {
     border-color: #d4af37;
 }
 
@@ -650,7 +639,6 @@ section {
 .color-options {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
 }
 
 .color-option {
@@ -673,7 +661,6 @@ section {
 .color-option.grey {
     background: #777;
 }
-
 .color-option.navy {
     background: #1f3a5f;
 }
@@ -682,7 +669,6 @@ section {
     background: white;
     border: 2px solid #aaa;
 }
-
 .size-title {
     display: flex;
     justify-content: space-between;
@@ -795,6 +781,7 @@ footer strong {
 /* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
+
     .products {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -900,21 +887,50 @@ footer strong {
     .service-features {
         grid-template-columns: 1fr;
     }
-
-    .quantity-controls {
-        gap: 4px;
-    }
-
-    .cart-box {
-        padding: 18px;
-    }
 }
-    .premium-sports-image {
-    object-fit: contain !important;
-    object-position: center !important;
-    width: 100%;
-    height: 100%;
+
+/* ================= MY FOOTWEAR MOBILE / MYNTRA-STYLE POLISH ================= */
+.products { align-items: start; }
+.product { border: 0; box-shadow: 0 1px 5px rgba(0,0,0,.08); border-radius: 12px; }
+.product-image-container { background: #f5f5f6; aspect-ratio: 1 / 1; }
+.product img { height: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.product-info { padding: 10px 9px 12px; }
+.product-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.price-row { gap: 7px; margin-bottom: 9px; align-items: baseline; flex-wrap: nowrap; }
+.price { color: #111; font-size: 17px; font-weight: 800; }
+.original-price { font-size: 13px; color: #8a8a8a; }
+.product-discount { background: #fff; color: #ff9050; border-radius: 4px; padding: 4px 6px; font-size: 11px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+/* Only Premium Sports Shoes gets a full-shoe fit. Other products keep their existing crop behavior. */
+.product img.premium-sports-card-image { object-fit: contain !important; object-position: center !important; background: #f5f5f6; }
+.detail-main-image { height: 520px; object-fit: contain !important; object-position: center !important; background: #f7f7f7; padding: 8px; cursor: zoom-in; }
+.detail-thumbnails { display: grid; grid-template-columns: repeat(4, 82px); gap: 12px; margin-top: 15px; overflow-x: auto; padding-bottom: 4px; }
+.detail-thumbnails img { width: 82px; height: 82px; object-fit: contain; object-position: center; background: #f7f7f7; border: 2px solid #ddd; border-radius: 10px; padding: 2px; cursor: pointer; display: none; }
+.detail-thumbnails img.active { border-color: #d4af37; }
+.detail-thumbnails img:hover { border-color: #d4af37; }
+@media (max-width: 700px) {
+  section { padding: 24px 10px; }
+  .section-title { font-size: 22px; margin-bottom: 16px; }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .product { border-radius: 10px; box-shadow: 0 1px 5px rgba(0,0,0,.09); }
+  .product-image-container { aspect-ratio: 1 / 1; }
+  .product img { height: 100%; }
+  .product-info { padding: 8px 8px 10px; }
+  .product-info h3 { font-size: 14px; margin-bottom: 5px; }
+  .price { font-size: 16px; }
+  .original-price { font-size: 12px; }
+  .product-discount { top: 8px; left: 8px; font-size: 10px; padding: 3px 5px; }
+  .size-select, .add-cart { display: none; }
+  .product-detail-overlay { padding: 0; background: rgba(0,0,0,.72); }
+  .product-detail-box { width: 100%; min-height: 100%; margin: 0; border-radius: 0; overflow-y: auto; }
+  .product-detail-content { grid-template-columns: 1fr; padding: 48px 14px 24px; gap: 14px; }
+  .detail-main-image { height: 380px; border-radius: 12px; padding: 5px; }
+  .detail-thumbnails { grid-template-columns: repeat(4, 76px); gap: 9px; }
+  .detail-thumbnails img { width: 76px; height: 76px; }
+  .product-detail-info { padding: 0; }
+  .product-detail-info h1 { font-size: 23px; }
+  .product-detail-close { right: 10px; top: 10px; width: 38px; height: 38px; }
 }
+
 </style>
 </head>
 
@@ -924,9 +940,9 @@ footer strong {
 
 <header>
 
-    <div class="logo">
-        MY <span>FOOTWEAR</span>
-    </div>
+   <div class="logo">
+    MY <span>FOOTWEAR</span>
+</div>
 
     <div class="search-box">
         <input
@@ -951,6 +967,7 @@ footer strong {
 
 </header>
 
+
 <!-- ================= HERO ================= -->
 
 <div class="hero">
@@ -972,6 +989,7 @@ footer strong {
     </div>
 
 </div>
+
 
 <!-- ================= CATEGORIES ================= -->
 
@@ -1022,6 +1040,7 @@ footer strong {
 
 </section>
 
+
 <!-- ================= PRODUCTS ================= -->
 
 <section id="products">
@@ -1032,69 +1051,64 @@ footer strong {
 
     <div class="products" id="productList">
 
-        <!-- 1. PREMIUM SPORTS SHOES -->
 
-        <div class="product" data-category="sports">
+       <!-- 1. Premium Sports Shoes -->
+<div class="product" data-category="sports">
 
-            <div
-                class="product-image-container"
-                onclick="openProductDetails(
-                    'Premium Sports Shoes',
-                    1499,
-                    1999,
-                    'sports',
-                    [
-                        'premium-sports-black.jpg',
-                        'premium-sports-grey.jpg',
-                        'premium-sports-navy.jpg',
-                        'premium-sports-white.jpg'
-                    ],
-                    true
-                )">
+    <div class="product-image-container"
+         onclick="openProductDetails(
+            'Premium Sports Shoes',
+            1499,
+            1999,
+            'sports',
+            [
+                'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-black.jpg',
+                'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-grey.jpg',
+                'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-navy.jpg',
+                'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-white.jpg'
+            ],
+            true
+         )">
 
-                <span class="product-discount">25% OFF</span>
+        <span class="product-discount">25% OFF</span>
 
-              <img
-    src="premium-sports-black.jpg"
-    alt="Premium Sports Shoes"
-    class="premium-sports-image"
-    onerror="imageError(this)"
->
+        <img
+            src="https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-black.jpg"
+            alt="Premium Sports Shoes" class="premium-sports-card-image" onerror="this.style.display='none'">
 
-            </div>
+    </div>
 
-            <div class="product-info">
+    <div class="product-info">
 
-                <h3>Premium Sports Shoes</h3>
+        <h3>Premium Sports Shoes</h3>
 
-                <div class="price-row">
-                    <div class="price">₹1,499</div>
-                    <div class="original-price">₹1,999</div>
-                </div>
-
-                <select id="size-premium-sports" class="size-select">
-                    <option value="">Select Size</option>
-                    <option value="6">Size 6</option>
-                    <option value="7">Size 7</option>
-                    <option value="8">Size 8</option>
-                    <option value="9">Size 9</option>
-                    <option value="10">Size 10</option>
-                </select>
-
-                <button
-                    class="add-cart"
-                    onclick="addToCartWithSize(
-                        'Premium Sports Shoes',
-                        1499,
-                        'size-premium-sports',
-                        'premium-sports-black.jpg'
-                    )">
-                    Add To Cart
-                </button>
-
-            </div>
-
+        <div class="price-row">
+            <div class="price">₹1,499</div>
+            <div class="original-price">₹1,999</div>
         </div>
+
+        <select id="size-premium-sports" class="size-select">
+            <option value="">Select Size</option>
+            <option value="6">Size 6</option>
+            <option value="7">Size 7</option>
+            <option value="8">Size 8</option>
+            <option value="9">Size 9</option>
+            <option value="10">Size 10</option>
+        </select>
+
+        <button
+            class="add-cart"
+            onclick="addToCartWithSize(
+                'Premium Sports Shoes',
+                1499,
+                'size-premium-sports'
+            )">
+            Add To Cart
+        </button>
+
+    </div>
+
+</div>
 
         <!-- 2. CLASSIC SNEAKERS -->
 
@@ -1107,8 +1121,7 @@ footer strong {
                     1299,
                     1699,
                     'casual',
-                    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80',
-                    false
+                    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
                 )">
 
                 <span class="product-discount">
@@ -1118,7 +1131,6 @@ footer strong {
                 <img
                     src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
                     alt="Classic Sneakers"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1146,8 +1158,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Classic Sneakers',
                         1299,
-                        'size-classic-sneakers',
-                        'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80'
+                        'size-classic-sneakers'
                     )">
                     Add To Cart
                 </button>
@@ -1155,6 +1166,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 3. CASUAL SHOES -->
 
@@ -1167,8 +1179,7 @@ footer strong {
                     999,
                     1299,
                     'casual',
-                    'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80',
-                    false
+                    'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80'
                 )">
 
                 <span class="product-discount">
@@ -1178,7 +1189,6 @@ footer strong {
                 <img
                     src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
                     alt="Casual Shoes"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1206,8 +1216,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Casual Shoes',
                         999,
-                        'size-casual-shoes',
-                        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80'
+                        'size-casual-shoes'
                     )">
                     Add To Cart
                 </button>
@@ -1215,6 +1224,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 4. PREMIUM SANDALS -->
 
@@ -1227,8 +1237,7 @@ footer strong {
                     699,
                     999,
                     'sandals',
-                    'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80',
-                    false
+                    'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80'
                 )">
 
                 <span class="product-discount">
@@ -1238,7 +1247,6 @@ footer strong {
                 <img
                     src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
                     alt="Premium Sandals"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1266,8 +1274,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Premium Sandals',
                         699,
-                        'size-premium-sandals',
-                        'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80'
+                        'size-premium-sandals'
                     )">
                     Add To Cart
                 </button>
@@ -1275,6 +1282,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 5. RUNNING SHOES -->
 
@@ -1287,8 +1295,7 @@ footer strong {
                     899,
                     1199,
                     'sports',
-                    'running-shoes.jpeg',
-                    false
+                    'https://rohitkodre77-cmyk.github.io/My-Footwear/running-shoes.jpeg'
                 )">
 
                 <span class="product-discount">
@@ -1296,9 +1303,8 @@ footer strong {
                 </span>
 
                 <img
-                    src="running-shoes.jpeg"
+                    src="https://rohitkodre77-cmyk.github.io/My-Footwear/running-shoes.jpeg"
                     alt="Running Shoes"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1326,8 +1332,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Running Shoes',
                         899,
-                        'size-running-shoes',
-                        'running-shoes.jpeg'
+                        'size-running-shoes'
                     )">
                     Add To Cart
                 </button>
@@ -1335,6 +1340,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 6. FORMAL SHOES -->
 
@@ -1347,8 +1353,7 @@ footer strong {
                     949,
                     1499,
                     'formal',
-                    'formal-shoes.png',
-                    false
+                    'https://rohitkodre77-cmyk.github.io/My-Footwear/formal-shoes.png'
                 )">
 
                 <span class="product-discount">
@@ -1356,9 +1361,8 @@ footer strong {
                 </span>
 
                 <img
-                    src="formal-shoes.png"
+                    src="https://rohitkodre77-cmyk.github.io/My-Footwear/formal-shoes.png"
                     alt="Formal Shoes"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1386,8 +1390,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Formal Shoes',
                         949,
-                        'size-formal-shoes',
-                        'formal-shoes.png'
+                        'size-formal-shoes'
                     )">
                     Add To Cart
                 </button>
@@ -1395,6 +1398,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 7. COMFORT SLIPPERS -->
 
@@ -1407,8 +1411,7 @@ footer strong {
                     299,
                     499,
                     'slippers',
-                    'comfort-slippers.jpeg',
-                    false
+                    'https://rohitkodre77-cmyk.github.io/My-Footwear/comfort-slippers.jpeg'
                 )">
 
                 <span class="product-discount">
@@ -1416,9 +1419,8 @@ footer strong {
                 </span>
 
                 <img
-                    src="comfort-slippers.jpeg"
+                    src="https://rohitkodre77-cmyk.github.io/My-Footwear/comfort-slippers.jpeg"
                     alt="Comfort Slippers"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1446,8 +1448,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Comfort Slippers',
                         299,
-                        'size-comfort-slippers',
-                        'comfort-slippers.jpeg'
+                        'size-comfort-slippers'
                     )">
                     Add To Cart
                 </button>
@@ -1455,6 +1456,7 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 8. CLASSIC CROCS -->
 
@@ -1467,8 +1469,7 @@ footer strong {
                     799,
                     999,
                     'crocs',
-                    'classic-crocs2.png',
-                    false
+                    'https://rohitkodre77-cmyk.github.io/My-Footwear/classic-crocs2.png'
                 )">
 
                 <span class="product-discount">
@@ -1476,9 +1477,8 @@ footer strong {
                 </span>
 
                 <img
-                    src="classic-crocs2.png"
+                    src="https://rohitkodre77-cmyk.github.io/My-Footwear/classic-crocs2.png"
                     alt="Classic Crocs"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1506,8 +1506,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Classic Crocs',
                         799,
-                        'size-classic-crocs',
-                        'classic-crocs2.png'
+                        'size-classic-crocs'
                     )">
                     Add To Cart
                 </button>
@@ -1515,66 +1514,60 @@ footer strong {
             </div>
 
         </div>
+
 
         <!-- 9. WOMEN'S SANDALS -->
 
-        <div class="product" data-category="sandals">
+<div class="product" data-category="sandals">
 
-            <div
-                class="product-image-container"
-                onclick="openProductDetails(
-                    'Women\\'s Sandals',
-                    699,
-                    999,
-                    'sandals',
-                    'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80',
-                    false
-                )">
+    <div class="product-image-container"
+         onclick="openProductDetails(
+            'Women\'s Sandals',
+            699,
+            999,
+            'sandals',
+            'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80'
+         )">
 
-                <span class="product-discount">
-                    30% OFF
-                </span>
+        <span class="product-discount">30% OFF</span>
 
-                <img
-                    src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80"
-                    alt="Women's Sandals"
-                    onerror="imageError(this)"
-                >
+        <img
+            src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80"
+            alt="Women's Sandals">
 
-            </div>
+    </div>
 
-            <div class="product-info">
+    <div class="product-info">
 
-                <h3>Women's Sandals</h3>
+        <h3>Women's Sandals</h3>
 
-                <div class="price-row">
-                    <div class="price">₹699</div>
-                    <div class="original-price">₹999</div>
-                </div>
-
-                <select id="size-womens-sandals" class="size-select">
-                    <option value="">Select Size</option>
-                    <option value="6">Size 6</option>
-                    <option value="7">Size 7</option>
-                    <option value="8">Size 8</option>
-                    <option value="9">Size 9</option>
-                    <option value="10">Size 10</option>
-                </select>
-
-                <button
-                    class="add-cart"
-                    onclick="addToCartWithSize(
-                        'Women\\'s Sandals',
-                        699,
-                        'size-womens-sandals',
-                        'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80'
-                    )">
-                    Add To Cart
-                </button>
-
-            </div>
-
+        <div class="price-row">
+            <div class="price">₹699</div>
+            <div class="original-price">₹999</div>
         </div>
+
+        <select id="size-womens-sandals" class="size-select">
+            <option value="">Select Size</option>
+            <option value="6">Size 6</option>
+            <option value="7">Size 7</option>
+            <option value="8">Size 8</option>
+            <option value="9">Size 9</option>
+            <option value="10">Size 10</option>
+        </select>
+
+        <button
+            class="add-cart"
+            onclick="addToCartWithSize(
+                'Women\'s Sandals',
+                699,
+                'size-womens-sandals'
+            )">
+            Add To Cart
+        </button>
+
+    </div>
+
+</div>
 
         <!-- 10. WALKING SHOES -->
 
@@ -1587,8 +1580,7 @@ footer strong {
                     899,
                     1199,
                     'sports',
-                    'walking-shoes.jpeg',
-                    false
+                    'https://rohitkodre77-cmyk.github.io/My-Footwear/walking-shoes.jpeg'
                 )">
 
                 <span class="product-discount">
@@ -1596,9 +1588,8 @@ footer strong {
                 </span>
 
                 <img
-                    src="walking-shoes.jpeg"
+                    src="https://rohitkodre77-cmyk.github.io/My-Footwear/walking-shoes.jpeg"
                     alt="Walking Shoes"
-                    onerror="imageError(this)"
                 >
 
             </div>
@@ -1626,8 +1617,7 @@ footer strong {
                     onclick="addToCartWithSize(
                         'Walking Shoes',
                         899,
-                        'size-walking-shoes',
-                        'walking-shoes.jpeg'
+                        'size-walking-shoes'
                     )">
                     Add To Cart
                 </button>
@@ -1639,6 +1629,7 @@ footer strong {
     </div>
 
 </section>
+
 
 <!-- ================= FOOTER ================= -->
 
@@ -1653,6 +1644,7 @@ footer strong {
     </p>
 
 </footer>
+
 
 <!-- ================= CART ================= -->
 
@@ -1688,6 +1680,7 @@ footer strong {
 
 </div>
 
+
 <!-- ================= CHECKOUT ================= -->
 
 <div class="checkout-form" id="checkoutForm">
@@ -1704,8 +1697,7 @@ footer strong {
         <input
             type="tel"
             id="customerPhone"
-            placeholder="Mobile Number"
-            maxlength="10">
+            placeholder="Mobile Number">
 
         <textarea
             id="customerAddress"
@@ -1719,8 +1711,7 @@ footer strong {
         <input
             type="text"
             id="customerPincode"
-            placeholder="PIN Code"
-            maxlength="6">
+            placeholder="PIN Code">
 
         <div class="payment-option">
 
@@ -1752,6 +1743,7 @@ footer strong {
 
 </div>
 
+
 <!-- ================= PRODUCT DETAILS ================= -->
 
 <div
@@ -1763,7 +1755,9 @@ footer strong {
         <button
             class="product-detail-close"
             onclick="closeProductDetails()">
+
             ×
+
         </button>
 
         <div class="product-detail-content">
@@ -1776,51 +1770,32 @@ footer strong {
                     20% OFF
                 </div>
 
-               <img
-    id="detailMainImage"
-    src=""
-    class="detail-main-image"
-    alt="Product"
-    onerror="imageError(this)">
+                <img
+                    id="detailMainImage"
+                    src=""
+                    class="detail-main-image"
+                    alt="Product">
 
-               <div class="detail-thumbnails">
+                <div class="detail-thumbnails" id="detailThumbnails">
 
-    <img
-        id="detailThumb1"
-        src=""
-        onclick="changeDetailImage(this.src)"
-        alt="Product thumbnail 1"
-        onerror="imageError(this)">
+                    <img id="detailThumb1" src="" onclick="changeDetailImage(this)" alt="Product thumbnail">
+                    <img id="detailThumb2" src="" onclick="changeDetailImage(this)" alt="Product thumbnail">
+                    <img id="detailThumb3" src="" onclick="changeDetailImage(this)" alt="Product thumbnail">
+                    <img id="detailThumb4" src="" onclick="changeDetailImage(this)" alt="Product thumbnail">
 
-    <img
-        id="detailThumb2"
-        src=""
-        onclick="changeDetailImage(this.src)"
-        alt="Product thumbnail 2"
-        onerror="imageError(this)">
+                </div>
 
-    <img
-        id="detailThumb3"
-        src=""
-        onclick="changeDetailImage(this.src)"
-        alt="Product thumbnail 3"
-        onerror="imageError(this)">
-
-    <img
-        id="detailThumb4"
-        src=""
-        onclick="changeDetailImage(this.src)"
-        alt="Product thumbnail 4"
-        onerror="imageError(this)">
-
-</div>
             </div>
+
 
             <div class="product-detail-info">
 
                 <div class="breadcrumb">
+
                     Home → Products →
+
                     <span id="detailCategory"></span>
+
                 </div>
 
                 <h1 id="detailName">
@@ -1863,60 +1838,43 @@ footer strong {
 
                 </div>
 
-                <!-- COLOR SECTION -->
 
-                <div
-                    class="detail-section"
-                    id="detailColorSection">
+               <div class="detail-section">
 
-                    <h3>
-                        Colour:
-                        <span id="selectedColorName">
-                            Black
-                        </span>
-                    </h3>
+    <h3>
+        Colour:
+        <span id="selectedColorName">Black</span>
+    </h3>
 
-                    <div
-                        class="color-options"
-                        id="colorOptions">
+    <div class="color-options">
 
-                        <button
-                            class="color-option black selected"
-                            title="Black"
-                            data-color="Black"
-                            data-image="premium-sports-black.jpg"
-                            onclick="selectProductColor(this)">
-                        </button>
+        <button
+            class="color-option selected"
+            title="Black"
+            onclick="selectProductColor(this, 'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-black.jpg', 'Black')">
+        </button>
 
-                        <button
-                            class="color-option navy"
-                            title="Navy Blue"
-                            data-color="Navy Blue"
-                            data-image="premium-sports-navy.jpg"
-                            onclick="selectProductColor(this)">
-                        </button>
+        <button
+            class="color-option navy"
+            title="Navy Blue"
+            onclick="selectProductColor(this, 'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-navy.jpg', 'Navy Blue')">
+        </button>
 
-                        <button
-                            class="color-option grey"
-                            title="Grey"
-                            data-color="Grey"
-                            data-image="premium-sports-grey.jpg"
-                            onclick="selectProductColor(this)">
-                        </button>
+        <button
+            class="color-option grey"
+            title="Grey"
+            onclick="selectProductColor(this, 'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-grey.jpg', 'Grey')">
+        </button>
 
-                        <button
-                            class="color-option white"
-                            title="White"
-                            data-color="White"
-                            data-image="premium-sports-white.jpg"
-                            onclick="selectProductColor(this)">
-                        </button>
+        <button
+            class="color-option white"
+            title="White"
+            onclick="selectProductColor(this, 'https://rohitkodre77-cmyk.github.io/My-Footwear/premium-sports-white.jpg', 'White')">
+        </button>
 
-                    </div>
+    </div>
 
-                </div>
-
-                <!-- SIZE -->
+</div>
 
                 <div class="detail-section">
 
@@ -1959,7 +1917,6 @@ footer strong {
 
                 </div>
 
-                <!-- ACTIONS -->
 
                 <div class="detail-actions">
 
@@ -1981,7 +1938,6 @@ footer strong {
 
                 </div>
 
-                <!-- SERVICES -->
 
                 <div class="service-features">
 
@@ -2019,6 +1975,7 @@ footer strong {
 
 </div>
 
+
 <!-- ================= FIREBASE ================= -->
 
 <script type="module">
@@ -2035,10 +1992,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-
-/* =========================================================
-   FIREBASE CONFIG
-========================================================= */
 
 const firebaseConfig = {
 
@@ -2063,193 +2016,37 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 
-/* =========================================================
-   GLOBAL VARIABLES
-========================================================= */
+/* ================= GLOBAL VARIABLES ================= */
 
 let cart = [];
 
 let selectedDetailProduct = null;
 
 let selectedDetailSize = "";
-
-let selectedDetailColor = "Black";
-
 let selectedDetailImages = [];
+const selectedColorName =
+    document.getElementById("selectedColorName");
 
-
-/* =========================================================
-   FALLBACK IMAGE
-========================================================= */
-
-const fallbackImage =
-    "https://via.placeholder.com/800x600?text=My+Footwear";
-
-
-window.imageError = function(img) {
-
-    if (!img.dataset.fallbackUsed) {
-
-        img.dataset.fallbackUsed = "true";
-
-        img.src = fallbackImage;
-
-    }
-
-};
-
-
-/* =========================================================
-   LOAD CART
-========================================================= */
-
-try {
-
-    const savedCart =
-        localStorage.getItem("myFootwearCart");
-
-    if (savedCart) {
-
-        const parsedCart =
-            JSON.parse(savedCart);
-
-        if (Array.isArray(parsedCart)) {
-
-            cart = parsedCart;
-
-        }
-
-    }
-
+if (selectedColorName) {
+    selectedColorName.innerText = "Black";
 }
+document
+    .querySelectorAll(".color-option")
+    .forEach(function(button) {
+        button.classList.remove("selected");
+    });
 
-catch (error) {
+const firstColor =
+    document.querySelector(".color-option");
 
-    console.error(
-        "Could not load cart:",
-        error
-    );
-
-    cart = [];
-
+if (firstColor) {
+    firstColor.classList.add("selected");
 }
-
-
-/* =========================================================
-   SAVE CART
-========================================================= */
-
-function saveCart() {
-
-    try {
-
-        localStorage.setItem(
-            "myFootwearCart",
-            JSON.stringify(cart)
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Could not save cart:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   CLEAN IMAGE URL
-========================================================= */
-
-function cleanImageURL(image) {
-
-    if (!image) {
-        return "";
-    }
-
-    let value =
-        String(image).trim();
-
-    /*
-       Remove accidental Markdown formatting.
-    */
-
-    const markdownMatch =
-        value.match(
-            /^\[.*?\]\((https?:\/\/.*?)\)$/
-        );
-
-    if (markdownMatch) {
-
-        value =
-            markdownMatch[1];
-
-    }
-
-    /*
-       If there is still a URL inside the string,
-       extract it.
-    */
-
-    const urlMatch =
-        value.match(
-            /(https?:\/\/[^\s"'<>]+)/i
-        );
-
-    if (
-        urlMatch &&
-        !value.startsWith("http")
-    ) {
-
-        value =
-            urlMatch[1];
-
-    }
-
-    return value
-        .replace(/\\&/g, "&")
-        .replace(/\\\//g, "/")
-        .trim();
-
-}
-
-
-/* =========================================================
-   NORMALIZE IMAGES
-========================================================= */
-
-function normalizeImages(images) {
-
-    if (!images) {
-        return [];
-    }
-
-    if (Array.isArray(images)) {
-
-        return images
-            .map(cleanImageURL)
-            .filter(Boolean);
-
-    }
-
-    return [
-        cleanImageURL(images)
-    ].filter(Boolean);
-
-}
-
-
-/* =========================================================
-   OPEN PRODUCT DETAILS
-========================================================= */
+/* ================= PRODUCT DETAILS ================= */
 
 window.openProductDetails = function(
     name,
@@ -2259,581 +2056,166 @@ window.openProductDetails = function(
     images,
     hasColors = false
 ) {
-
-    selectedDetailImages =
-        normalizeImages(images);
-
-    if (
-        selectedDetailImages.length === 0
-    ) {
-
-        selectedDetailImages = [
-            fallbackImage
-        ];
-
-    }
-
+    const imageList = Array.isArray(images) ? images.filter(Boolean) : (images ? [images] : []);
+    selectedDetailImages = imageList.length ? imageList.slice() : [];
 
     selectedDetailProduct = {
-
         name: name,
-
         price: Number(price),
-
-        originalPrice:
-            Number(originalPrice),
-
+        originalPrice: Number(originalPrice),
         category: category,
-
-        images:
-            selectedDetailImages,
-
-        image:
-            selectedDetailImages[0],
-
-        color:
-            hasColors ? "Black" : "Default",
-
-        hasColors:
-            Boolean(hasColors)
-
+        image: selectedDetailImages[0] || "",
+        images: selectedDetailImages.slice(),
+        color: hasColors ? "Black" : "Default",
+        hasColors: Boolean(hasColors)
     };
-
 
     selectedDetailSize = "";
 
-    selectedDetailColor =
-        hasColors ? "Black" : "Default";
+    document.getElementById("detailName").innerText = name;
+    document.getElementById("detailPrice").innerText = "₹" + Number(price).toLocaleString("en-IN");
+    document.getElementById("detailMRP").innerText = "₹" + Number(originalPrice).toLocaleString("en-IN");
 
+    const discount = Number(originalPrice) > 0
+        ? Math.round(((Number(originalPrice) - Number(price)) / Number(originalPrice)) * 100)
+        : 0;
+    document.getElementById("detailDiscount").innerText = discount + "% OFF";
+    document.getElementById("detailBadge").innerText = discount + "% OFF";
+    document.getElementById("detailCategory").innerText = category;
 
-    /* PRODUCT NAME */
-
-    document.getElementById(
-        "detailName"
-    ).innerText = name;
-
-
-    /* PRICE */
-
-    document.getElementById(
-        "detailPrice"
-    ).innerText =
-        "₹" +
-        Number(price)
-            .toLocaleString("en-IN");
-
-
-    /* MRP */
-
-    document.getElementById(
-        "detailMRP"
-    ).innerText =
-        "₹" +
-        Number(originalPrice)
-            .toLocaleString("en-IN");
-
-
-    /* DISCOUNT */
-
-    let discount = 0;
-
-    if (Number(originalPrice) > 0) {
-
-        discount =
-            Math.round(
-                (
-                    (Number(originalPrice) -
-                    Number(price))
-                    /
-                    Number(originalPrice)
-                ) * 100
-            );
-
-    }
-
-
-    document.getElementById(
-        "detailDiscount"
-    ).innerText =
-        discount + "% OFF";
-
-
-    document.getElementById(
-        "detailBadge"
-    ).innerText =
-        discount + "% OFF";
-
-
-    /* CATEGORY */
-
-    document.getElementById(
-        "detailCategory"
-    ).innerText =
-        category;
-
-
-    /* MAIN IMAGE */
-
-    const mainImage =
-        document.getElementById(
-            "detailMainImage"
-        );
-
+    const mainImage = document.getElementById("detailMainImage");
+    mainImage.src = selectedDetailImages[0] || "";
     mainImage.dataset.fallbackUsed = "";
 
-    mainImage.src =
-        selectedDetailImages[0];
+    const thumbs = [1,2,3,4].map(n => document.getElementById("detailThumb" + n));
+    thumbs.forEach((thumb, index) => {
+        if (!thumb) return;
+        thumb.classList.remove("active");
+        const image = selectedDetailImages[index];
+        if (image) {
+            thumb.src = image;
+            thumb.style.display = "block";
+            thumb.dataset.fallbackUsed = "";
+        } else {
+            thumb.removeAttribute("src");
+            thumb.style.display = "none";
+        }
+    });
+    if (thumbs[0] && selectedDetailImages[0]) thumbs[0].classList.add("active");
 
-   /* THUMBNAILS 1–4 */
+    document.querySelectorAll(".detail-size-options button").forEach(btn => btn.classList.remove("selected"));
+    document.getElementById("detailSizeAvailability").innerText = "";
 
-const thumbnails = [
-    document.getElementById("detailThumb1"),
-    document.getElementById("detailThumb2"),
-    document.getElementById("detailThumb3"),
-    document.getElementById("detailThumb4")
-];
+    const colorSection = document.getElementById("detailColorSection");
+    if (colorSection) colorSection.style.display = hasColors ? "" : "none";
 
-thumbnails.forEach(function(thumb, index) {
+    document.querySelectorAll("#detailColorSection .color-option").forEach(btn => btn.classList.remove("selected"));
+    const firstColor = document.querySelector("#detailColorSection .color-option");
+    if (firstColor && hasColors) firstColor.classList.add("selected");
+    const colorNameEl = document.getElementById("selectedColorName");
+    if (colorNameEl) colorNameEl.innerText = hasColors ? "Black" : "Default";
 
-    if (!thumb) return;
-
-    thumb.classList.remove("active");
-
-    if (selectedDetailImages[index]) {
-
-        thumb.dataset.fallbackUsed = "";
-
-        thumb.src =
-            selectedDetailImages[index];
-
-        thumb.style.display =
-            "block";
-
-    } else {
-
-        thumb.src = "";
-
-        thumb.style.display =
-            "none";
-    }
-});
-
-thumbnails[0].classList.add("active");
-
-    /* RESET THUMBNAIL BORDER */
-
-    document
-        .querySelectorAll(
-            ".detail-thumbnails img"
-        )
-        .forEach(function(img) {
-
-            img.classList.remove(
-                "active"
-            );
-
-        });
-
-   thumbnails[0].classList.add("active");
-
-
-    /* RESET SIZE */
-
-    document
-        .querySelectorAll(
-            ".detail-size-options button"
-        )
-        .forEach(function(button) {
-
-            button.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    document.getElementById(
-        "detailSizeAvailability"
-    ).innerText = "";
-
-
-    /* COLOR SECTION */
-
-    const colorSection =
-        document.getElementById(
-            "detailColorSection"
-        );
-
-
-    if (hasColors) {
-
-        colorSection.style.display =
-            "";
-
-    }
-
-    else {
-
-        colorSection.style.display =
-            "none";
-
-    }
-
-
-    /* RESET COLOR BUTTONS */
-
-    document
-        .querySelectorAll(
-            "#colorOptions .color-option"
-        )
-        .forEach(function(button) {
-
-            button.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    const firstColor =
-        document.querySelector(
-            "#colorOptions .color-option"
-        );
-
-
-    if (firstColor) {
-
-        firstColor.classList.add(
-            "selected"
-        );
-
-    }
-
-
-    document.getElementById(
-        "selectedColorName"
-    ).innerText =
-        hasColors
-            ? "Black"
-            : "Default";
-
-
-    /* OPEN POPUP */
-
-    document.getElementById(
-        "productDetailOverlay"
-    ).style.display =
-        "block";
-
-
-    document.body.classList.add(
-        "no-scroll"
-    );
-
+    document.getElementById("productDetailOverlay").style.display = "block";
+    document.body.classList.add("no-scroll");
 };
 
-
-/* =========================================================
-   CLOSE PRODUCT DETAILS
-========================================================= */
-
-window.closeProductDetails =
-function() {
-
-    const overlay =
-        document.getElementById(
-            "productDetailOverlay"
-        );
-
-    if (overlay) {
-
-        overlay.style.display =
-            "none";
-
-    }
-
-    document.body.classList.remove(
-        "no-scroll"
-    );
-
+window.closeProductDetails = function() {
+    document.getElementById("productDetailOverlay").style.display = "none";
+    document.body.classList.remove("no-scroll");
 };
 
+window.changeDetailImage = function(thumbOrSrc) {
+    const image = typeof thumbOrSrc === "string" ? thumbOrSrc : thumbOrSrc.src;
+    if (!image) return;
+    const main = document.getElementById("detailMainImage");
+    main.src = image;
+    document.querySelectorAll(".detail-thumbnails img").forEach(img => img.classList.remove("active"));
+    if (typeof thumbOrSrc !== "string" && thumbOrSrc) thumbOrSrc.classList.add("active");
+};
 
-/* =========================================================
-   CHANGE DETAIL IMAGE
-========================================================= */
+window.selectProductColor = function(button, image, colorName) {
+    document.querySelectorAll("#detailColorSection .color-option").forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
 
-window.changeDetailImage =
-function(image) {
-
-    const cleanedImage =
-        cleanImageURL(image);
-
-    if (!cleanedImage) {
-        return;
+    // Keep all four Premium Sports Shoes images in the popup, but put the chosen colour first.
+    if (selectedDetailProduct && selectedDetailProduct.hasColors) {
+        const allImages = selectedDetailProduct.images.slice();
+        const chosenIndex = allImages.indexOf(image);
+        if (chosenIndex > -1) {
+            selectedDetailImages = [allImages[chosenIndex], ...allImages.filter((_, i) => i !== chosenIndex)];
+        } else {
+            selectedDetailImages = [image, ...allImages.filter(x => x !== image)];
+        }
+        selectedDetailProduct.images = selectedDetailImages.slice();
+        selectedDetailProduct.image = image;
+        selectedDetailProduct.color = colorName;
     }
 
+    document.getElementById("detailMainImage").src = image;
+    const thumbs = [1,2,3,4].map(n => document.getElementById("detailThumb" + n));
+    thumbs.forEach((thumb, index) => {
+        if (!thumb) return;
+        const img = selectedDetailImages[index];
+        if (img) {
+            thumb.src = img;
+            thumb.style.display = "block";
+            thumb.classList.toggle("active", img === image);
+        } else {
+            thumb.style.display = "none";
+        }
+    });
 
-    const mainImage =
-        document.getElementById(
-            "detailMainImage"
-        );
+    const nameEl = document.getElementById("selectedColorName");
+    if (nameEl) nameEl.innerText = colorName;
+};
 
-
-    mainImage.dataset.fallbackUsed =
-        "";
-
-
-    mainImage.src =
-        cleanedImage;
-
+window.selectDetailSize = function(
+    button,
+    size
+) {
 
     document
-        .querySelectorAll(
-            ".detail-thumbnails img"
-        )
-        .forEach(function(img) {
-
-            img.classList.remove(
-                "active"
-            );
-
-            if (
-                img.src ===
-                mainImage.src
-            ) {
-
-                img.classList.add(
-                    "active"
-                );
-
-            }
-
+        .querySelectorAll(".detail-size-options button")
+        .forEach(btn => {
+            btn.classList.remove("selected");
         });
 
 
-    if (selectedDetailProduct) {
+    button.classList.add("selected");
 
-        selectedDetailProduct.image =
-            cleanedImage;
-
-    }
-
-};
-
-
-/* =========================================================
-   SELECT PRODUCT COLOR
-========================================================= */
-
-window.selectProductColor =
-function(button) {
-
-    if (
-        !selectedDetailProduct ||
-        !selectedDetailProduct.hasColors
-    ) {
-
-        return;
-
-    }
-
-
-    const colorName =
-        button.dataset.color;
-
-
-    const selectedImage =
-        cleanImageURL(
-            button.dataset.image
-        );
-
-
-    if (!selectedImage) {
-        return;
-    }
-
-
-    /* REMOVE SELECTED */
-
-    document
-        .querySelectorAll(
-            "#colorOptions .color-option"
-        )
-        .forEach(function(btn) {
-
-            btn.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    /* SELECT BUTTON */
-
-    button.classList.add(
-        "selected"
-    );
-
-
-    /* CHANGE MAIN IMAGE */
-
-    const mainImage =
-        document.getElementById(
-            "detailMainImage"
-        );
-
-    mainImage.dataset.fallbackUsed =
-        "";
-
-    mainImage.src =
-        selectedImage;
-
-
-   /* CHANGE THUMBNAILS 1–4 */
-
-const thumbnails = [
-    document.getElementById("detailThumb1"),
-    document.getElementById("detailThumb2"),
-    document.getElementById("detailThumb3"),
-    document.getElementById("detailThumb4")
-];
-
-thumbnails.forEach(function(thumb, index) {
-
-    if (!thumb) return;
-
-    thumb.classList.remove("active");
-
-    if (selectedDetailImages[index]) {
-
-        thumb.src =
-            selectedDetailImages[index];
-
-        thumb.style.display =
-            "block";
-
-        thumb.dataset.fallbackUsed =
-            "";
-
-    } else {
-
-        thumb.style.display =
-            "none";
-    }
-});
-
-/* Select the first thumbnail */
-if (thumbnails[0]) {
-    thumbnails[0].classList.add("active");
-}
-
-    /* COLOR NAME */
-
-    document.getElementById(
-        "selectedColorName"
-    ).innerText =
-        colorName;
-
-
-    /* SAVE COLOR */
-
-    selectedDetailColor =
-        colorName;
-
-
-    selectedDetailProduct.color =
-        colorName;
-
-
-    selectedDetailProduct.image =
-        selectedImage;
-
-};
-
-
-/* =========================================================
-   SELECT DETAIL SIZE
-========================================================= */
-
-window.selectDetailSize =
-function(button, size) {
-
-    document
-        .querySelectorAll(
-            ".detail-size-options button"
-        )
-        .forEach(function(btn) {
-
-            btn.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    button.classList.add(
-        "selected"
-    );
-
-
-    selectedDetailSize =
-        String(size);
+    selectedDetailSize = size;
 
 
     document.getElementById(
         "detailSizeAvailability"
     ).innerText =
-        "✓ Size " +
-        size +
-        " is available";
+        "✓ Size " + size + " is available";
 
 };
 
 
-/* =========================================================
-   ADD DETAIL PRODUCT TO CART
-========================================================= */
+/* ================= ADD DETAIL PRODUCT ================= */
 
-window.addDetailProductToCart =
-function() {
+window.addDetailProductToCart = function() {
 
     if (!selectedDetailProduct) {
-
-        alert(
-            "Product information not found."
-        );
-
+        alert("Product information not found.");
         return;
-
     }
 
 
     if (!selectedDetailSize) {
-
-        alert(
-            "Please select a size first."
-        );
-
+        alert("Please select a size first.");
         return;
-
     }
 
 
     addProductToCart(
-
         selectedDetailProduct.name,
-
         selectedDetailProduct.price,
-
         selectedDetailSize,
-
-        selectedDetailProduct.hasColors
-            ? selectedDetailColor
-            : "Default",
-
-        selectedDetailProduct.image
-
+        selectedDetailProduct.color || "Black",
+        selectedDetailProduct.image || ""
     );
 
 
@@ -2842,49 +2224,28 @@ function() {
 };
 
 
-/* =========================================================
-   BUY NOW
-========================================================= */
+/* ================= BUY NOW ================= */
 
-window.buyDetailProduct =
-function() {
+window.buyDetailProduct = function() {
 
     if (!selectedDetailProduct) {
-
-        alert(
-            "Product information not found."
-        );
-
+        alert("Product information not found.");
         return;
-
     }
 
 
     if (!selectedDetailSize) {
-
-        alert(
-            "Please select a size first."
-        );
-
+        alert("Please select a size first.");
         return;
-
     }
 
 
     addProductToCart(
-
         selectedDetailProduct.name,
-
         selectedDetailProduct.price,
-
         selectedDetailSize,
-
-        selectedDetailProduct.hasColors
-            ? selectedDetailColor
-            : "Default",
-
-        selectedDetailProduct.image
-
+        selectedDetailProduct.color || "Black",
+        selectedDetailProduct.image || ""
     );
 
 
@@ -2895,125 +2256,73 @@ function() {
 };
 
 
-/* =========================================================
-   ADD PRODUCT TO CART
-========================================================= */
+/* ================= CART CORE ================= */
 
 function addProductToCart(
     name,
     price,
     size,
-    color = "Default",
+    color = "Black",
     image = ""
 ) {
 
-    const existingProduct =
-        cart.find(function(item) {
-
-            return (
-
-                item.name === name &&
-
-                item.size ===
-                    String(size) &&
-
-                item.color === color
-
-            );
-
-        });
-
+    const existingProduct = cart.find(
+        item =>
+            item.name === name &&
+            item.color === color &&
+            item.size === size
+    );
 
     if (existingProduct) {
-
         existingProduct.quantity++;
-
-        if (
-            image &&
-            !existingProduct.image
-        ) {
-
-            existingProduct.image =
-                image;
-
-        }
-
-    }
-
-    else {
-
+    } else {
         cart.push({
-
             name: name,
-
-            price: Number(price),
-
-            size: String(size),
-
+            price: price,
             color: color,
-
-            image: image || "",
-
+            size: size,
+            image: image,
             quantity: 1
-
         });
-
     }
-
-
-    saveCart();
 
     updateCart();
 
-
     alert(
         name +
-        " (Size " +
+        " — " + color +
+        " — Size " +
         size +
-        ") added to cart!"
+        " added to cart!"
     );
-
 }
 
 
-/* =========================================================
-   ADD FROM PRODUCT CARD
-========================================================= */
-
-window.addToCartWithSize =
-function(
+window.addToCartWithSize = function(
     name,
     price,
-    sizeId,
-    image = ""
+    sizeId
 ) {
 
     const sizeElement =
-        document.getElementById(
-            sizeId
-        );
+        document.getElementById(sizeId);
 
 
     if (!sizeElement) {
 
-        alert(
-            "Size selector not found."
-        );
+        alert("Size selector not found.");
 
         return;
 
     }
 
 
-    const size =
-        sizeElement.value;
+    const size = sizeElement.value;
 
 
     if (!size) {
 
-        alert(
-            "Please select a size first."
-        );
+        alert("Please select a size first.");
 
         return;
 
@@ -3021,107 +2330,45 @@ function(
 
 
     addProductToCart(
-
         name,
-
-        Number(price),
-
+        price,
         size,
-
-        "Default",
-
-        image
-
+        "Black",
+        ""
     );
 
 };
 
 
-/* =========================================================
-   UPDATE CART
-========================================================= */
+/* ================= UPDATE CART ================= */
 
 function updateCart() {
 
     const cartCount =
         cart.reduce(
-            function(total, item) {
-
-                return (
-                    total +
-                    Number(item.quantity || 0)
-                );
-
-            },
+            (total, item) =>
+                total + item.quantity,
             0
         );
 
 
-    const countElement =
-        document.getElementById(
-            "cartCount"
-        );
-
-
-    if (countElement) {
-
-        countElement.innerText =
-            cartCount;
-
-    }
+    document.getElementById(
+        "cartCount"
+    ).innerText = cartCount;
 
 
     const cartItems =
-        document.getElementById(
-            "cartItems"
-        );
-
-    const cartTotal =
-        document.getElementById(
-            "cartTotal"
-        );
-
-
-    if (
-        !cartItems ||
-        !cartTotal
-    ) {
-
-        return;
-
-    }
+        document.getElementById("cartItems");
 
 
     if (cart.length === 0) {
 
-        cartItems.innerHTML = `
+        cartItems.innerHTML =
+            "<p>Your cart is empty.</p>";
 
-            <div style="
-                text-align:center;
-                padding:40px 10px;
-                color:#777;
-            ">
-
-                <div style="
-                    font-size:50px;
-                    margin-bottom:15px;
-                ">
-                    🛒
-                </div>
-
-                <h3>Your cart is empty</h3>
-
-                <p style="margin-top:8px;">
-                    Add some footwear to your cart.
-                </p>
-
-            </div>
-
-        `;
-
-
-        cartTotal.innerText =
-            "0";
+        document.getElementById(
+            "cartTotal"
+        ).innerText = "0";
 
         return;
 
@@ -3134,220 +2381,136 @@ function updateCart() {
     cartItems.innerHTML = "";
 
 
-    cart.forEach(
-        function(item, index) {
+    cart.forEach(function(item, index) {
 
-            const quantity =
-                Number(item.quantity) || 0;
-
-            const price =
-                Number(item.price) || 0;
+        const itemTotal =
+            item.price * item.quantity;
 
 
-            const itemTotal =
-                price * quantity;
+        total += itemTotal;
 
 
-            total += itemTotal;
+        cartItems.innerHTML += `
 
+            <div class="cart-item">
 
-            const safeName =
-                escapeHTML(
-                    item.name
-                );
+                <div class="cart-item-info">
 
+                   <h3>
+    ${item.name}
+    ${item.color
+        ? " - " + item.color
+        : ""}
+    ${item.size
+        ? " - Size " + item.size
+        : ""}
+</h3>
 
-            const safeColor =
-                escapeHTML(
-                    item.color &&
-                    item.color !== "Default"
-                        ? item.color
-                        : "—"
-                );
-
-
-            const safeSize =
-                escapeHTML(
-                    item.size || ""
-                );
-
-
-            const safeImage =
-                item.image
-                    ? cleanImageURL(item.image)
-                    : fallbackImage;
-
-
-            cartItems.innerHTML += `
-
-                <div class="cart-item">
-
-                    <img
-                        class="cart-item-image"
-                        src="${escapeHTML(safeImage)}"
-                        alt="${safeName}"
-                        onerror="imageError(this)"
-                    >
-
-                    <div class="cart-item-info">
-
-                        <h3>
-                            ${safeName}
-                        </h3>
-
-                        <div style="
-                            font-size:13px;
-                            color:#777;
-                            margin-bottom:5px;
-                        ">
-
-                            ${
-                                item.color &&
-                                item.color !== "Default"
-                                ? "Colour: " +
-                                  safeColor +
-                                  "<br>"
-                                : ""
-                            }
-
-                            Size: ${safeSize}
-
-                        </div>
-
-                        <div class="cart-price">
-                            ₹${price.toLocaleString("en-IN")}
-                        </div>
-
-                    </div>
-
-                    <div class="quantity-controls">
-
-                        <button
-                            onclick="changeQuantity(${index}, -1)">
-                            −
-                        </button>
-
-                        <span>
-                            ${quantity}
-                        </span>
-
-                        <button
-                            onclick="changeQuantity(${index}, 1)">
-                            +
-                        </button>
-
-                        <button
-                            class="remove-item"
-                            onclick="removeFromCart(${index})">
-                            ×
-                        </button>
-
+                    <div class="cart-price">
+                        ₹${item.price}
                     </div>
 
                 </div>
 
-            `;
+                <div class="quantity-controls">
 
-        }
-    );
+                    <button
+                        onclick="changeQuantity(${index}, -1)">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        onclick="changeQuantity(${index}, 1)">
+                        +
+                    </button>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 
-    cartTotal.innerText =
-        total.toLocaleString("en-IN");
+    document.getElementById(
+        "cartTotal"
+    ).innerText = total;
 
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
+/* Prevent HTML injection inside cart text */
 
 function escapeHTML(text) {
 
     return String(text)
-
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
 
 }
 
 
-/* =========================================================
-   CHANGE QUANTITY
-========================================================= */
+/* ================= QUANTITY ================= */
 
-window.changeQuantity =
-function(index, change) {
+window.changeQuantity = function(
+    index,
+    change
+) {
 
-    if (!cart[index]) {
-        return;
-    }
+    if (!cart[index]) return;
 
 
-    cart[index].quantity =
-        Number(cart[index].quantity) +
-        Number(change);
+    cart[index].quantity += change;
 
 
-    if (
-        cart[index].quantity <= 0
-    ) {
+    if (cart[index].quantity <= 0) {
 
         cart.splice(index, 1);
 
     }
 
 
-    saveCart();
-
     updateCart();
 
 };
 
 
-/* =========================================================
-   REMOVE FROM CART
-========================================================= */
+window.removeFromCart = function(index) {
 
-window.removeFromCart =
-function(index) {
-
-    if (!cart[index]) {
-        return;
-    }
+    if (!cart[index]) return;
 
 
     cart.splice(index, 1);
 
-
-    saveCart();
-
     updateCart();
 
 };
 
 
-/* =========================================================
-   SHOW CART
-========================================================= */
+/* ================= SHOW CART ================= */
 
-window.showCart =
-function() {
+window.showCart = function() {
 
     updateCart();
 
 
     document.getElementById(
         "cartOverlay"
-    ).style.display =
-        "block";
+    ).style.display = "block";
 
 
     document.body.classList.add(
@@ -3357,17 +2520,11 @@ function() {
 };
 
 
-/* =========================================================
-   CLOSE CART
-========================================================= */
-
-window.closeCart =
-function() {
+window.closeCart = function() {
 
     document.getElementById(
         "cartOverlay"
-    ).style.display =
-        "none";
+    ).style.display = "none";
 
 
     document.body.classList.remove(
@@ -3377,18 +2534,13 @@ function() {
 };
 
 
-/* =========================================================
-   OPEN CHECKOUT
-========================================================= */
+/* ================= CHECKOUT ================= */
 
-window.openCheckout =
-function() {
+window.openCheckout = function() {
 
     if (cart.length === 0) {
 
-        alert(
-            "Your cart is empty."
-        );
+        alert("Your cart is empty.");
 
         return;
 
@@ -3397,14 +2549,12 @@ function() {
 
     document.getElementById(
         "cartOverlay"
-    ).style.display =
-        "none";
+    ).style.display = "none";
 
 
     document.getElementById(
         "checkoutForm"
-    ).style.display =
-        "block";
+    ).style.display = "block";
 
 
     document.body.classList.add(
@@ -3414,17 +2564,11 @@ function() {
 };
 
 
-/* =========================================================
-   CLOSE CHECKOUT
-========================================================= */
-
-window.closeCheckout =
-function() {
+window.closeCheckout = function() {
 
     document.getElementById(
         "checkoutForm"
-    ).style.display =
-        "none";
+    ).style.display = "none";
 
 
     document.body.classList.remove(
@@ -3434,12 +2578,9 @@ function() {
 };
 
 
-/* =========================================================
-   WHATSAPP ORDER
-========================================================= */
+/* ================= WHATSAPP ORDER ================= */
 
-window.placeWhatsAppOrder =
-function() {
+window.placeWhatsAppOrder = function() {
 
     const name =
         document.getElementById(
@@ -3488,9 +2629,7 @@ function() {
     }
 
 
-    if (
-        !/^[0-9]{10}$/.test(phone)
-    ) {
+    if (!/^[0-9]{10}$/.test(phone)) {
 
         alert(
             "Please enter a valid 10-digit mobile number."
@@ -3501,9 +2640,7 @@ function() {
     }
 
 
-    if (
-        !/^[0-9]{6}$/.test(pincode)
-    ) {
+    if (!/^[0-9]{6}$/.test(pincode)) {
 
         alert(
             "Please enter a valid 6-digit PIN code."
@@ -3516,9 +2653,7 @@ function() {
 
     if (cart.length === 0) {
 
-        alert(
-            "Your cart is empty."
-        );
+        alert("Your cart is empty.");
 
         return;
 
@@ -3529,86 +2664,52 @@ function() {
 
 
     let orderMessage =
-        "*🛍️ MY FOOTWEAR ORDER*\n\n";
+        "🛍️ *MY FOOTWEAR ORDER*\n\n";
 
 
     orderMessage +=
         "*Customer Details*\n";
 
+    orderMessage +=
+        "Name: " + name + "\n";
 
     orderMessage +=
-        "Name: " +
-        name +
-        "\n";
-
+        "Phone: " + phone + "\n";
 
     orderMessage +=
-        "Phone: " +
-        phone +
-        "\n";
-
+        "Address: " + address + "\n";
 
     orderMessage +=
-        "Address: " +
-        address +
-        "\n";
-
+        "City: " + city + "\n";
 
     orderMessage +=
-        "City: " +
-        city +
-        "\n";
-
-
-    orderMessage +=
-        "PIN: " +
-        pincode +
-        "\n\n";
+        "PIN: " + pincode + "\n\n";
 
 
     orderMessage +=
         "*Order Items*\n";
 
 
-    cart.forEach(
-        function(item) {
+    cart.forEach(function(item) {
 
-            const itemTotal =
-                Number(item.price) *
-                Number(item.quantity);
+        const itemTotal =
+            item.price * item.quantity;
 
 
-            total += itemTotal;
+        total += itemTotal;
 
 
-            orderMessage +=
+        orderMessage +=
+            item.name +
+            " | Size: " +
+            item.size +
+            " | Qty: " +
+            item.quantity +
+            " | ₹" +
+            itemTotal +
+            "\n";
 
-                item.name +
-
-                (
-                    item.color &&
-                    item.color !== "Default"
-                        ? " | Colour: " +
-                          item.color
-                        : ""
-                ) +
-
-                " | Size: " +
-
-                item.size +
-
-                " | Qty: " +
-
-                item.quantity +
-
-                " | ₹" +
-
-                itemTotal +
-
-                "\n";
-
-        }
-    );
+    });
 
 
     orderMessage +=
@@ -3625,10 +2726,7 @@ function() {
         "Delivery: Home Delivery";
 
 
-    /*
-       Your WhatsApp number.
-       Country code 91 + mobile number.
-    */
+    /* Your My Footwear WhatsApp number */
 
     const whatsappNumber =
         "917758827177";
@@ -3651,12 +2749,9 @@ function() {
 };
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
+/* ================= SEARCH ================= */
 
-window.searchProducts =
-function() {
+window.searchProducts = function() {
 
     const text =
         document
@@ -3667,61 +2762,46 @@ function() {
 
 
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
-    products.forEach(
-        function(product) {
+    products.forEach(function(product) {
 
-            const nameElement =
-                product.querySelector("h3");
-
-
-            const name =
-                nameElement
-                    ? nameElement.textContent
-                        .toLowerCase()
-                    : "";
+        const name =
+            product
+                .querySelector("h3")
+                .textContent
+                .toLowerCase();
 
 
-            const category =
-                (
-                    product.dataset.category ||
-                    ""
-                ).toLowerCase();
+        const category =
+            product.dataset.category
+                .toLowerCase();
 
 
-            if (
-                name.includes(text) ||
-                category.includes(text)
-            ) {
+        if (
+            name.includes(text) ||
+            category.includes(text)
+        ) {
 
-                product.style.display =
-                    "";
+            product.style.display = "";
 
-            }
+        } else {
 
-            else {
-
-                product.style.display =
-                    "none";
-
-            }
+            product.style.display = "none";
 
         }
-    );
+
+    });
 
 };
 
 
-/* =========================================================
-   FILTER CATEGORY
-========================================================= */
+/* ================= FILTER ================= */
 
-window.filterCategory =
-function(category) {
+window.filterCategory = function(
+    category
+) {
 
     document.getElementById(
         "search"
@@ -3729,33 +2809,25 @@ function(category) {
 
 
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
-    products.forEach(
-        function(product) {
+    products.forEach(function(product) {
 
-            if (
-                product.dataset.category ===
-                category
-            ) {
+        if (
+            product.dataset.category ===
+            category
+        ) {
 
-                product.style.display =
-                    "";
+            product.style.display = "";
 
-            }
+        } else {
 
-            else {
-
-                product.style.display =
-                    "none";
-
-            }
+            product.style.display = "none";
 
         }
-    );
+
+    });
 
 
     scrollToProducts();
@@ -3763,27 +2835,17 @@ function(category) {
 };
 
 
-/* =========================================================
-   SHOW ALL PRODUCTS
-========================================================= */
-
-window.showAllProducts =
-function() {
+window.showAllProducts = function() {
 
     const products =
-        document.querySelectorAll(
-            ".product"
-        );
+        document.querySelectorAll(".product");
 
 
-    products.forEach(
-        function(product) {
+    products.forEach(function(product) {
 
-            product.style.display =
-                "";
+        product.style.display = "";
 
-        }
-    );
+    });
 
 
     document.getElementById(
@@ -3796,36 +2858,20 @@ function() {
 };
 
 
-/* =========================================================
-   SCROLL TO PRODUCTS
-========================================================= */
+window.scrollToProducts = function() {
 
-window.scrollToProducts =
-function() {
-
-    const productsSection =
-        document.getElementById(
-            "products"
-        );
-
-
-    if (productsSection) {
-
-        productsSection.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
+    document.getElementById(
+        "products"
+    ).scrollIntoView({
+        behavior: "smooth"
+    });
 
 };
 
 
-/* =========================================================
-   FIREBASE LOGIN / SIGN UP
-========================================================= */
+/* ================= LOGIN / SIGN UP ================= */
 
-window.login =
-async function() {
+window.login = async function() {
 
     const choice =
         prompt(
@@ -3848,32 +2894,17 @@ async function() {
 
 
     const email =
-        prompt(
-            "Enter your email:"
-        );
-
-
-    if (!email) {
-
-        alert(
-            "Please enter your email."
-        );
-
-        return;
-
-    }
+        prompt("Enter your email:");
 
 
     const password =
-        prompt(
-            "Enter your password:"
-        );
+        prompt("Enter your password:");
 
 
-    if (!password) {
+    if (!email || !password) {
 
         alert(
-            "Please enter your password."
+            "Please enter email and password."
         );
 
         return;
@@ -3887,7 +2918,7 @@ async function() {
 
             await signInWithEmailAndPassword(
                 auth,
-                email.trim(),
+                email,
                 password
             );
 
@@ -3898,11 +2929,12 @@ async function() {
 
         }
 
-        else {
+
+        if (choice === "2") {
 
             await createUserWithEmailAndPassword(
                 auth,
-                email.trim(),
+                email,
                 password
             );
 
@@ -3917,16 +2949,10 @@ async function() {
 
     catch (error) {
 
-        console.error(
-            "Firebase Auth Error:",
-            error
-        );
-
+        console.error(error);
 
         alert(
-            getFriendlyFirebaseError(
-                error
-            )
+            getFriendlyFirebaseError(error)
         );
 
     }
@@ -3934,97 +2960,49 @@ async function() {
 };
 
 
-/* =========================================================
-   FIREBASE ERROR MESSAGES
-========================================================= */
+/* ================= FIREBASE ERROR MESSAGES ================= */
 
-function getFriendlyFirebaseError(
-    error
-) {
+function getFriendlyFirebaseError(error) {
 
     switch (error.code) {
 
         case "auth/invalid-email":
-
-            return (
-                "Please enter a valid email address."
-            );
-
+            return "Please enter a valid email address.";
 
         case "auth/user-not-found":
-
-            return (
-                "No account exists with this email."
-            );
-
+            return "No account exists with this email.";
 
         case "auth/wrong-password":
-
         case "auth/invalid-credential":
-
-            return (
-                "Incorrect email or password."
-            );
-
+            return "Incorrect email or password.";
 
         case "auth/email-already-in-use":
-
-            return (
-                "An account already exists with this email."
-            );
-
+            return "An account already exists with this email.";
 
         case "auth/weak-password":
-
-            return (
-                "Password should be at least 6 characters."
-            );
-
+            return "Password should be at least 6 characters.";
 
         case "auth/too-many-requests":
-
-            return (
-                "Too many attempts. Please try again later."
-            );
-
+            return "Too many attempts. Please try again later.";
 
         case "auth/network-request-failed":
-
-            return (
-                "Network error. Please check your internet connection."
-            );
-
-
-        case "auth/operation-not-allowed":
-
-            return (
-                "Email/Password login is not enabled in Firebase."
-            );
-
+            return "Network error. Please check your internet connection.";
 
         default:
-
-            return (
-                error.message ||
-                "Something went wrong. Please try again."
-            );
+            return error.message || "Something went wrong.";
 
     }
 
 }
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+/* ================= LOGOUT ================= */
 
-window.logout =
-async function() {
+window.logout = async function() {
 
     try {
 
         await signOut(auth);
-
 
         alert(
             "You have been logged out."
@@ -4034,13 +3012,8 @@ async function() {
 
     catch (error) {
 
-        console.error(error);
-
-
         alert(
-            getFriendlyFirebaseError(
-                error
-            )
+            getFriendlyFirebaseError(error)
         );
 
     }
@@ -4048,9 +3021,7 @@ async function() {
 };
 
 
-/* =========================================================
-   FIREBASE ACCOUNT STATUS
-========================================================= */
+/* ================= ACCOUNT STATUS ================= */
 
 onAuthStateChanged(
     auth,
@@ -4062,11 +3033,6 @@ onAuthStateChanged(
             );
 
 
-        if (!loginButton) {
-            return;
-        }
-
-
         if (user) {
 
             loginButton.innerText =
@@ -4076,21 +3042,17 @@ onAuthStateChanged(
             loginButton.onclick =
                 function() {
 
-                    const logoutConfirm =
+                    const choice =
                         confirm(
-
                             "You are logged in as:\n" +
-
                             user.email +
-
                             "\n\nClick OK to logout."
-
                         );
 
 
-                    if (logoutConfirm) {
+                    if (choice) {
 
-                        window.logout();
+                        logout();
 
                     }
 
@@ -4105,7 +3067,7 @@ onAuthStateChanged(
 
 
             loginButton.onclick =
-                window.login;
+                login;
 
         }
 
@@ -4113,21 +3075,13 @@ onAuthStateChanged(
 );
 
 
-/* =========================================================
-   ESC KEY
-========================================================= */
+/* ================= CLOSE POPUPS WITH ESC ================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key !== "Escape"
-        ) {
-
-            return;
-
-        }
+        if (event.key !== "Escape") return;
 
 
         closeProductDetails();
@@ -4140,72 +3094,216 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   CLICK OUTSIDE PRODUCT DETAILS
-========================================================= */
+/* ================= CLICK OUTSIDE PRODUCT DETAILS ================= */
 
-const productDetailOverlay =
-    document.getElementById(
-        "productDetailOverlay"
-    );
+document.getElementById(
+    "productDetailOverlay"
+).addEventListener(
+    "click",
+    function(event) {
 
+        if (
+            event.target === this
+        ) {
 
-if (productDetailOverlay) {
-
-    productDetailOverlay.addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target === this
-            ) {
-
-                closeProductDetails();
-
-            }
+            closeProductDetails();
 
         }
-    );
 
-}
-
-
-/* =========================================================
-   CLICK OUTSIDE CART
-========================================================= */
-
-const cartOverlay =
-    document.getElementById(
-        "cartOverlay"
-    );
+    }
+);
 
 
-if (cartOverlay) {
+/* ================= CLICK OUTSIDE CART ================= */
 
-    cartOverlay.addEventListener(
-        "click",
-        function(event) {
+document.getElementById(
+    "cartOverlay"
+).addEventListener(
+    "click",
+    function(event) {
 
-            if (
-                event.target === this
-            ) {
+        if (
+            event.target === this
+        ) {
 
-                closeCart();
-
-            }
+            closeCart();
 
         }
-    );
 
-}
+    }
+);
+
+</script>
 
 
-/* =========================================================
-   INITIAL CART
-========================================================= */
+<!-- ================= POPUP SAFETY FALLBACK =================
+     This small non-module script keeps the product popup working even if
+     the Firebase module is slow or unavailable. It also preserves the
+     four Premium Sports Shoes thumbnails. ================= -->
+<script>
+(function () {
+    window.imageError = window.imageError || function (img) {
+        if (!img) return;
+        img.dataset.fallbackUsed = "1";
+        img.style.background = "#f3f3f3";
+    };
 
-updateCart();
+    /* If the main Firebase module loaded correctly, keep its full app logic. */
+    if (typeof window.openProductDetails === "function") {
+        window.__popupFallbackReady = true;
+        return;
+    }
 
+    var popupImages = [];
+    var popupProduct = null;
+    var popupSize = "";
+
+    function setThumbs() {
+        var main = document.getElementById("detailMainImage");
+        var thumbs = [1, 2, 3, 4].map(function (n) {
+            return document.getElementById("detailThumb" + n);
+        });
+
+        if (main && popupImages.length) {
+            main.src = popupImages[0];
+            main.style.objectFit = "contain";
+            main.style.objectPosition = "center";
+        }
+
+        thumbs.forEach(function (thumb, index) {
+            if (!thumb) return;
+            var src = popupImages[index];
+            thumb.classList.remove("active");
+            if (src) {
+                thumb.src = src;
+                thumb.style.display = "block";
+                thumb.dataset.fallbackUsed = "";
+                if (index === 0) thumb.classList.add("active");
+            } else {
+                thumb.removeAttribute("src");
+                thumb.style.display = "none";
+            }
+        });
+    }
+
+    window.openProductDetails = function (name, price, originalPrice, category, images, hasColors) {
+        popupImages = Array.isArray(images) ? images.filter(Boolean) : (images ? [images] : []);
+        hasColors = Boolean(hasColors);
+
+        popupProduct = {
+            name: name,
+            price: Number(price),
+            originalPrice: Number(originalPrice),
+            category: category,
+            images: popupImages.slice(),
+            image: popupImages[0] || "",
+            color: hasColors ? "Black" : "Default",
+            hasColors: hasColors
+        };
+        popupSize = "";
+
+        var nameEl = document.getElementById("detailName");
+        var priceEl = document.getElementById("detailPrice");
+        var mrpEl = document.getElementById("detailMRP");
+        var discountEl = document.getElementById("detailDiscount");
+        var badgeEl = document.getElementById("detailBadge");
+        var categoryEl = document.getElementById("detailCategory");
+
+        if (nameEl) nameEl.innerText = name;
+        if (priceEl) priceEl.innerText = "₹" + Number(price).toLocaleString("en-IN");
+        if (mrpEl) mrpEl.innerText = "₹" + Number(originalPrice).toLocaleString("en-IN");
+
+        var discount = Number(originalPrice) > 0
+            ? Math.round(((Number(originalPrice) - Number(price)) / Number(originalPrice)) * 100)
+            : 0;
+        if (discountEl) discountEl.innerText = discount + "% OFF";
+        if (badgeEl) badgeEl.innerText = discount + "% OFF";
+        if (categoryEl) categoryEl.innerText = category;
+
+        setThumbs();
+
+        document.querySelectorAll(".detail-size-options button").forEach(function (btn) {
+            btn.classList.remove("selected");
+        });
+        var availability = document.getElementById("detailSizeAvailability");
+        if (availability) availability.innerText = "";
+
+        var colorSection = document.getElementById("detailColorSection");
+        if (colorSection) colorSection.style.display = hasColors ? "" : "none";
+
+        document.querySelectorAll("#detailColorSection .color-option").forEach(function (btn) {
+            btn.classList.remove("selected");
+        });
+        var firstColor = document.querySelector("#detailColorSection .color-option");
+        if (firstColor && hasColors) firstColor.classList.add("selected");
+        var colorName = document.getElementById("selectedColorName");
+        if (colorName) colorName.innerText = hasColors ? "Black" : "Default";
+
+        var overlay = document.getElementById("productDetailOverlay");
+        if (overlay) {
+            overlay.style.display = "block";
+            document.body.classList.add("no-scroll");
+            document.body.style.overflow = "hidden";
+        }
+    };
+
+    window.closeProductDetails = function () {
+        var overlay = document.getElementById("productDetailOverlay");
+        if (overlay) overlay.style.display = "none";
+        document.body.classList.remove("no-scroll");
+        document.body.style.overflow = "";
+    };
+
+    window.changeDetailImage = function (thumb) {
+        var src = typeof thumb === "string" ? thumb : (thumb && thumb.src);
+        if (!src) return;
+        var main = document.getElementById("detailMainImage");
+        if (main) main.src = src;
+        document.querySelectorAll(".detail-thumbnails img").forEach(function (img) {
+            img.classList.remove("active");
+        });
+        if (thumb && typeof thumb !== "string") thumb.classList.add("active");
+    };
+
+    window.selectProductColor = function (button, image, colorName) {
+        if (button) {
+            document.querySelectorAll("#detailColorSection .color-option").forEach(function (btn) {
+                btn.classList.remove("selected");
+            });
+            button.classList.add("selected");
+        }
+
+        if (popupProduct && popupProduct.hasColors) {
+            var all = popupProduct.images.slice();
+            var index = all.indexOf(image);
+            popupImages = index >= 0
+                ? [all[index]].concat(all.filter(function (_, i) { return i !== index; }))
+                : [image].concat(all.filter(function (x) { return x !== image; }));
+            popupProduct.images = popupImages.slice();
+            popupProduct.image = image;
+            popupProduct.color = colorName || "Black";
+        }
+
+        setThumbs();
+        var main = document.getElementById("detailMainImage");
+        if (main) main.src = image;
+        var colorNameEl = document.getElementById("selectedColorName");
+        if (colorNameEl) colorNameEl.innerText = colorName || "Black";
+    };
+
+    window.selectDetailSize = function (button, size) {
+        document.querySelectorAll(".detail-size-options button").forEach(function (btn) {
+            btn.classList.remove("selected");
+        });
+        if (button) button.classList.add("selected");
+        popupSize = size;
+        var availability = document.getElementById("detailSizeAvailability");
+        if (availability) availability.innerText = "✓ Size " + size + " is available";
+    };
+
+    /* If Firebase's module fails, these globals are still available. */
+    window.__popupFallbackReady = true;
+})();
 </script>
 
 </body>
